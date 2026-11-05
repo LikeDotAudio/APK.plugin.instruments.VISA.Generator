@@ -89,12 +89,12 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 262,
-    "get_count": 109,
-    "set_count": 80,
-    "nab_count": 118,
+    "total_commands": 246,
+    "get_count": 102,
+    "set_count": 77,
+    "nab_count": 111,
     "rig_count": 5,
-    "do_count": 59
+    "do_count": 53
   },
   "endpoints": {
     "get": {
@@ -1594,83 +1594,6 @@
         },
         "unverified": true
       },
-      "Get_Klock_Exclude": {
-        "command": "Get_Klock_Exclude",
-        "verb": "get",
-        "description": "System-Related Commands",
-        "scpi": ":KLOCk:EXCLude?",
-        "scpi_fast": ":KLOC:EXCL?",
-        "subsystem": "KLOC",
-        "group": "KLOC",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Klock_Exclude",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Klock_Exclude"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Klock_Exclude",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Lan_Lipaddress": {
-        "command": "Get_Lan_Lipaddress",
-        "verb": "get",
-        "description": "Get lan lipaddress",
-        "scpi": "LAN:LIPaddress?",
-        "scpi_fast": "LAN:LIP?",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Lan_Lipaddress",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Lan_Lipaddress"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Lan_Lipaddress",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Lan_Mac": {
-        "command": "Get_Lan_Mac",
-        "verb": "get",
-        "description": "Get lan mac",
-        "scpi": "LAN:MAC?",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Lan_Mac",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Lan_Mac"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Lan_Mac",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Marker_Frequency": {
         "command": "Get_Marker_Frequency",
         "verb": "get",
@@ -1753,13 +1676,18 @@
         "command": "Get_Memory_State_Name",
         "verb": "get",
         "description": "State Storage Commands",
-        "scpi": "MEMory:STATe:NAME?",
-        "scpi_fast": "MEM:STAT:NAME?",
+        "scpi": "MEMory:STATe:NAME? <state>",
+        "scpi_fast": "MEM:STAT:NAME? <state>",
         "subsystem": "MEM",
         "group": "MEM",
-        "args": [],
+        "args": [
+          "state"
+        ],
         "arg": {
-          "kind": "none"
+          "kind": "integer",
+          "min": 0,
+          "max": 4,
+          "default": 1
         },
         "returns": {
           "count": 1
@@ -1779,17 +1707,22 @@
         "command": "Get_Memory_State_Value",
         "verb": "get",
         "description": "State Storage Commands",
-        "scpi": "MEMory:STATe:VALid?",
-        "scpi_fast": "MEM:STAT:VAL?",
+        "scpi": "MEMory:STATe:VALid? <state>",
+        "scpi_fast": "MEM:STAT:VAL? <state>",
         "subsystem": "MEM",
         "group": "MEM",
-        "args": [],
+        "args": [
+          "state"
+        ],
         "arg": {
-          "kind": "none"
+          "kind": "integer",
+          "min": 0,
+          "max": 4,
+          "default": 1
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Memory_State_Value",
@@ -1798,58 +1731,6 @@
             "command": "Get_Memory_State_Value"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Memory_State_Value",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Nvolatile_Catalog": {
-        "command": "Get_Nvolatile_Catalog",
-        "verb": "get",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":NVOLatile:CATalog?",
-        "scpi_fast": ":NVOL:CAT?",
-        "subsystem": "NVOL",
-        "group": "NVOL",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Nvolatile_Catalog",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Nvolatile_Catalog"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Nvolatile_Catalog",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Nvolatile_Free": {
-        "command": "Get_Nvolatile_Free",
-        "verb": "get",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":NVOLatile:FREE?",
-        "scpi_fast": ":NVOL:FREE?",
-        "subsystem": "NVOL",
-        "group": "NVOL",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Nvolatile_Free",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Nvolatile_Free"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Nvolatile_Free",
           "reading_direction": "out"
         },
         "unverified": true
@@ -2027,7 +1908,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "ERROR"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Phase_Unlock_Error_State",
@@ -2747,7 +2628,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR2"
+          "type": "ERROR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Error_Queue",
@@ -2808,58 +2689,6 @@
             "command": "Get_System_Version"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_System_Version",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Telnet_Prompt": {
-        "command": "Get_Telnet_Prompt",
-        "verb": "get",
-        "description": "Interface Configuration Commands",
-        "scpi": ":TELNet:PROMpt?",
-        "scpi_fast": ":TELN:PROM?",
-        "subsystem": "TELN",
-        "group": "TELN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Telnet_Prompt",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Telnet_Prompt"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Telnet_Prompt",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Telnet_Wmessage": {
-        "command": "Get_Telnet_Wmessage",
-        "verb": "get",
-        "description": "Interface Configuration Commands",
-        "scpi": ":TELNet:WMESsage?",
-        "scpi_fast": ":TELN:WMES?",
-        "subsystem": "TELN",
-        "group": "TELN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Telnet_Wmessage",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Telnet_Wmessage"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Telnet_Wmessage",
           "reading_direction": "out"
         },
         "unverified": true
@@ -3291,7 +3120,8 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "integer",
+          "limits": "query"
         },
         "returns": null,
         "mqtt": {
@@ -3537,7 +3367,9 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "numeric",
+          "unit": "Hz",
+          "limits": "query"
         },
         "returns": null,
         "mqtt": {
@@ -3563,7 +3395,9 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "numeric",
+          "unit": "Hz",
+          "limits": "query"
         },
         "returns": null,
         "mqtt": {
@@ -4091,7 +3925,9 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "numeric",
+          "unit": "%",
+          "limits": "query"
         },
         "returns": null,
         "mqtt": {
@@ -4127,32 +3963,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Function_Square_Dcycle",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Klock_Exclude": {
-        "command": "Set_Klock_Exclude",
-        "verb": "set",
-        "description": "System-Related Commands",
-        "scpi": ":KLOCk:EXCLude <value>",
-        "scpi_fast": ":KLOC:EXCL <value>",
-        "subsystem": "KLOC",
-        "group": "KLOC",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "unknown"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Klock_Exclude",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Klock_Exclude",
             "value": "<value>",
             "input_name": "value"
           }
@@ -4981,58 +4791,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_System_Communicate_Lan_Telnet_Wmessage",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Telnet_Prompt": {
-        "command": "Set_Telnet_Prompt",
-        "verb": "set",
-        "description": "Interface Configuration Commands",
-        "scpi": ":TELNet:PROMpt <value>",
-        "scpi_fast": ":TELN:PROM <value>",
-        "subsystem": "TELN",
-        "group": "TELN",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "unknown"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Telnet_Prompt",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Telnet_Prompt",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Telnet_Wmessage": {
-        "command": "Set_Telnet_Wmessage",
-        "verb": "set",
-        "description": "Interface Configuration Commands",
-        "scpi": ":TELNet:WMESsage <value>",
-        "scpi_fast": ":TELN:WMES <value>",
-        "subsystem": "TELN",
-        "group": "TELN",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "unknown"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Telnet_Wmessage",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Telnet_Wmessage",
             "value": "<value>",
             "input_name": "value"
           }
@@ -6939,83 +6697,6 @@
         },
         "unverified": true
       },
-      "Get_Klock_Exclude": {
-        "command": "Get_Klock_Exclude",
-        "verb": "nab",
-        "description": "System-Related Commands",
-        "scpi": ":KLOCk:EXCLude?",
-        "scpi_fast": ":KLOC:EXCL?",
-        "subsystem": "KLOC",
-        "group": "KLOC",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Klock_Exclude",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Klock_Exclude"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Klock_Exclude",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Lan_Lipaddress": {
-        "command": "Get_Lan_Lipaddress",
-        "verb": "nab",
-        "description": "Get lan lipaddress",
-        "scpi": "LAN:LIPaddress?",
-        "scpi_fast": "LAN:LIP?",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Lan_Lipaddress",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Lan_Lipaddress"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Lan_Lipaddress",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Lan_Mac": {
-        "command": "Get_Lan_Mac",
-        "verb": "nab",
-        "description": "Get lan mac",
-        "scpi": "LAN:MAC?",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Lan_Mac",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Lan_Mac"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Lan_Mac",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Marker_Frequency": {
         "command": "Get_Marker_Frequency",
         "verb": "nab",
@@ -7098,13 +6779,18 @@
         "command": "Get_Memory_State_Name",
         "verb": "nab",
         "description": "State Storage Commands",
-        "scpi": "MEMory:STATe:NAME?",
-        "scpi_fast": "MEM:STAT:NAME?",
+        "scpi": "MEMory:STATe:NAME? <state>",
+        "scpi_fast": "MEM:STAT:NAME? <state>",
         "subsystem": "MEM",
         "group": "MEM",
-        "args": [],
+        "args": [
+          "state"
+        ],
         "arg": {
-          "kind": "none"
+          "kind": "integer",
+          "min": 0,
+          "max": 4,
+          "default": 1
         },
         "returns": {
           "count": 1
@@ -7124,17 +6810,22 @@
         "command": "Get_Memory_State_Value",
         "verb": "nab",
         "description": "State Storage Commands",
-        "scpi": "MEMory:STATe:VALid?",
-        "scpi_fast": "MEM:STAT:VAL?",
+        "scpi": "MEMory:STATe:VALid? <state>",
+        "scpi_fast": "MEM:STAT:VAL? <state>",
         "subsystem": "MEM",
         "group": "MEM",
-        "args": [],
+        "args": [
+          "state"
+        ],
         "arg": {
-          "kind": "none"
+          "kind": "integer",
+          "min": 0,
+          "max": 4,
+          "default": 1
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Memory_State_Value",
@@ -7143,58 +6834,6 @@
             "command": "Get_Memory_State_Value"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Memory_State_Value",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Nvolatile_Catalog": {
-        "command": "Get_Nvolatile_Catalog",
-        "verb": "nab",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":NVOLatile:CATalog?",
-        "scpi_fast": ":NVOL:CAT?",
-        "subsystem": "NVOL",
-        "group": "NVOL",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Nvolatile_Catalog",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Nvolatile_Catalog"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Nvolatile_Catalog",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Nvolatile_Free": {
-        "command": "Get_Nvolatile_Free",
-        "verb": "nab",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":NVOLatile:FREE?",
-        "scpi_fast": ":NVOL:FREE?",
-        "subsystem": "NVOL",
-        "group": "NVOL",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Nvolatile_Free",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Nvolatile_Free"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Nvolatile_Free",
           "reading_direction": "out"
         },
         "unverified": true
@@ -7372,7 +7011,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "ERROR"
+          "type": "BOOL"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Phase_Unlock_Error_State",
@@ -8144,7 +7783,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR2"
+          "type": "ERROR"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Error_Queue",
@@ -8205,58 +7844,6 @@
             "command": "Get_System_Version"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_System_Version",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Telnet_Prompt": {
-        "command": "Get_Telnet_Prompt",
-        "verb": "nab",
-        "description": "Interface Configuration Commands",
-        "scpi": ":TELNet:PROMpt?",
-        "scpi_fast": ":TELN:PROM?",
-        "subsystem": "TELN",
-        "group": "TELN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Telnet_Prompt",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Telnet_Prompt"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Telnet_Prompt",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Telnet_Wmessage": {
-        "command": "Get_Telnet_Wmessage",
-        "verb": "nab",
-        "description": "Interface Configuration Commands",
-        "scpi": ":TELNet:WMESsage?",
-        "scpi_fast": ":TELN:WMES?",
-        "subsystem": "TELN",
-        "group": "TELN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Telnet_Wmessage",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Telnet_Wmessage"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Telnet_Wmessage",
           "reading_direction": "out"
         },
         "unverified": true
@@ -9448,138 +9035,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Do_Internal_Period"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Klock_State": {
-        "command": "Do_Klock_State",
-        "verb": "do",
-        "description": "System-Related Commands",
-        "scpi": ":KLOCk:STATe",
-        "scpi_fast": ":KLOC:STAT",
-        "subsystem": "KLOC",
-        "group": "KLOC",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Klock_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Klock_State"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Lan_Ipaddress": {
-        "command": "Do_Lan_Ipaddress",
-        "verb": "do",
-        "description": "Do lan ipaddress",
-        "scpi": "LAN:IPADdress",
-        "scpi_fast": "LAN:IPAD",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Lan_Ipaddress",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Lan_Ipaddress"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Lan_Mediasense": {
-        "command": "Do_Lan_Mediasense",
-        "verb": "do",
-        "description": "Do lan mediasense",
-        "scpi": "LAN:MEDiasense",
-        "scpi_fast": "LAN:MED",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Lan_Mediasense",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Lan_Mediasense"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Lan_Netbios": {
-        "command": "Do_Lan_Netbios",
-        "verb": "do",
-        "description": "Do lan netbios",
-        "scpi": "LAN:NETBios",
-        "scpi_fast": "LAN:NETB",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Lan_Netbios",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Lan_Netbios"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Lan_Telnet_Prompt": {
-        "command": "Do_Lan_Telnet_Prompt",
-        "verb": "do",
-        "description": "Do lan telnet prompt",
-        "scpi": "LAN:TELNet:PROM",
-        "scpi_fast": "LAN:TELN:PROM",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Lan_Telnet_Prompt",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Lan_Telnet_Prompt"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Lan_Telnet_Wmessage": {
-        "command": "Do_Lan_Telnet_Wmessage",
-        "verb": "do",
-        "description": "Do lan telnet wmessage",
-        "scpi": "LAN:TELNet:WMES",
-        "scpi_fast": "LAN:TELN:WMES",
-        "subsystem": "LAN",
-        "group": "LAN",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Lan_Telnet_Wmessage",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Lan_Telnet_Wmessage"
           }
         },
         "unverified": true

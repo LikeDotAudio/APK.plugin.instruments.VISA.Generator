@@ -157,7 +157,8 @@
       "scpi": "BURS:NCYC <value>",
       "description": "Burst Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "integer",
+        "limits": "query"
       },
       "args": [
         "value"
@@ -288,7 +289,9 @@
       "scpiFast": "FM:DEV <value>",
       "description": "FM Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "Hz",
+        "limits": "query"
       },
       "args": [
         "value"
@@ -301,7 +304,9 @@
       "scpiFast": "FM:INT:FREQ <value>",
       "description": "Modulating Waveform Frequency",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "Hz",
+        "limits": "query"
       },
       "args": [
         "value"
@@ -583,7 +588,9 @@
       "scpiFast": "FUNC:RAMP:SYMM <value>",
       "description": "Output Configuration Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "%",
+        "limits": "query"
       },
       "args": [
         "value"
@@ -604,19 +611,6 @@
         "value"
       ],
       "subsystem": "FUNC",
-      "unverified": true
-    },
-    "Set_Klock_Exclude": {
-      "scpi": ":KLOCk:EXCLude <value>",
-      "scpiFast": ":KLOC:EXCL <value>",
-      "description": "System-Related Commands",
-      "arg": {
-        "kind": "unknown"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "KLOC",
       "unverified": true
     },
     "Set_Marker_Frequency": {
@@ -1058,32 +1052,6 @@
       "subsystem": "SYST",
       "unverified": true
     },
-    "Set_Telnet_Prompt": {
-      "scpi": ":TELNet:PROMpt <value>",
-      "scpiFast": ":TELN:PROM <value>",
-      "description": "Interface Configuration Commands",
-      "arg": {
-        "kind": "unknown"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "TELN",
-      "unverified": true
-    },
-    "Set_Telnet_Wmessage": {
-      "scpi": ":TELNet:WMESsage <value>",
-      "scpiFast": ":TELN:WMES <value>",
-      "description": "Interface Configuration Commands",
-      "arg": {
-        "kind": "unknown"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "TELN",
-      "unverified": true
-    },
     "Set_Trigger_Source": {
       "scpi": "TRIG:SOUR <value>",
       "description": "Burst Commands",
@@ -1342,48 +1310,6 @@
       "scpiFast": "INT:PER",
       "description": "Do internal period",
       "subsystem": "INT",
-      "unverified": true
-    },
-    "Do_Klock_State": {
-      "scpi": ":KLOCk:STATe",
-      "scpiFast": ":KLOC:STAT",
-      "description": "System-Related Commands",
-      "subsystem": "KLOC",
-      "unverified": true
-    },
-    "Do_Lan_Ipaddress": {
-      "scpi": "LAN:IPADdress",
-      "scpiFast": "LAN:IPAD",
-      "description": "Do lan ipaddress",
-      "subsystem": "LAN",
-      "unverified": true
-    },
-    "Do_Lan_Mediasense": {
-      "scpi": "LAN:MEDiasense",
-      "scpiFast": "LAN:MED",
-      "description": "Do lan mediasense",
-      "subsystem": "LAN",
-      "unverified": true
-    },
-    "Do_Lan_Netbios": {
-      "scpi": "LAN:NETBios",
-      "scpiFast": "LAN:NETB",
-      "description": "Do lan netbios",
-      "subsystem": "LAN",
-      "unverified": true
-    },
-    "Do_Lan_Telnet_Prompt": {
-      "scpi": "LAN:TELNet:PROM",
-      "scpiFast": "LAN:TELN:PROM",
-      "description": "Do lan telnet prompt",
-      "subsystem": "LAN",
-      "unverified": true
-    },
-    "Do_Lan_Telnet_Wmessage": {
-      "scpi": "LAN:TELNet:WMES",
-      "scpiFast": "LAN:TELN:WMES",
-      "description": "Do lan telnet wmessage",
-      "subsystem": "LAN",
       "unverified": true
     },
     "Do_Memory_State": {
@@ -2470,35 +2396,6 @@
       "unverified": true,
       "notes": "What every control on the main page hydrates from. `Get_Apply_String` answers the same facts as one quoted blob (\"SIN +1.0E+03,+3.0E+00,+0.0E+00\") with no named fields, so nothing could bind to a value inside it. UNVERIFIED on hardware: five chained statements, and one dead statement kills the whole reply — check the answer has five semicolon-separated values before trusting a readback. Every statement in it already exists here on its own."
     },
-    "Get_Klock_Exclude": {
-      "scpi": ":KLOCk:EXCLude?",
-      "scpiFast": ":KLOC:EXCL?",
-      "description": "System-Related Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "KLOC",
-      "unverified": true
-    },
-    "Get_Lan_Lipaddress": {
-      "scpi": "LAN:LIPaddress?",
-      "scpiFast": "LAN:LIP?",
-      "description": "Get lan lipaddress",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "LAN",
-      "unverified": true
-    },
-    "Get_Lan_Mac": {
-      "scpi": "LAN:MAC?",
-      "description": "Get lan mac",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "LAN",
-      "unverified": true
-    },
     "Get_Marker_Frequency": {
       "scpi": "MARKer:FREQuency?",
       "scpiFast": "MARK:FREQ?",
@@ -2530,45 +2427,43 @@
       "unverified": true
     },
     "Get_Memory_State_Name": {
-      "scpi": "MEMory:STATe:NAME?",
-      "scpiFast": "MEM:STAT:NAME?",
+      "scpi": "MEMory:STATe:NAME? <state>",
+      "scpiFast": "MEM:STAT:NAME? <state>",
       "description": "State Storage Commands",
       "returns": {
         "count": 1
       },
       "subsystem": "MEM",
-      "unverified": true
+      "unverified": true,
+      "args": [
+        "state"
+      ],
+      "arg": {
+        "kind": "integer",
+        "min": 0,
+        "max": 4,
+        "default": 1
+      }
     },
     "Get_Memory_State_Value": {
-      "scpi": "MEMory:STATe:VALid?",
-      "scpiFast": "MEM:STAT:VAL?",
+      "scpi": "MEMory:STATe:VALid? <state>",
+      "scpiFast": "MEM:STAT:VAL? <state>",
       "description": "State Storage Commands",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "BOOL"
       },
       "subsystem": "MEM",
-      "unverified": true
-    },
-    "Get_Nvolatile_Catalog": {
-      "scpi": ":NVOLatile:CATalog?",
-      "scpiFast": ":NVOL:CAT?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "NVOL",
-      "unverified": true
-    },
-    "Get_Nvolatile_Free": {
-      "scpi": ":NVOLatile:FREE?",
-      "scpiFast": ":NVOL:FREE?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "NVOL",
-      "unverified": true
+      "unverified": true,
+      "args": [
+        "state"
+      ],
+      "arg": {
+        "kind": "integer",
+        "min": 0,
+        "max": 4,
+        "default": 1
+      }
     },
     "Get_Output_Load": {
       "scpi": "OUTPut:LOAD?",
@@ -2639,7 +2534,7 @@
       "description": "Phase-Lock Commands",
       "returns": {
         "count": 1,
-        "type": "ERROR"
+        "type": "BOOL"
       },
       "subsystem": "PHAS",
       "unverified": true
@@ -2965,7 +2860,7 @@
       "description": "Get Error Queue",
       "returns": {
         "count": 1,
-        "type": "NR2"
+        "type": "ERROR"
       },
       "group": "System Readbacks",
       "subsystem": "System"
@@ -2988,26 +2883,6 @@
         "count": 1
       },
       "subsystem": "SYST",
-      "unverified": true
-    },
-    "Get_Telnet_Prompt": {
-      "scpi": ":TELNet:PROMpt?",
-      "scpiFast": ":TELN:PROM?",
-      "description": "Interface Configuration Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "TELN",
-      "unverified": true
-    },
-    "Get_Telnet_Wmessage": {
-      "scpi": ":TELNet:WMESsage?",
-      "scpiFast": ":TELN:WMES?",
-      "description": "Interface Configuration Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "TELN",
       "unverified": true
     },
     "Get_Trigger_Slope": {
