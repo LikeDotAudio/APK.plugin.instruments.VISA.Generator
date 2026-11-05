@@ -15,7 +15,7 @@ Every Generator model this library drives, and how to drive it. Each model answe
 | Model | Maker | get | set | nab | rig | do | Port |
 |---|---|---:|---:|---:|---:|---:|---:|
 | [33120A](SDK/33120A.md) | HP / Agilent / Keysight | 114 | 80 | 119 | 4 | 59 | 15300 |
-| [33210A](SDK/33210A.md) | HP / Agilent / Keysight | 109 | 80 | 114 | 5 | 59 | 15301 |
+| [33210A](SDK/33210A.md) | HP / Agilent / Keysight | 109 | 80 | 118 | 5 | 59 | 15301 |
 | [33220A](SDK/33220A.md) | HP / Agilent / Keysight | 114 | 80 | 119 | 4 | 59 | 15302 |
 | [33250A](SDK/33250A.md) | HP / Agilent / Keysight | 114 | 80 | 119 | 4 | 59 | 15303 |
 | [33509B](SDK/33509B.md) | HP / Agilent / Keysight | 114 | 80 | 119 | 4 | 59 | 15304 |

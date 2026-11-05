@@ -17,7 +17,7 @@ The **Generator** instruments of the APK.audio bench, as one thing: 24 models, t
 | Model | Maker | What | Commands | Table | API |
 |---|---|---|---:|:---:|---|
 | [33120A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33120A.md) | HP / Agilent / Keysight | 15 MHz Function/Arb (Classic) | 262 |  | :15300 |
-| [33210A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33210A.md) | HP / Agilent / Keysight | 10 MHz Function/Arb | 258 | ✅ | :15301 |
+| [33210A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33210A.md) | HP / Agilent / Keysight | 10 MHz Function/Arb | 262 | ✅ | :15301 |
 | [33220A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33220A.md) | HP / Agilent / Keysight | 20 MHz Function/Arb | 262 | ✅ | :15302 |
 | [33250A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33250A.md) | HP / Agilent / Keysight | 80 MHz Function/Arb | 262 |  | :15303 |
 | [33509B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33509B.md) | HP / Agilent / Keysight | 20 MHz 1-Ch Trueform | 262 |  | :15304 |

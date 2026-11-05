@@ -89,10 +89,10 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 258,
+    "total_commands": 262,
     "get_count": 109,
     "set_count": 80,
-    "nab_count": 114,
+    "nab_count": 118,
     "rig_count": 5,
     "do_count": 59
   },
@@ -8396,6 +8396,338 @@
           "reading_direction": "out"
         },
         "unverified": true
+      },
+      "GRAB": {
+        "command": "GRAB",
+        "verb": "nab",
+        "description": "GRAB \u2014 all 41 queries this model answered alone on the bench, stacked; the answers come back `;`-separated in the order of grab.commands",
+        "scpi": "*ESE?;*PSC?;*SRE?;*STB?;:AM:DEPT?;:AM:INT:FREQ?;:AM:SOUR?;:AM:STAT?;:APPL?;:BURS:GATE:POL?;:BURS:INT:PER?;:BURS:MODE?;:BURS:NCYC?;:BURS:PHAS?;:BURS:STAT?;:DISP:TEXT?;:FM:DEV?;:FM:INT:FREQ?;:FM:SOUR?;:FM:STAT?;:FORM:BORD?;:FREQ:CENT?;:FREQ:SPAN?;:FUNC:PULS:DCYC?;:FUNC:PULS:HOLD?;:FUNC:PULS:TRAN?;:FUNC:PULS:WIDT?;:FUNC:RAMP:SYMM?;:FUNC:SQU:DCYC?;:FUNC:USER?;:MARK:FREQ?;:MEM:NST?;:MEM:STAT:CAT?;:OUTP:LOAD?;:OUTP:POL?;:OUTP:SYNC?;:OUTP:TRIG:SLOP?;:OUTP:TRIG?;:OUTP?;:PULS:PER?;*IDN?",
+        "subsystem": "GRAB",
+        "group": "GRAB",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 41,
+          "type": "LIST"
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/GRAB",
+          "direction": "in",
+          "payload_format": {
+            "command": "GRAB"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/GRAB",
+          "reading_direction": "out"
+        },
+        "unverified": false,
+        "grab": {
+          "commands": [
+            "Get_Ese",
+            "Get_Psc",
+            "Get_Sre",
+            "Get_Stb",
+            "Get_Am_Depth",
+            "Get_Am_Internal_Frequency",
+            "Get_Am_Source",
+            "Get_Am_State",
+            "Get_Apply_String",
+            "Get_Burst_Gate_Polarity",
+            "Get_Burst_Internal_Period",
+            "Get_Burst_Mode",
+            "Get_Burst_Ncycles",
+            "Get_Burst_Phase",
+            "Get_Burst_State",
+            "Get_Display_Text",
+            "Get_Fm_Deviation",
+            "Get_Fm_Internal_Frequency",
+            "Get_Fm_Source",
+            "Get_Fm_State",
+            "Get_Format_Border",
+            "Get_Frequency_Center",
+            "Get_Frequency_Span",
+            "Get_Function_Pulse_Dcycle",
+            "Get_Function_Pulse_Hold",
+            "Get_Function_Pulse_Transition",
+            "Get_Function_Pulse_Width",
+            "Get_Function_Ramp_Symmetry",
+            "Get_Function_Square_Dcycle",
+            "Get_Function_User",
+            "Get_Marker_Frequency",
+            "Get_Memory_Nstates",
+            "Get_Memory_State_Catalog",
+            "Get_Output_Load",
+            "Get_Output_Polarity",
+            "Get_Output_Sync",
+            "Get_Output_Trigger_Slope",
+            "Get_Output_Trigger",
+            "Get_Output_State",
+            "Get_Pulse_Period",
+            "Read_IDN"
+          ],
+          "queries": [
+            "*ESE?",
+            "*PSC?",
+            "*SRE?",
+            "*STB?",
+            ":AM:DEPT?",
+            ":AM:INT:FREQ?",
+            ":AM:SOUR?",
+            ":AM:STAT?",
+            ":APPL?",
+            ":BURS:GATE:POL?",
+            ":BURS:INT:PER?",
+            ":BURS:MODE?",
+            ":BURS:NCYC?",
+            ":BURS:PHAS?",
+            ":BURS:STAT?",
+            ":DISP:TEXT?",
+            ":FM:DEV?",
+            ":FM:INT:FREQ?",
+            ":FM:SOUR?",
+            ":FM:STAT?",
+            ":FORM:BORD?",
+            ":FREQ:CENT?",
+            ":FREQ:SPAN?",
+            ":FUNC:PULS:DCYC?",
+            ":FUNC:PULS:HOLD?",
+            ":FUNC:PULS:TRAN?",
+            ":FUNC:PULS:WIDT?",
+            ":FUNC:RAMP:SYMM?",
+            ":FUNC:SQU:DCYC?",
+            ":FUNC:USER?",
+            ":MARK:FREQ?",
+            ":MEM:NST?",
+            ":MEM:STAT:CAT?",
+            ":OUTP:LOAD?",
+            ":OUTP:POL?",
+            ":OUTP:SYNC?",
+            ":OUTP:TRIG:SLOP?",
+            ":OUTP:TRIG?",
+            ":OUTP?",
+            ":PULS:PER?",
+            "*IDN?"
+          ],
+          "chunks": [
+            "GRAB_1",
+            "GRAB_2",
+            "GRAB_3"
+          ],
+          "max_command_bytes": 240,
+          "qualified": {
+            "compiled": "2026-11-05T03:49:35Z",
+            "units": [
+              "visa/Generator/33210A/DevMY48000299"
+            ],
+            "source": "33210A.qualified.json"
+          }
+        }
+      },
+      "GRAB_1": {
+        "command": "GRAB_1",
+        "verb": "nab",
+        "description": "GRAB part 1 of 3 \u2014 22 of the qualified queries",
+        "scpi": "*ESE?;*PSC?;*SRE?;*STB?;:AM:DEPT?;:AM:INT:FREQ?;:AM:SOUR?;:AM:STAT?;:APPL?;:BURS:GATE:POL?;:BURS:INT:PER?;:BURS:MODE?;:BURS:NCYC?;:BURS:PHAS?;:BURS:STAT?;:DISP:TEXT?;:FM:DEV?;:FM:INT:FREQ?;:FM:SOUR?;:FM:STAT?;:FORM:BORD?;:FREQ:CENT?",
+        "subsystem": "GRAB",
+        "group": "GRAB",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 22,
+          "type": "LIST"
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/GRAB_1",
+          "direction": "in",
+          "payload_format": {
+            "command": "GRAB_1"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/GRAB_1",
+          "reading_direction": "out"
+        },
+        "unverified": false,
+        "grab": {
+          "part": 1,
+          "of": 3,
+          "commands": [
+            "Get_Ese",
+            "Get_Psc",
+            "Get_Sre",
+            "Get_Stb",
+            "Get_Am_Depth",
+            "Get_Am_Internal_Frequency",
+            "Get_Am_Source",
+            "Get_Am_State",
+            "Get_Apply_String",
+            "Get_Burst_Gate_Polarity",
+            "Get_Burst_Internal_Period",
+            "Get_Burst_Mode",
+            "Get_Burst_Ncycles",
+            "Get_Burst_Phase",
+            "Get_Burst_State",
+            "Get_Display_Text",
+            "Get_Fm_Deviation",
+            "Get_Fm_Internal_Frequency",
+            "Get_Fm_Source",
+            "Get_Fm_State",
+            "Get_Format_Border",
+            "Get_Frequency_Center"
+          ],
+          "queries": [
+            "*ESE?",
+            "*PSC?",
+            "*SRE?",
+            "*STB?",
+            ":AM:DEPT?",
+            ":AM:INT:FREQ?",
+            ":AM:SOUR?",
+            ":AM:STAT?",
+            ":APPL?",
+            ":BURS:GATE:POL?",
+            ":BURS:INT:PER?",
+            ":BURS:MODE?",
+            ":BURS:NCYC?",
+            ":BURS:PHAS?",
+            ":BURS:STAT?",
+            ":DISP:TEXT?",
+            ":FM:DEV?",
+            ":FM:INT:FREQ?",
+            ":FM:SOUR?",
+            ":FM:STAT?",
+            ":FORM:BORD?",
+            ":FREQ:CENT?"
+          ],
+          "qualified": {
+            "compiled": "2026-11-05T03:49:35Z",
+            "units": [
+              "visa/Generator/33210A/DevMY48000299"
+            ],
+            "source": "33210A.qualified.json"
+          }
+        }
+      },
+      "GRAB_2": {
+        "command": "GRAB_2",
+        "verb": "nab",
+        "description": "GRAB part 2 of 3 \u2014 17 of the qualified queries",
+        "scpi": ":FREQ:SPAN?;:FUNC:PULS:DCYC?;:FUNC:PULS:HOLD?;:FUNC:PULS:TRAN?;:FUNC:PULS:WIDT?;:FUNC:RAMP:SYMM?;:FUNC:SQU:DCYC?;:FUNC:USER?;:MARK:FREQ?;:MEM:NST?;:MEM:STAT:CAT?;:OUTP:LOAD?;:OUTP:POL?;:OUTP:SYNC?;:OUTP:TRIG:SLOP?;:OUTP:TRIG?;:OUTP?",
+        "subsystem": "GRAB",
+        "group": "GRAB",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 17,
+          "type": "LIST"
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/GRAB_2",
+          "direction": "in",
+          "payload_format": {
+            "command": "GRAB_2"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/GRAB_2",
+          "reading_direction": "out"
+        },
+        "unverified": false,
+        "grab": {
+          "part": 2,
+          "of": 3,
+          "commands": [
+            "Get_Frequency_Span",
+            "Get_Function_Pulse_Dcycle",
+            "Get_Function_Pulse_Hold",
+            "Get_Function_Pulse_Transition",
+            "Get_Function_Pulse_Width",
+            "Get_Function_Ramp_Symmetry",
+            "Get_Function_Square_Dcycle",
+            "Get_Function_User",
+            "Get_Marker_Frequency",
+            "Get_Memory_Nstates",
+            "Get_Memory_State_Catalog",
+            "Get_Output_Load",
+            "Get_Output_Polarity",
+            "Get_Output_Sync",
+            "Get_Output_Trigger_Slope",
+            "Get_Output_Trigger",
+            "Get_Output_State"
+          ],
+          "queries": [
+            ":FREQ:SPAN?",
+            ":FUNC:PULS:DCYC?",
+            ":FUNC:PULS:HOLD?",
+            ":FUNC:PULS:TRAN?",
+            ":FUNC:PULS:WIDT?",
+            ":FUNC:RAMP:SYMM?",
+            ":FUNC:SQU:DCYC?",
+            ":FUNC:USER?",
+            ":MARK:FREQ?",
+            ":MEM:NST?",
+            ":MEM:STAT:CAT?",
+            ":OUTP:LOAD?",
+            ":OUTP:POL?",
+            ":OUTP:SYNC?",
+            ":OUTP:TRIG:SLOP?",
+            ":OUTP:TRIG?",
+            ":OUTP?"
+          ],
+          "qualified": {
+            "compiled": "2026-11-05T03:49:35Z",
+            "units": [
+              "visa/Generator/33210A/DevMY48000299"
+            ],
+            "source": "33210A.qualified.json"
+          }
+        }
+      },
+      "GRAB_3": {
+        "command": "GRAB_3",
+        "verb": "nab",
+        "description": "GRAB part 3 of 3 \u2014 2 of the qualified queries",
+        "scpi": ":PULS:PER?;*IDN?",
+        "subsystem": "GRAB",
+        "group": "GRAB",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 2,
+          "type": "LIST"
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/GRAB_3",
+          "direction": "in",
+          "payload_format": {
+            "command": "GRAB_3"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/GRAB_3",
+          "reading_direction": "out"
+        },
+        "unverified": false,
+        "grab": {
+          "part": 3,
+          "of": 3,
+          "commands": [
+            "Get_Pulse_Period",
+            "Read_IDN"
+          ],
+          "queries": [
+            ":PULS:PER?",
+            "*IDN?"
+          ],
+          "qualified": {
+            "compiled": "2026-11-05T03:49:35Z",
+            "units": [
+              "visa/Generator/33210A/DevMY48000299"
+            ],
+            "source": "33210A.qualified.json"
+          }
+        }
       }
     },
     "rig": {

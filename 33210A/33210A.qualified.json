@@ -1,0 +1,455 @@
+{
+  "model": "33210A",
+  "family": "Generator",
+  "compiled": "2026-11-05T03:49:35Z",
+  "source": "WEB.OsApi /api/os/captures/qualified (Nabber nab_known: each query asked alone, once per unit)",
+  "units": [
+    "visa/Generator/33210A/DevMY48000299"
+  ],
+  "commands": [
+    {
+      "endpoint": "Get_Ese",
+      "query": "*ESE?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849456.5585647
+    },
+    {
+      "endpoint": "Read_IDN",
+      "query": "*IDN?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849457.0146923
+    },
+    {
+      "endpoint": "Get_Psc",
+      "query": "*PSC?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849457.7036874
+    },
+    {
+      "endpoint": "Get_Sre",
+      "query": "*SRE?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849458.398679
+    },
+    {
+      "endpoint": "Get_Stb",
+      "query": "*STB?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849459.0877175
+    },
+    {
+      "endpoint": "Get_Am_Depth",
+      "query": ":AM:DEPT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849718.238626
+    },
+    {
+      "endpoint": "Get_Am_Internal_Frequency",
+      "query": ":AM:INT:FREQ?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849471.3445835
+    },
+    {
+      "endpoint": "Get_Am_Source",
+      "query": ":AM:SOUR?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849728.3413563
+    },
+    {
+      "endpoint": "Get_Am_State",
+      "query": ":AM:STAT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849738.4233446
+    },
+    {
+      "endpoint": "Get_Apply_String",
+      "query": ":APPL?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849208.3033364
+    },
+    {
+      "endpoint": "Get_Burst_Gate_Polarity",
+      "query": ":BURS:GATE:POL?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849557.434699
+    },
+    {
+      "endpoint": "Get_Burst_Internal_Period",
+      "query": ":BURS:INT:PER?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849566.9460826
+    },
+    {
+      "endpoint": "Get_Burst_Mode",
+      "query": ":BURS:MODE?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849576.7640274
+    },
+    {
+      "endpoint": "Get_Burst_Ncycles",
+      "query": ":BURS:NCYC?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849870.7395213
+    },
+    {
+      "endpoint": "Get_Burst_Phase",
+      "query": ":BURS:PHAS?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849604.3483796
+    },
+    {
+      "endpoint": "Get_Burst_State",
+      "query": ":BURS:STAT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849605.9262993
+    },
+    {
+      "endpoint": "Get_Display_Text",
+      "query": ":DISP:TEXT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.115646
+    },
+    {
+      "endpoint": "Get_Fm_Deviation",
+      "query": ":FM:DEV?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.2385294
+    },
+    {
+      "endpoint": "Get_Fm_Internal_Frequency",
+      "query": ":FM:INT:FREQ?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.2798874
+    },
+    {
+      "endpoint": "Get_Fm_Source",
+      "query": ":FM:SOUR?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.3622665
+    },
+    {
+      "endpoint": "Get_Fm_State",
+      "query": ":FM:STAT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.4450247
+    },
+    {
+      "endpoint": "Get_Format_Border",
+      "query": ":FORM:BORD?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.5682964
+    },
+    {
+      "endpoint": "Get_Frequency_Center",
+      "query": ":FREQ:CENT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.6513038
+    },
+    {
+      "endpoint": "Get_Frequency_Span",
+      "query": ":FREQ:SPAN?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849611.694092
+    },
+    {
+      "endpoint": "Get_Function_Pulse_Dcycle",
+      "query": ":FUNC:PULS:DCYC?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849645.9827304
+    },
+    {
+      "endpoint": "Get_Function_Pulse_Hold",
+      "query": ":FUNC:PULS:HOLD?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850188.4295735
+    },
+    {
+      "endpoint": "Get_Function_Pulse_Transition",
+      "query": ":FUNC:PULS:TRAN?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849659.8734856
+    },
+    {
+      "endpoint": "Get_Function_Pulse_Width",
+      "query": ":FUNC:PULS:WIDT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849663.1117396
+    },
+    {
+      "endpoint": "Get_Function_Ramp_Symmetry",
+      "query": ":FUNC:RAMP:SYMM?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849665.0179284
+    },
+    {
+      "endpoint": "Get_Function_Square_Dcycle",
+      "query": ":FUNC:SQU:DCYC?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849665.058642
+    },
+    {
+      "endpoint": "Get_Function_User",
+      "query": ":FUNC:USER?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849665.1408367
+    },
+    {
+      "endpoint": "Get_Marker_Frequency",
+      "query": ":MARK:FREQ?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850298.09036
+    },
+    {
+      "endpoint": "Get_Memory_Nstates",
+      "query": ":MEM:NST?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850304.5643027
+    },
+    {
+      "endpoint": "Get_Memory_State_Catalog",
+      "query": ":MEM:STAT:CAT?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850307.8123102
+    },
+    {
+      "endpoint": "Get_Output_Load",
+      "query": ":OUTP:LOAD?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850473.9424558
+    },
+    {
+      "endpoint": "Get_Output_Polarity",
+      "query": ":OUTP:POL?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850474.5895352
+    },
+    {
+      "endpoint": "Get_Output_Sync",
+      "query": ":OUTP:SYNC?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850475.2854636
+    },
+    {
+      "endpoint": "Get_Output_Trigger_Slope",
+      "query": ":OUTP:TRIG:SLOP?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850476.1018941
+    },
+    {
+      "endpoint": "Get_Output_Trigger",
+      "query": ":OUTP:TRIG?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850476.683646
+    },
+    {
+      "endpoint": "Get_Output_State",
+      "query": ":OUTP?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793849209.3113625
+    },
+    {
+      "endpoint": "Get_Pulse_Period",
+      "query": ":PULS:PER?",
+      "units": [
+        "visa/Generator/33210A/DevMY48000299"
+      ],
+      "first": 1793850537.5354714
+    }
+  ],
+  "refused": [
+    {
+      "query": ":ATTR:AVER?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":ATTR:CFAC?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":ATTR:POIN?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":ATTR:PTP?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":BEEP:STAT?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":DEV:DCYC?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":FSK:FREQ?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":FSK:INT:RATE?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":FSK:SOUR?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":FSK:STAT?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":KLOC:EXCL?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":LAN:LIP?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":LAN:MAC?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":MEM:STAT:NAME?",
+      "why": "refused: -109,\"Missing parameter\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":MEM:STAT:VAL?",
+      "why": "refused: -109,\"Missing parameter\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":NVOL:CAT?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":NVOL:FREE?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":PM:DEV?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":PM:INT:FREQ?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":PM:SOUR?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    },
+    {
+      "query": ":PM:STAT?",
+      "why": "refused: -113,\"Undefined header\" | -420,\"Query UNTERMINATED\""
+    }
+  ],
+  "grab_qualified": [
+    {
+      "unit": "visa/Generator/33210A/DevMY48000299",
+      "when": "2026-11-05T03:51:18Z",
+      "ok": true,
+      "parts": [
+        {
+          "part": "GRAB_1",
+          "expected": 22,
+          "answered": 22,
+          "ok": true,
+          "error": null
+        },
+        {
+          "part": "GRAB_2",
+          "expected": 17,
+          "answered": 17,
+          "ok": true,
+          "error": null
+        },
+        {
+          "part": "GRAB_3",
+          "expected": 2,
+          "answered": 2,
+          "ok": true,
+          "error": null
+        }
+      ]
+    }
+  ]
+}
