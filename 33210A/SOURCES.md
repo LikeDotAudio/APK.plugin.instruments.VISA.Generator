@@ -24,6 +24,13 @@ page's per-command Certify, each re-asked alone with a plain Send and the error 
 | `nab/Get_Data_Attribute_Average` | returns `NR3` (was `NR1`, `dB`) | `DATA:ATTRibute:AVERage?` → `+6.7156300000000E-01` |
 | `nab/Get_Data_Attribute_{Cfactor,Points,Ptpeak}` | no `dB` unit | statistics of the arb's normalised points, not levels |
 | `nab/Get_Function_Pulse_Hold` | returns `CRD` WIDT\|DCYC (was `NR3`) | `FUNCtion:PULSe:HOLD?` → `WIDT` |
+| `PM:*` (4 set, 2 do, 4 nab) | removed | `-113` for every query: the 33210A has no phase modulation |
+| `:QUEStionable:*` (1 set, 3 nab) | removed | `-113`; truncations of `STATus:QUEStionable:*`, which stay and pass |
+| `:SECure:*` (`Set_Secure_State`, `Do_Secure_Code`, `Get_Secure_State`) | removed | `-113`; truncations of `CAL:SECure:*`, which stay |
+| `nab/Get_Square_Dcycle` (`SQUare:DCYCle?`) | removed | `-113`; the real `FUNCtion:SQUare:DCYCle?` → `+5.0E+01` stays |
+
+Asked with the link in step: each phantom answered `-113` and the next `*IDN?` came back as itself.
+(A first pass at these read answers one or two questions late — see ROAD-3610 — and was thrown away.)
 
 `OUTPut:TRIGger?` answers `0` and is kept: its Certify timeout was the certifier's own 8 s limit, since raised above the agent's deadline.
 

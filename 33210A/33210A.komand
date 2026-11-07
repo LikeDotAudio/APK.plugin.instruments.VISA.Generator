@@ -654,65 +654,6 @@
       "subsystem": "PHAS",
       "unverified": true
     },
-    "Set_Pm_Deviation": {
-      "scpi": "PM:DEViation <value>",
-      "scpiFast": "PM:DEV <value>",
-      "description": "PM Commands",
-      "arg": {
-        "kind": "unknown"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Set_Pm_Internal_Frequency": {
-      "scpi": "PM:INTernal:FREQuency <value>",
-      "scpiFast": "PM:INT:FREQ <value>",
-      "description": "Modulating Waveform Frequency",
-      "arg": {
-        "kind": "unknown"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Set_Pm_Source": {
-      "scpi": "PM:SOUR <value>",
-      "description": "PM Commands",
-      "arg": {
-        "kind": "enum",
-        "values": [
-          "INT",
-          "EXT"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Set_Pm_State": {
-      "scpi": "PM:STATe <value>",
-      "scpiFast": "PM:STAT <value>",
-      "description": "PM Commands",
-      "arg": {
-        "kind": "bool",
-        "values": [
-          "OFF",
-          "ON"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "PM",
-      "unverified": true
-    },
     "Set_Pulse_Period": {
       "scpi": "PULSe:PERiod <value>",
       "scpiFast": "PULS:PER <value>",
@@ -800,37 +741,6 @@
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
-    },
-    "Set_Questionable_Enable": {
-      "scpi": ":QUEStionable:ENABle <value>",
-      "scpiFast": ":QUES:ENAB <value>",
-      "description": "Status Reporting Commands",
-      "arg": {
-        "kind": "integer",
-        "limits": "query"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Set_Secure_State": {
-      "scpi": ":SECure:STATe <value>",
-      "scpiFast": ":SEC:STAT <value>",
-      "description": "Calibration Commands",
-      "arg": {
-        "kind": "bool",
-        "values": [
-          "OFF",
-          "ON"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "SEC",
       "unverified": true
     },
     "Set_State_Questionable_Enable": {
@@ -1284,20 +1194,6 @@
       "subsystem": "PHAS",
       "unverified": true
     },
-    "Do_Pm_Internal": {
-      "scpi": "PM:INTernal",
-      "scpiFast": "PM:INT",
-      "description": "PM Commands",
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Do_Pm_Internal_Function": {
-      "scpi": "PM:INTernal:FUNCtion",
-      "scpiFast": "PM:INT:FUNC",
-      "description": "Modulating Waveform Shape",
-      "subsystem": "PM",
-      "unverified": true
-    },
     "Do_Pulse_Transition": {
       "scpi": "PULSe:TRANsition",
       "scpiFast": "PULS:TRAN",
@@ -1324,13 +1220,6 @@
       "scpiFast": "PWM:INT:FUNC",
       "description": "Modulating Waveform Shape",
       "subsystem": "PWM",
-      "unverified": true
-    },
-    "Do_Secure_Code": {
-      "scpi": ":SECure:CODE",
-      "scpiFast": ":SEC:CODE",
-      "description": "Calibration Commands",
-      "subsystem": "SEC",
       "unverified": true
     },
     "Do_State_Preset": {
@@ -2349,48 +2238,6 @@
       "subsystem": "PHAS",
       "unverified": true
     },
-    "Get_Pm_Deviation": {
-      "scpi": "PM:DEViation?",
-      "scpiFast": "PM:DEV?",
-      "description": "PM Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Get_Pm_Internal_Frequency": {
-      "scpi": "PM:INTernal:FREQuency?",
-      "scpiFast": "PM:INT:FREQ?",
-      "description": "Phase Modulation (PM) Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Get_Pm_Source": {
-      "scpi": "PM:SOURce?",
-      "scpiFast": "PM:SOUR?",
-      "description": "PM Commands",
-      "returns": {
-        "count": 1,
-        "type": "CRD"
-      },
-      "subsystem": "PM",
-      "unverified": true
-    },
-    "Get_Pm_State": {
-      "scpi": "PM:STATe?",
-      "scpiFast": "PM:STAT?",
-      "description": "PM Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "PM",
-      "unverified": true
-    },
     "Get_Pulse_Period": {
       "scpi": "PULSe:PERiod?",
       "scpiFast": "PULS:PER?",
@@ -2455,62 +2302,6 @@
         "type": "BOOL"
       },
       "subsystem": "PWM",
-      "unverified": true
-    },
-    "Get_Questionable_Condition": {
-      "scpi": ":QUEStionable:CONDition?",
-      "scpiFast": ":QUES:COND?",
-      "description": "Status Reporting Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Get_Questionable_Enable": {
-      "scpi": ":QUEStionable:ENABle?",
-      "scpiFast": ":QUES:ENAB?",
-      "description": "Status Reporting Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Get_Questionable_Event": {
-      "scpi": ":QUEStionable:EVENt?",
-      "scpiFast": ":QUES:EVEN?",
-      "description": "Status Reporting Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Get_Secure_State": {
-      "scpi": ":SECure:STATe?",
-      "scpiFast": ":SEC:STAT?",
-      "description": "Calibration Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "SEC",
-      "unverified": true
-    },
-    "Get_Square_Dcycle": {
-      "scpi": "SQUare:DCYCle?",
-      "scpiFast": "SQU:DCYC?",
-      "description": "Output Configuration Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "%"
-      },
-      "subsystem": "SQU",
       "unverified": true
     },
     "Get_State_Questionable_Event": {
