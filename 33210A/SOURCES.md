@@ -10,6 +10,23 @@ Edition 1, August 2008, Chapter 3 Amplitude Modulation (AM) — <https://enginee
 |---|---|---|
 | `rig/Setup_AM` | arg = `{"kind": "multi", "parameters": {"shape": {"kind": "enum", "values": ["SIN", "SQU", "RAMP", "NRAM", "TRI", "NOIS", "USER"], "default": "SIN"}, "freq": {"kind": "numeric", "unit": "Hz", "min": 0.002, "max": 20000}, "depth": {"kind": "numeric", "unit": "%", "min": 0, "max": 120}}}` | AM:INTernal:FUNCtion and AM:INTernal:FREQuency pp. 74-75; AM:DEPTh p. 75 — shape {SINusoid|SQUare|RAMP|NRAMp|TRIangle|NOISe|USER}; modulating frequency (internal) 2 mHz to 20 kHz, default 100 Hz; depth 0% to 120%, default 100% |
 
+## The bench — 33210A Certify, 2026-11-06
+
+What the 33210A itself answered (MY48000299, `TCPIP0::44.44.44.172::5025::SOCKET`), from the instrument
+page's per-command Certify, each re-asked alone with a plain Send and the error queue read after.
+
+| Command | Change | Evidence |
+|---|---|---|
+| `nab/Get_Attribute_{Average,Cfactor,Points,Ptpeak}` (`:ATTRibute:*?`) | removed | `-113,"Undefined header"`; scraper truncations of `DATA:ATTRibute:*`, which stay and pass |
+| `set/Set_Beeper_State`, `nab/Get_Beeper_State` (`:BEEPer:STATe`) | removed | `-113`; the real `SYSTem:BEEPer:STATe?` → `1` stays (`Get_System_Beeper_State`) |
+| `nab/Get_Deviation_Dcycle` (`:DEV:DCYC?`) | removed | `-113`; the real `PWM:DEViation:DCYCle?` → `+2.0E+00` stays (`Get_Pwm_Deviation_Dcycle`) |
+| `FSKey:*` (4 set, 4 nab) | removed | `-113` for every query: the 33210A has no FSK (the 33220A does) |
+| `nab/Get_Data_Attribute_Average` | returns `NR3` (was `NR1`, `dB`) | `DATA:ATTRibute:AVERage?` → `+6.7156300000000E-01` |
+| `nab/Get_Data_Attribute_{Cfactor,Points,Ptpeak}` | no `dB` unit | statistics of the arb's normalised points, not levels |
+| `nab/Get_Function_Pulse_Hold` | returns `CRD` WIDT\|DCYC (was `NR3`) | `FUNCtion:PULSe:HOLD?` → `WIDT` |
+
+`OUTPut:TRIGger?` answers `0` and is kept: its Certify timeout was the certifier's own 8 s limit, since raised above the agent's deadline.
+
 ## The bench — 33210A certificate, 2026-11-05
 
 What the unit itself answered (33220A MY44044028, firmware 2.07-2.06-22-2, GUI certificate 2026-11-05 04:24); the 33210A shares the command set.

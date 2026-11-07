@@ -89,10 +89,10 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 246,
-    "get_count": 102,
-    "set_count": 77,
-    "nab_count": 111,
+    "total_commands": 231,
+    "get_count": 92,
+    "set_count": 72,
+    "nab_count": 101,
     "rig_count": 5,
     "do_count": 53
   },
@@ -464,145 +464,6 @@
         },
         "unverified": false
       },
-      "Get_Attribute_Average": {
-        "command": "Get_Attribute_Average",
-        "verb": "get",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:AVERage?",
-        "scpi_fast": ":ATTR:AVER?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Average",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Average"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Average",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Attribute_Cfactor": {
-        "command": "Get_Attribute_Cfactor",
-        "verb": "get",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:CFACtor?",
-        "scpi_fast": ":ATTR:CFAC?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Cfactor",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Cfactor"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Cfactor",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Attribute_Points": {
-        "command": "Get_Attribute_Points",
-        "verb": "get",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:POINts?",
-        "scpi_fast": ":ATTR:POIN?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Points",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Points"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Points",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Attribute_Ptpeak": {
-        "command": "Get_Attribute_Ptpeak",
-        "verb": "get",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:PTPeak?",
-        "scpi_fast": ":ATTR:PTP?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Ptpeak",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Ptpeak"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Ptpeak",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Beeper_State": {
-        "command": "Get_Beeper_State",
-        "verb": "get",
-        "description": "System-Related Commands",
-        "scpi": ":BEEPer:STATe?",
-        "scpi_fast": ":BEEP:STAT?",
-        "subsystem": "BEEP",
-        "group": "BEEP",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "BOOL"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Beeper_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Beeper_State"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Beeper_State",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Burst_Gate_Polarity": {
         "command": "Get_Burst_Gate_Polarity",
         "verb": "get",
@@ -885,8 +746,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR3"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Average",
@@ -913,8 +773,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3",
-          "unit": "dB"
+          "type": "NR3"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Cfactor",
@@ -941,8 +800,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Points",
@@ -969,8 +827,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3",
-          "unit": "dB"
+          "type": "NR3"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Ptpeak",
@@ -1056,33 +913,6 @@
             "command": "Get_Data_Nvolatile_Free"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Data_Nvolatile_Free",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Deviation_Dcycle": {
-        "command": "Get_Deviation_Dcycle",
-        "verb": "get",
-        "description": "Pulse Width Modulation (PWM) Commands",
-        "scpi": ":DEV:DCYC?",
-        "subsystem": "DEV",
-        "group": "DEV",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "%"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Deviation_Dcycle",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Deviation_Dcycle"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Deviation_Dcycle",
           "reading_direction": "out"
         },
         "unverified": true
@@ -1299,113 +1129,6 @@
         },
         "unverified": true
       },
-      "Get_Fskey_Frequency": {
-        "command": "Get_Fskey_Frequency",
-        "verb": "get",
-        "description": "FSK Commands",
-        "scpi": "FSKey:FREQuency?",
-        "scpi_fast": "FSK:FREQ?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_Frequency",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_Frequency"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_Frequency",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Fskey_Internal_Rate": {
-        "command": "Get_Fskey_Internal_Rate",
-        "verb": "get",
-        "description": "FSK Commands",
-        "scpi": "FSKey:INTernal:RATE?",
-        "scpi_fast": "FSK:INT:RATE?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_Internal_Rate",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_Internal_Rate"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_Internal_Rate",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Fskey_Source": {
-        "command": "Get_Fskey_Source",
-        "verb": "get",
-        "description": "FSK Commands",
-        "scpi": "FSKey:SOURce?",
-        "scpi_fast": "FSK:SOUR?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "CRD"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_Source",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_Source"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_Source",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Fskey_State": {
-        "command": "Get_Fskey_State",
-        "verb": "get",
-        "description": "FSK Commands",
-        "scpi": "FSKey:STATe?",
-        "scpi_fast": "FSK:STAT?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "BOOL"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_State"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_State",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Function_Pulse_Dcycle": {
         "command": "Get_Function_Pulse_Dcycle",
         "verb": "get",
@@ -1448,7 +1171,11 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "CRD",
+          "values": [
+            "WIDT",
+            "DCYC"
+          ]
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Function_Pulse_Hold",
@@ -3023,36 +2750,6 @@
         },
         "unverified": false
       },
-      "Set_Beeper_State": {
-        "command": "Set_Beeper_State",
-        "verb": "set",
-        "description": "System-Related Commands",
-        "scpi": ":BEEPer:STATe <value>",
-        "scpi_fast": ":BEEP:STAT <value>",
-        "subsystem": "BEEP",
-        "group": "BEEP",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "bool",
-          "values": [
-            "OFF",
-            "ON"
-          ]
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Beeper_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Beeper_State",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
       "Set_Burst_Internal_Period": {
         "command": "Set_Burst_Internal_Period",
         "verb": "set",
@@ -3625,118 +3322,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Frequency_Stop",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Fskey_Source": {
-        "command": "Set_Fskey_Source",
-        "verb": "set",
-        "description": "FSK Commands",
-        "scpi": "FSK:SOUR <value>",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "enum",
-          "values": [
-            "INT",
-            "EXT"
-          ]
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_Source",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Fskey_Source",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Fskey_Frequency": {
-        "command": "Set_Fskey_Frequency",
-        "verb": "set",
-        "description": "FSK Commands",
-        "scpi": "FSKey:FREQuency <value>",
-        "scpi_fast": "FSK:FREQ <value>",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "unknown"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_Frequency",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Fskey_Frequency",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Fskey_Internal_Rate": {
-        "command": "Set_Fskey_Internal_Rate",
-        "verb": "set",
-        "description": "FSK Commands",
-        "scpi": "FSKey:INTernal:RATE <value>",
-        "scpi_fast": "FSK:INT:RATE <value>",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "numeric",
-          "limits": "query"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_Internal_Rate",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Fskey_Internal_Rate",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Fskey_State": {
-        "command": "Set_Fskey_State",
-        "verb": "set",
-        "description": "FSK Commands",
-        "scpi": "FSKey:STATe <value>",
-        "scpi_fast": "FSK:STAT <value>",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "bool",
-          "values": [
-            "OFF",
-            "ON"
-          ]
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Fskey_State",
             "value": "<value>",
             "input_name": "value"
           }
@@ -5398,145 +4983,6 @@
         },
         "unverified": false
       },
-      "Get_Attribute_Average": {
-        "command": "Get_Attribute_Average",
-        "verb": "nab",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:AVERage?",
-        "scpi_fast": ":ATTR:AVER?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Average",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Average"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Average",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Attribute_Cfactor": {
-        "command": "Get_Attribute_Cfactor",
-        "verb": "nab",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:CFACtor?",
-        "scpi_fast": ":ATTR:CFAC?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Cfactor",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Cfactor"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Cfactor",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Attribute_Points": {
-        "command": "Get_Attribute_Points",
-        "verb": "nab",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:POINts?",
-        "scpi_fast": ":ATTR:POIN?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR1",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Points",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Points"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Points",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Attribute_Ptpeak": {
-        "command": "Get_Attribute_Ptpeak",
-        "verb": "nab",
-        "description": "Arbitrary Waveform Commands",
-        "scpi": ":ATTRibute:PTPeak?",
-        "scpi_fast": ":ATTR:PTP?",
-        "subsystem": "ATTR",
-        "group": "ATTR",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "dB"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Ptpeak",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Attribute_Ptpeak"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Attribute_Ptpeak",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Beeper_State": {
-        "command": "Get_Beeper_State",
-        "verb": "nab",
-        "description": "System-Related Commands",
-        "scpi": ":BEEPer:STATe?",
-        "scpi_fast": ":BEEP:STAT?",
-        "subsystem": "BEEP",
-        "group": "BEEP",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "BOOL"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Beeper_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Beeper_State"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Beeper_State",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Burst_Gate_Polarity": {
         "command": "Get_Burst_Gate_Polarity",
         "verb": "nab",
@@ -5874,8 +5320,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR3"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Average",
@@ -5902,8 +5347,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3",
-          "unit": "dB"
+          "type": "NR3"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Cfactor",
@@ -5930,8 +5374,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Points",
@@ -5958,8 +5401,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3",
-          "unit": "dB"
+          "type": "NR3"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Ptpeak",
@@ -6045,33 +5487,6 @@
             "command": "Get_Data_Nvolatile_Free"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Data_Nvolatile_Free",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Deviation_Dcycle": {
-        "command": "Get_Deviation_Dcycle",
-        "verb": "nab",
-        "description": "Pulse Width Modulation (PWM) Commands",
-        "scpi": ":DEV:DCYC?",
-        "subsystem": "DEV",
-        "group": "DEV",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3",
-          "unit": "%"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Deviation_Dcycle",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Deviation_Dcycle"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Deviation_Dcycle",
           "reading_direction": "out"
         },
         "unverified": true
@@ -6288,113 +5703,6 @@
         },
         "unverified": true
       },
-      "Get_Fskey_Frequency": {
-        "command": "Get_Fskey_Frequency",
-        "verb": "nab",
-        "description": "FSK Commands",
-        "scpi": "FSKey:FREQuency?",
-        "scpi_fast": "FSK:FREQ?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_Frequency",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_Frequency"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_Frequency",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Fskey_Internal_Rate": {
-        "command": "Get_Fskey_Internal_Rate",
-        "verb": "nab",
-        "description": "FSK Commands",
-        "scpi": "FSKey:INTernal:RATE?",
-        "scpi_fast": "FSK:INT:RATE?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "NR3"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_Internal_Rate",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_Internal_Rate"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_Internal_Rate",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Fskey_Source": {
-        "command": "Get_Fskey_Source",
-        "verb": "nab",
-        "description": "FSK Commands",
-        "scpi": "FSKey:SOURce?",
-        "scpi_fast": "FSK:SOUR?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "CRD"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_Source",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_Source"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_Source",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Fskey_State": {
-        "command": "Get_Fskey_State",
-        "verb": "nab",
-        "description": "FSK Commands",
-        "scpi": "FSKey:STATe?",
-        "scpi_fast": "FSK:STAT?",
-        "subsystem": "FSK",
-        "group": "FSK",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "BOOL"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Fskey_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Fskey_State"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Fskey_State",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
       "Get_Function_Pulse_Dcycle": {
         "command": "Get_Function_Pulse_Dcycle",
         "verb": "nab",
@@ -6437,7 +5745,11 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR3"
+          "type": "CRD",
+          "values": [
+            "WIDT",
+            "DCYC"
+          ]
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Function_Pulse_Hold",

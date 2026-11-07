@@ -102,24 +102,7 @@
       ],
       "group": "Modulation Control",
       "subsystem": "AM",
-      "notes": "The two-way form of the pair `AM_State_ON` / `AM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a AM switch bound to `AM_State_ON` could only ever turn AM on. Same bytes on the wire that `AM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
-    },
-    "Set_Beeper_State": {
-      "scpi": ":BEEPer:STATe <value>",
-      "scpiFast": ":BEEP:STAT <value>",
-      "description": "System-Related Commands",
-      "arg": {
-        "kind": "bool",
-        "values": [
-          "OFF",
-          "ON"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "BEEP",
-      "unverified": true
+      "notes": "The two-way form of the pair `AM_State_ON` / `AM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a AM switch bound to `AM_State_ON` could only ever turn AM on. Same bytes on the wire that `AM_State_ON` already proves the instrument accepts \u2014 only the keyword is a placeholder."
     },
     "Set_Burst_Internal_Period": {
       "scpi": "BURS:INT:PER <value>",
@@ -346,7 +329,7 @@
       ],
       "group": "Modulation Control",
       "subsystem": "FM",
-      "notes": "The two-way form of the pair `FM_State_ON` / `FM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a FM switch bound to `FM_State_ON` could only ever turn FM on. Same bytes on the wire that `FM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
+      "notes": "The two-way form of the pair `FM_State_ON` / `FM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a FM switch bound to `FM_State_ON` could only ever turn FM on. Same bytes on the wire that `FM_State_ON` already proves the instrument accepts \u2014 only the keyword is a placeholder."
     },
     "Set_Format_Border": {
       "scpi": "FORMat:BORDer <value>",
@@ -429,66 +412,6 @@
         "value"
       ],
       "subsystem": "FREQ",
-      "unverified": true
-    },
-    "Set_Fskey_Source": {
-      "scpi": "FSK:SOUR <value>",
-      "description": "FSK Commands",
-      "arg": {
-        "kind": "enum",
-        "values": [
-          "INT",
-          "EXT"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "FSK",
-      "unverified": true
-    },
-    "Set_Fskey_Frequency": {
-      "scpi": "FSKey:FREQuency <value>",
-      "scpiFast": "FSK:FREQ <value>",
-      "description": "FSK Commands",
-      "arg": {
-        "kind": "unknown"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "FSK",
-      "unverified": true
-    },
-    "Set_Fskey_Internal_Rate": {
-      "scpi": "FSKey:INTernal:RATE <value>",
-      "scpiFast": "FSK:INT:RATE <value>",
-      "description": "FSK Commands",
-      "arg": {
-        "kind": "numeric",
-        "limits": "query"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "FSK",
-      "unverified": true
-    },
-    "Set_Fskey_State": {
-      "scpi": "FSKey:STATe <value>",
-      "scpiFast": "FSK:STAT <value>",
-      "description": "FSK Commands",
-      "arg": {
-        "kind": "bool",
-        "values": [
-          "OFF",
-          "ON"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "FSK",
       "unverified": true
     },
     "Set_Function_Pulse_Hold": {
@@ -655,7 +578,7 @@
         "state"
       ],
       "subsystem": "OUTPut",
-      "notes": "The two-way form of the pair `Output_ON` / `Output_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so an output toggle bound to `Output_ON` could only ever turn the output on. Same bytes on the wire that `Output_ON` already proves the instrument accepts — only the keyword is a placeholder."
+      "notes": "The two-way form of the pair `Output_ON` / `Output_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so an output toggle bound to `Output_ON` could only ever turn the output on. Same bytes on the wire that `Output_ON` already proves the instrument accepts \u2014 only the keyword is a placeholder."
     },
     "Set_Output_Load": {
       "scpi": "OUTPut:LOAD <ohms>",
@@ -1811,65 +1734,6 @@
       "group": "APPLy Readbacks",
       "subsystem": "APPLy"
     },
-    "Get_Attribute_Average": {
-      "scpi": ":ATTRibute:AVERage?",
-      "scpiFast": ":ATTR:AVER?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Attribute_Cfactor": {
-      "scpi": ":ATTRibute:CFACtor?",
-      "scpiFast": ":ATTR:CFAC?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Attribute_Points": {
-      "scpi": ":ATTRibute:POINts?",
-      "scpiFast": ":ATTR:POIN?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Attribute_Ptpeak": {
-      "scpi": ":ATTRibute:PTPeak?",
-      "scpiFast": ":ATTR:PTP?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Beeper_State": {
-      "scpi": ":BEEPer:STATe?",
-      "scpiFast": ":BEEP:STAT?",
-      "description": "System-Related Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "BEEP",
-      "unverified": true
-    },
     "Get_Burst_Gate_Polarity": {
       "scpi": "BURSt:GATE:POLarity?",
       "scpiFast": "BURS:GATE:POL?",
@@ -2025,8 +1889,7 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "dB"
+        "type": "NR3"
       },
       "subsystem": "DATA",
       "unverified": true
@@ -2037,8 +1900,7 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR3",
-        "unit": "dB"
+        "type": "NR3"
       },
       "subsystem": "DATA",
       "unverified": true
@@ -2049,8 +1911,7 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "dB"
+        "type": "NR1"
       },
       "subsystem": "DATA",
       "unverified": true
@@ -2061,8 +1922,7 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR3",
-        "unit": "dB"
+        "type": "NR3"
       },
       "subsystem": "DATA",
       "unverified": true
@@ -2094,17 +1954,6 @@
         "count": 1
       },
       "subsystem": "DATA",
-      "unverified": true
-    },
-    "Get_Deviation_Dcycle": {
-      "scpi": ":DEV:DCYC?",
-      "description": "Pulse Width Modulation (PWM) Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "%"
-      },
-      "subsystem": "DEV",
       "unverified": true
     },
     "Get_Display_Text": {
@@ -2191,49 +2040,6 @@
       "subsystem": "FREQ",
       "unverified": true
     },
-    "Get_Fskey_Frequency": {
-      "scpi": "FSKey:FREQuency?",
-      "scpiFast": "FSK:FREQ?",
-      "description": "FSK Commands",
-      "returns": {
-        "count": 1
-      },
-      "subsystem": "FSK",
-      "unverified": true
-    },
-    "Get_Fskey_Internal_Rate": {
-      "scpi": "FSKey:INTernal:RATE?",
-      "scpiFast": "FSK:INT:RATE?",
-      "description": "FSK Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3"
-      },
-      "subsystem": "FSK",
-      "unverified": true
-    },
-    "Get_Fskey_Source": {
-      "scpi": "FSKey:SOURce?",
-      "scpiFast": "FSK:SOUR?",
-      "description": "FSK Commands",
-      "returns": {
-        "count": 1,
-        "type": "CRD"
-      },
-      "subsystem": "FSK",
-      "unverified": true
-    },
-    "Get_Fskey_State": {
-      "scpi": "FSKey:STATe?",
-      "scpiFast": "FSK:STAT?",
-      "description": "FSK Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "FSK",
-      "unverified": true
-    },
     "Get_Function_Pulse_Dcycle": {
       "scpi": "FUNCtion:PULSe:DCYCle?",
       "scpiFast": "FUNC:PULS:DCYC?",
@@ -2252,7 +2058,11 @@
       "description": "Using the APPLy Command",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "CRD",
+        "values": [
+          "WIDT",
+          "DCYC"
+        ]
       },
       "subsystem": "FUNC",
       "unverified": true
@@ -2394,7 +2204,7 @@
         ]
       },
       "unverified": true,
-      "notes": "What every control on the main page hydrates from. `Get_Apply_String` answers the same facts as one quoted blob (\"SIN +1.0E+03,+3.0E+00,+0.0E+00\") with no named fields, so nothing could bind to a value inside it. UNVERIFIED on hardware: five chained statements, and one dead statement kills the whole reply — check the answer has five semicolon-separated values before trusting a readback. Every statement in it already exists here on its own."
+      "notes": "What every control on the main page hydrates from. `Get_Apply_String` answers the same facts as one quoted blob (\"SIN +1.0E+03,+3.0E+00,+0.0E+00\") with no named fields, so nothing could bind to a value inside it. UNVERIFIED on hardware: five chained statements, and one dead statement kills the whole reply \u2014 check the answer has five semicolon-separated values before trusting a readback. Every statement in it already exists here on its own."
     },
     "Get_Marker_Frequency": {
       "scpi": "MARKer:FREQuency?",
