@@ -89,9 +89,9 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 213,
+    "total_commands": 212,
     "get_count": 83,
-    "set_count": 66,
+    "set_count": 65,
     "nab_count": 92,
     "rig_count": 5,
     "do_count": 50
@@ -2751,34 +2751,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Calibration_Value",
-            "value": "<value>",
-            "input_name": "value"
-          }
-        },
-        "unverified": true
-      },
-      "Set_Deviation_Dcycle": {
-        "command": "Set_Deviation_Dcycle",
-        "verb": "set",
-        "description": "Pulse Width Modulation (PWM) Commands",
-        "scpi": "DEViation:DCYCle <value>",
-        "scpi_fast": "DEV:DCYC <value>",
-        "subsystem": "DEV",
-        "group": "DEV",
-        "args": [
-          "value"
-        ],
-        "arg": {
-          "kind": "numeric",
-          "unit": "%",
-          "limits": "query"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Set_Deviation_Dcycle",
-          "direction": "in",
-          "payload_format": {
-            "command": "Set_Deviation_Dcycle",
             "value": "<value>",
             "input_name": "value"
           }

@@ -19,7 +19,7 @@ page's per-command Certify, each re-asked alone with a plain Send and the error 
 |---|---|---|
 | `nab/Get_Attribute_{Average,Cfactor,Points,Ptpeak}` (`:ATTRibute:*?`) | removed | `-113,"Undefined header"`; scraper truncations of `DATA:ATTRibute:*`, which stay and pass |
 | `set/Set_Beeper_State`, `nab/Get_Beeper_State` (`:BEEPer:STATe`) | removed | `-113`; the real `SYSTem:BEEPer:STATe?` → `1` stays (`Get_System_Beeper_State`) |
-| `nab/Get_Deviation_Dcycle` (`:DEV:DCYC?`) | removed | `-113`; the real `PWM:DEViation:DCYCle?` → `+2.0E+00` stays (`Get_Pwm_Deviation_Dcycle`) |
+| `nab/Get_Deviation_Dcycle` (`:DEV:DCYC?`), `set/Set_Deviation_Dcycle` (`DEV:DCYC <value>`) | removed | `-113`; the real `PWM:DEViation:DCYCle?` → `+2.0E+00` stays (`Get_Pwm_Deviation_Dcycle`) |
 | `FSKey:*` (4 set, 4 nab) | removed | `-113` for every query: the 33210A has no FSK (the 33220A does) |
 | `nab/Get_Data_Attribute_Average` | returns `NR3` (was `NR1`, `dB`) | `DATA:ATTRibute:AVERage?` → `+6.7156300000000E-01` |
 | `nab/Get_Data_Attribute_{Cfactor,Points,Ptpeak}` | no `dB` unit | statistics of the arb's normalised points, not levels |

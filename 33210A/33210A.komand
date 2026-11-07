@@ -240,21 +240,6 @@
       "subsystem": "CAL",
       "unverified": true
     },
-    "Set_Deviation_Dcycle": {
-      "scpi": "DEViation:DCYCle <value>",
-      "scpiFast": "DEV:DCYC <value>",
-      "description": "Pulse Width Modulation (PWM) Commands",
-      "arg": {
-        "kind": "numeric",
-        "unit": "%",
-        "limits": "query"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "DEV",
-      "unverified": true
-    },
     "Set_Display_Text": {
       "scpi": "DISP:TEXT <value>",
       "description": "System-Related Operations",
