@@ -1816,8 +1816,7 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "dB"
+        "type": "NR1"
       },
       "subsystem": "ATTR",
       "unverified": true
@@ -2024,8 +2023,7 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "dB"
+        "type": "NR1"
       },
       "subsystem": "DATA",
       "unverified": true

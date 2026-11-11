@@ -518,8 +518,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Points",
@@ -925,8 +924,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Points",
@@ -5587,8 +5585,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Attribute_Points",
@@ -6049,8 +6046,7 @@
         },
         "returns": {
           "count": 1,
-          "type": "NR1",
-          "unit": "dB"
+          "type": "NR1"
         },
         "mqtt": {
           "topic": "APK.audio/Gui/Komands/Generator/Get_Data_Attribute_Points",
