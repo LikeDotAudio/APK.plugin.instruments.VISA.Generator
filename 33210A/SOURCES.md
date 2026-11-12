@@ -47,3 +47,21 @@ What the unit itself answered (33220A MY44044028, firmware 2.07-2.06-22-2, GUI c
 | `set/Set_Burst_Ncycles` | arg integer, limits from the unit | was `unknown`; the unit answers `BURS:NCYC? MIN\|MAX` |
 | `set/Set_Fm_Deviation`, `set/Set_Fm_Internal_Frequency` | arg numeric Hz, limits from the unit | was `unknown` |
 | `set/Set_Function_Ramp_Symmetry` | arg numeric %, limits from the unit | was `unknown` |
+
+## SCPI paths — every header against the model's own tree (scpi_paths.py, 2026-11-11)
+
+The tree: `33210A.scpi.json`, read off Agilent 33210A User's Guide 33210-90002, Chapter 4 SCPI Command Summary (the 33220A's tree without PM and FSKey, which the 33210A answers -113 to on the bench, 2026-11-07). Each entry's `notes` / `retired_because` carries the full reason and page; the 33220A's Certify of 2026-11-11 (199 tries) and the GUI-certificate book are the bench evidence. Nothing was sent to verify.
+
+| Command | Change | Was |
+|---|---|---|
+| `do/Do_Text_Clear` | scpi → `DISPlay:TEXT:CLEar` | was `:TEXT:CLEar` |
+| `do/Do_Gate_Polarity` | retired — Was `GATE:POLarity`: the table generator cut the `BURSt` parent off, so the unit heard a root `GATE` it does not have (-113 "Undefined header"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:GATE:POLarity {NORMal\|INVerted}), so a bare send is -109 "Missing parameter"; the set/nab of the same node stay. | was `GATE:POLarity` |
+| `do/Do_Internal_Period` | retired — Was `INTernal:PERiod`: the table generator cut the `BURSt` parent off, so the unit heard a root `INTernal` it does not have (-113 "Undefined header"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:INTernal:PERiod {<seconds>\|MINimum\|MAXimum}), so a bare send is -109 "Missing parameter"; the set/nab of the same node stay. | was `INTernal:PERiod` |
+| `do/Do_Unlock_Error_State` | retired — Was `UNLock:ERRor:STATe`: the table generator cut the `PHASe` parent off, so the unit heard a root `UNLock` it does not have (-113 "Undefined header"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (PHASe:UNLock:ERRor:STATe {OFF\|ON}), so a bare send is -109 "Missing parameter"; the set/nab of the same node stay. | was `UNLock:ERRor:STATe` |
+| `rig/Setup_AM` | scpi → `AM:INTernal:FUNCtion <shape>;:AM:INTernal:FREQuency <freq>;:AM:DEPTh <depth>` | was `AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>` |
+| `set/Set_Unit_Angle` | arg = `{"kind": "enum", "values": ["DEG", "RAD"], "default": "DEG"}` |  |
+| `set/Set_Pwm_Internal_Frequency` | arg = `{"kind": "numeric", "unit": "Hz", "min": 0.002, "max": 20000, "default": 10, "limits": "query"}` |  |
+| `set/Set_Pwm_Deviation` | arg = `{"kind": "numeric", "unit": "s", "min": 0, "default": 1e-05, "limits": "query", "before": ["FUNCtion PULSe"], "limits_depend_on": ["FUNCtion:PULSe:WIDTh", "FUNCtion:PULSe:PERiod", "FUNCtion:PULSe:TRANsition"]}` |  |
+| `set/Set_Pwm_Deviation_Dcycle` | arg = `{"kind": "numeric", "unit": "%", "limits": "query", "before": ["FUNCtion PULSe"], "limits_depend_on": ["FUNCtion:PULSe:DCYCle", "FUNCtion:PULSe:PERiod", "FUNCtion:PULSe:TRANsition"]}` |  |
+| `set/Set_Pwm_State` | arg = `{"kind": "bool", "values": ["OFF", "ON"], "before": ["FUNCtion PULSe"]}` |  |
+| `set/Set_State_Questionable_Enable` | arg = `{"kind": "integer", "min": 0, "max": 32767, "limits": "query"}` |  |

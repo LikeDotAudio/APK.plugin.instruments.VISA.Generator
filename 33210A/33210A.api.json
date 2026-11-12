@@ -89,12 +89,12 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 212,
+    "total_commands": 209,
     "get_count": 83,
     "set_count": 65,
     "nab_count": 92,
     "rig_count": 5,
-    "do_count": 50
+    "do_count": 47
   },
   "endpoints": {
     "get": {
@@ -3544,7 +3544,19 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "numeric",
+          "unit": "s",
+          "min": 0,
+          "default": 1e-05,
+          "limits": "query",
+          "before": [
+            "FUNCtion PULSe"
+          ],
+          "limits_depend_on": [
+            "FUNCtion:PULSe:WIDTh",
+            "FUNCtion:PULSe:PERiod",
+            "FUNCtion:PULSe:TRANsition"
+          ]
         },
         "returns": null,
         "mqtt": {
@@ -3572,7 +3584,15 @@
         "arg": {
           "kind": "numeric",
           "unit": "%",
-          "limits": "query"
+          "limits": "query",
+          "before": [
+            "FUNCtion PULSe"
+          ],
+          "limits_depend_on": [
+            "FUNCtion:PULSe:DCYCle",
+            "FUNCtion:PULSe:PERiod",
+            "FUNCtion:PULSe:TRANsition"
+          ]
         },
         "returns": null,
         "mqtt": {
@@ -3598,7 +3618,12 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "numeric",
+          "unit": "Hz",
+          "min": 0.002,
+          "max": 20000,
+          "default": 10,
+          "limits": "query"
         },
         "returns": null,
         "mqtt": {
@@ -3658,6 +3683,9 @@
           "values": [
             "OFF",
             "ON"
+          ],
+          "before": [
+            "FUNCtion PULSe"
           ]
         },
         "returns": null,
@@ -3684,6 +3712,8 @@
         ],
         "arg": {
           "kind": "integer",
+          "min": 0,
+          "max": 32767,
           "limits": "query"
         },
         "returns": null,
@@ -4016,7 +4046,12 @@
           "value"
         ],
         "arg": {
-          "kind": "unknown"
+          "kind": "enum",
+          "values": [
+            "DEG",
+            "RAD"
+          ],
+          "default": "DEG"
         },
         "returns": null,
         "mqtt": {
@@ -6954,8 +6989,8 @@
         "command": "Setup_AM",
         "verb": "rig",
         "description": "Setup AM",
-        "scpi": "AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>",
-        "scpi_fast": "AM:INT:FUNC <shape>;AM:INT:FREQ <freq>;AM:DEPT <depth>",
+        "scpi": "AM:INTernal:FUNCtion <shape>;:AM:INTernal:FREQuency <freq>;:AM:DEPTh <depth>",
+        "scpi_fast": "AM:INT:FUNC <shape>;:AM:INT:FREQ <freq>;:AM:DEPT <depth>",
         "subsystem": "Modulation",
         "group": "Modulation Setup",
         "args": [
@@ -7475,6 +7510,28 @@
         },
         "unverified": false
       },
+      "Do_Text_Clear": {
+        "command": "Do_Text_Clear",
+        "verb": "do",
+        "description": "System-Related Commands",
+        "scpi": "DISPlay:TEXT:CLEar",
+        "scpi_fast": "DISP:TEXT:CLE",
+        "subsystem": "TEXT",
+        "group": "TEXT",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Do_Text_Clear",
+          "direction": "in",
+          "payload_format": {
+            "command": "Do_Text_Clear"
+          }
+        },
+        "unverified": true
+      },
       "Do_Fm_Internal": {
         "command": "Do_Fm_Internal",
         "verb": "do",
@@ -7623,50 +7680,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Do_Function_Shape"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Gate_Polarity": {
-        "command": "Do_Gate_Polarity",
-        "verb": "do",
-        "description": "Do gate polarity",
-        "scpi": "GATE:POLarity",
-        "scpi_fast": "GATE:POL",
-        "subsystem": "GATE",
-        "group": "GATE",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Gate_Polarity",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Gate_Polarity"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Internal_Period": {
-        "command": "Do_Internal_Period",
-        "verb": "do",
-        "description": "Do internal period",
-        "scpi": "INTernal:PERiod",
-        "scpi_fast": "INT:PER",
-        "subsystem": "INT",
-        "group": "INT",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Internal_Period",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Internal_Period"
           }
         },
         "unverified": true
@@ -8129,50 +8142,6 @@
           "direction": "in",
           "payload_format": {
             "command": "Do_System_Secure_Immediate"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Text_Clear": {
-        "command": "Do_Text_Clear",
-        "verb": "do",
-        "description": "System-Related Commands",
-        "scpi": ":TEXT:CLEar",
-        "scpi_fast": ":TEXT:CLE",
-        "subsystem": "TEXT",
-        "group": "TEXT",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Text_Clear",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Text_Clear"
-          }
-        },
-        "unverified": true
-      },
-      "Do_Unlock_Error_State": {
-        "command": "Do_Unlock_Error_State",
-        "verb": "do",
-        "description": "Do unlock error state",
-        "scpi": "UNLock:ERRor:STATe",
-        "scpi_fast": "UNL:ERR:STAT",
-        "subsystem": "UNL",
-        "group": "UNL",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": null,
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Do_Unlock_Error_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Do_Unlock_Error_State"
           }
         },
         "unverified": true

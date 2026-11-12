@@ -102,7 +102,7 @@
       ],
       "group": "Modulation Control",
       "subsystem": "AM",
-      "notes": "The two-way form of the pair `AM_State_ON` / `AM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a AM switch bound to `AM_State_ON` could only ever turn AM on. Same bytes on the wire that `AM_State_ON` already proves the instrument accepts \u2014 only the keyword is a placeholder."
+      "notes": "The two-way form of the pair `AM_State_ON` / `AM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a AM switch bound to `AM_State_ON` could only ever turn AM on. Same bytes on the wire that `AM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
     },
     "Set_Burst_Internal_Period": {
       "scpi": "BURS:INT:PER <value>",
@@ -314,7 +314,7 @@
       ],
       "group": "Modulation Control",
       "subsystem": "FM",
-      "notes": "The two-way form of the pair `FM_State_ON` / `FM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a FM switch bound to `FM_State_ON` could only ever turn FM on. Same bytes on the wire that `FM_State_ON` already proves the instrument accepts \u2014 only the keyword is a placeholder."
+      "notes": "The two-way form of the pair `FM_State_ON` / `FM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a FM switch bound to `FM_State_ON` could only ever turn FM on. Same bytes on the wire that `FM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
     },
     "Set_Format_Border": {
       "scpi": "FORMat:BORDer <value>",
@@ -563,7 +563,7 @@
         "state"
       ],
       "subsystem": "OUTPut",
-      "notes": "The two-way form of the pair `Output_ON` / `Output_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so an output toggle bound to `Output_ON` could only ever turn the output on. Same bytes on the wire that `Output_ON` already proves the instrument accepts \u2014 only the keyword is a placeholder."
+      "notes": "The two-way form of the pair `Output_ON` / `Output_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so an output toggle bound to `Output_ON` could only ever turn the output on. Same bytes on the wire that `Output_ON` already proves the instrument accepts — only the keyword is a placeholder."
     },
     "Set_Output_Load": {
       "scpi": "OUTPut:LOAD <ohms>",
@@ -658,13 +658,26 @@
       "scpi": "PWM:DEV <value>",
       "description": "PWM Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "s",
+        "min": 0,
+        "default": 1e-05,
+        "limits": "query",
+        "before": [
+          "FUNCtion PULSe"
+        ],
+        "limits_depend_on": [
+          "FUNCtion:PULSe:WIDTh",
+          "FUNCtion:PULSe:PERiod",
+          "FUNCtion:PULSe:TRANsition"
+        ]
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: pulse-width deviation in seconds, default 10 µs, MIN 0, MAX 1000 s but limited by the carrier: deviation < width − Wmin, < period − width − Wmin, and < width − 1.6 × edge time (p. 211-213 of 33220-90002 (Ch. 4, Pulse Width Modulation (PWM) Commands)). PWM exists only under FUNCtion PULSe, so `before` names that setting and the range is asked (MIN/MAX) in that state, never fixed."
     },
     "Set_Pwm_Deviation_Dcycle": {
       "scpi": "PWM:DEViation:DCYCle <value>",
@@ -673,26 +686,41 @@
       "arg": {
         "kind": "numeric",
         "unit": "%",
-        "limits": "query"
+        "limits": "query",
+        "before": [
+          "FUNCtion PULSe"
+        ],
+        "limits_depend_on": [
+          "FUNCtion:PULSe:DCYCle",
+          "FUNCtion:PULSe:PERiod",
+          "FUNCtion:PULSe:TRANsition"
+        ]
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "STATE-DEPENDENT RANGE: duty-cycle deviation < duty cycle − 100 × Wmin ÷ period and < 100 − duty cycle − 100 × Wmin ÷ period (p. 211-213 of 33220-90002 (Ch. 4, Pulse Width Modulation (PWM) Commands)). Certify 2026-11-11 read MAX 49.999999 at the 50 % default duty and the unit then answered -222 \"Data out of range; PWM deviation; value clipped to upper limit\" at that very value — clipped to the UPPER limit, so the MAX the unit reported (49.999999) is not the upper bound it then enforces: the true upper bound is set by the pulse duty, width and edge time at that moment. Ask MIN/MAX under FUNCtion PULSe (`before`) and test inside, not at, the edge."
     },
     "Set_Pwm_Internal_Frequency": {
       "scpi": "PWM:INTernal:FREQuency <value>",
       "scpiFast": "PWM:INT:FREQ <value>",
       "description": "Modulating Waveform Frequency",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "Hz",
+        "min": 0.002,
+        "max": 20000,
+        "default": 10,
+        "limits": "query"
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: 2 mHz to 20 kHz, default 10 Hz (p. 211-213 of 33220-90002 (Ch. 4, Pulse Width Modulation (PWM) Commands)); used only with PWM:SOURce INTernal."
     },
     "Set_Pwm_Source": {
       "scpi": "PWM:SOURce <value>",
@@ -720,26 +748,33 @@
         "values": [
           "OFF",
           "ON"
+        ],
+        "before": [
+          "FUNCtion PULSe"
         ]
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "Needs FUNCtion PULSe: ON is refused until the function is pulse (Certify 2026-11-11: \"needs ON under FUNCtion PULS\"; PWM is pulse-only, 33220-90002 Ch. 3 Pulse Width Modulation)."
     },
     "Set_State_Questionable_Enable": {
       "scpi": "STAT:QUES:ENAB <value>",
       "description": "The Questionable Data Register",
       "arg": {
         "kind": "integer",
+        "min": 0,
+        "max": 32767,
         "limits": "query"
       },
       "args": [
         "value"
       ],
       "subsystem": "STAT",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg: a decimal binary-weighted sum of the enable bits (33220-90002 p. 271, STATus:QUEStionable:ENABle); a 16-bit SCPI enable register, bit 15 unused (IEEE 488.2 §11.4.2.3), so 0…32767."
     },
     "Set_Sweep_Time": {
       "scpi": "SWE:TIME <value>",
@@ -909,13 +944,19 @@
       "scpiFast": "UNIT:ANGL <value>",
       "description": "Burst Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "enum",
+        "values": [
+          "DEG",
+          "RAD"
+        ],
+        "default": "DEG"
       },
       "args": [
         "value"
       ],
       "subsystem": "UNIT",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: UNIT:ANGLe {DEGree|RADian} (33220-90002 Ch. 4, Phase-Lock Commands); was `unknown`, which Certify could only write back."
     },
     "Set_Amplitude": {
       "scpi": "VOLTage <amp>",
@@ -1037,6 +1078,26 @@
       "subsystem": "APPL",
       "unverified": true
     },
+    "Do_Gate_Polarity": {
+      "scpi": "BURSt:GATE:POLarity",
+      "scpiFast": "BURS:GATE:POL",
+      "description": "Do gate polarity",
+      "subsystem": "GATE",
+      "unverified": true,
+      "notes": "Was `GATE:POLarity`: the table generator cut the `BURSt` parent off, so the unit heard a root `GATE` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11).",
+      "retired": true,
+      "retired_because": "Was `GATE:POLarity`: the table generator cut the `BURSt` parent off, so the unit heard a root `GATE` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:GATE:POLarity {NORMal|INVerted}), so a bare send is -109 \"Missing parameter\"; the set/nab of the same node stay."
+    },
+    "Do_Internal_Period": {
+      "scpi": "BURSt:INTernal:PERiod",
+      "scpiFast": "BURS:INT:PER",
+      "description": "Do internal period",
+      "subsystem": "INT",
+      "unverified": true,
+      "notes": "Was `INTernal:PERiod`: the table generator cut the `BURSt` parent off, so the unit heard a root `INTernal` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11).",
+      "retired": true,
+      "retired_because": "Was `INTernal:PERiod`: the table generator cut the `BURSt` parent off, so the unit heard a root `INTernal` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:INTernal:PERiod {<seconds>|MINimum|MAXimum}), so a bare send is -109 \"Missing parameter\"; the set/nab of the same node stay."
+    },
     "Do_Calibration_Secure_Code": {
       "scpi": "CAL:SECure:CODE",
       "scpiFast": "CAL:SEC:CODE",
@@ -1068,6 +1129,15 @@
       "description": "Clear Text",
       "group": "System Actions",
       "subsystem": "System"
+    },
+    "Do_Text_Clear": {
+      "scpi": "DISPlay:TEXT:CLEar",
+      "scpiFast": "DISP:TEXT:CLE",
+      "description": "System-Related Commands",
+      "subsystem": "TEXT",
+      "unverified": true,
+      "notes": "Was `:TEXT:CLEar`: the table generator cut the `DISPlay` parent off, so the unit heard a root `TEXT` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Clear_Text"
     },
     "Do_Fm_Internal": {
       "scpi": "FM:INTernal",
@@ -1114,20 +1184,6 @@
       "scpiFast": "FUNC:SHAP",
       "description": "Do function shape",
       "subsystem": "FUNC",
-      "unverified": true
-    },
-    "Do_Gate_Polarity": {
-      "scpi": "GATE:POLarity",
-      "scpiFast": "GATE:POL",
-      "description": "Do gate polarity",
-      "subsystem": "GATE",
-      "unverified": true
-    },
-    "Do_Internal_Period": {
-      "scpi": "INTernal:PERiod",
-      "scpiFast": "INT:PER",
-      "description": "Do internal period",
-      "subsystem": "INT",
       "unverified": true
     },
     "Do_Memory_State": {
@@ -1178,6 +1234,16 @@
       "description": "Phase-Lock Commands",
       "subsystem": "PHAS",
       "unverified": true
+    },
+    "Do_Unlock_Error_State": {
+      "scpi": "PHASe:UNLock:ERRor:STATe",
+      "scpiFast": "PHAS:UNL:ERR:STAT",
+      "description": "Do unlock error state",
+      "subsystem": "UNL",
+      "unverified": true,
+      "notes": "Was `UNLock:ERRor:STATe`: the table generator cut the `PHASe` parent off, so the unit heard a root `UNLock` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11).",
+      "retired": true,
+      "retired_because": "Was `UNLock:ERRor:STATe`: the table generator cut the `PHASe` parent off, so the unit heard a root `UNLock` it does not have (-113 \"Undefined header\"). Full path from the 33210A/33220A SCPI Command Summary (33220-90002 Ch. 4) (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (PHASe:UNLock:ERRor:STATe {OFF|ON}), so a bare send is -109 \"Missing parameter\"; the set/nab of the same node stay."
     },
     "Do_Pulse_Transition": {
       "scpi": "PULSe:TRANsition",
@@ -1277,20 +1343,6 @@
       "subsystem": "SYST",
       "unverified": true
     },
-    "Do_Text_Clear": {
-      "scpi": ":TEXT:CLEar",
-      "scpiFast": ":TEXT:CLE",
-      "description": "System-Related Commands",
-      "subsystem": "TEXT",
-      "unverified": true
-    },
-    "Do_Unlock_Error_State": {
-      "scpi": "UNLock:ERRor:STATe",
-      "scpiFast": "UNL:ERR:STAT",
-      "description": "Do unlock error state",
-      "subsystem": "UNL",
-      "unverified": true
-    },
     "Do_Voltage_High": {
       "scpi": "VOLTage:HIGH",
       "scpiFast": "VOLT:HIGH",
@@ -1308,8 +1360,8 @@
   },
   "rig": {
     "Setup_AM": {
-      "scpi": "AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>",
-      "scpiFast": "AM:INT:FUNC <shape>;AM:INT:FREQ <freq>;AM:DEPT <depth>",
+      "scpi": "AM:INTernal:FUNCtion <shape>;:AM:INTernal:FREQuency <freq>;:AM:DEPTh <depth>",
+      "scpiFast": "AM:INT:FUNC <shape>;:AM:INT:FREQ <freq>;:AM:DEPT <depth>",
       "description": "Setup AM",
       "arg": {
         "kind": "multi",
@@ -1347,7 +1399,8 @@
         "freq",
         "depth"
       ],
-      "subsystem": "Modulation"
+      "subsystem": "Modulation",
+      "notes": "Was `AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>`: after `;` the parser stays under the previous header's path (AM:INTernal:), so the second statement read as AM:INTernal:AM:INTernal:FREQuency — -113 \"Undefined header\" on the unit (Certify 2026-11-11, three tries). Every statement after the first now starts at the root with `:` (SCPI-99 §6.2.4; scpi_paths.py `relative`)."
     },
     "Apply_Pulse": {
       "scpi": "APPLy:PULSe <freq>, <amp>, <offset>",
@@ -2078,7 +2131,7 @@
         ]
       },
       "unverified": true,
-      "notes": "What every control on the main page hydrates from. `Get_Apply_String` answers the same facts as one quoted blob (\"SIN +1.0E+03,+3.0E+00,+0.0E+00\") with no named fields, so nothing could bind to a value inside it. UNVERIFIED on hardware: five chained statements, and one dead statement kills the whole reply \u2014 check the answer has five semicolon-separated values before trusting a readback. Every statement in it already exists here on its own."
+      "notes": "What every control on the main page hydrates from. `Get_Apply_String` answers the same facts as one quoted blob (\"SIN +1.0E+03,+3.0E+00,+0.0E+00\") with no named fields, so nothing could bind to a value inside it. UNVERIFIED on hardware: five chained statements, and one dead statement kills the whole reply — check the answer has five semicolon-separated values before trusting a readback. Every statement in it already exists here on its own."
     },
     "Get_Marker_Frequency": {
       "scpi": "MARKer:FREQuency?",

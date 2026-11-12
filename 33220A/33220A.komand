@@ -104,23 +104,6 @@
       "subsystem": "AM",
       "notes": "The two-way form of the pair `AM_State_ON` / `AM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a AM switch bound to `AM_State_ON` could only ever turn AM on. Same bytes on the wire that `AM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
     },
-    "Set_Beeper_State": {
-      "scpi": ":BEEPer:STATe <value>",
-      "scpiFast": ":BEEP:STAT <value>",
-      "description": "System-Related Commands",
-      "arg": {
-        "kind": "bool",
-        "values": [
-          "OFF",
-          "ON"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "BEEP",
-      "unverified": true
-    },
     "Set_Burst_Internal_Period": {
       "scpi": "BURS:INT:PER <value>",
       "description": "Burst Commands",
@@ -253,20 +236,24 @@
       "subsystem": "CAL",
       "unverified": true
     },
-    "Set_Deviation_Dcycle": {
-      "scpi": "DEViation:DCYCle <value>",
-      "scpiFast": "DEV:DCYC <value>",
-      "description": "Pulse Width Modulation (PWM) Commands",
+    "Set_Secure_State": {
+      "scpi": "CALibration:SECure:STATe <value>",
+      "scpiFast": "CAL:SEC:STAT <value>",
+      "description": "Calibration Commands",
       "arg": {
-        "kind": "numeric",
-        "unit": "%",
-        "limits": "query"
+        "kind": "bool",
+        "values": [
+          "OFF",
+          "ON"
+        ]
       },
       "args": [
         "value"
       ],
-      "subsystem": "DEV",
-      "unverified": true
+      "subsystem": "SEC",
+      "unverified": true,
+      "notes": "Was `:SECure:STATe <value>`: the table generator cut the `CALibration` parent off, so the unit heard a root `SECure` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Set_Calibration_Secure_State"
     },
     "Set_Display_Text": {
       "scpi": "DISP:TEXT <value>",
@@ -805,18 +792,31 @@
       "scpi": "PWM:DEV <value>",
       "description": "PWM Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "s",
+        "min": 0,
+        "default": 1e-05,
+        "limits": "query",
+        "before": [
+          "FUNCtion PULSe"
+        ],
+        "limits_depend_on": [
+          "FUNCtion:PULSe:WIDTh",
+          "FUNCtion:PULSe:PERiod",
+          "FUNCtion:PULSe:TRANsition"
+        ]
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: pulse-width deviation in seconds, default 10 µs, MIN 0, MAX 1000 s but limited by the carrier: deviation < width − Wmin, < period − width − Wmin, and < width − 1.6 × edge time (p. 211-213 of 33220-90002 (Ch. 4, Pulse Width Modulation (PWM) Commands)). PWM exists only under FUNCtion PULSe, so `before` names that setting and the range is asked (MIN/MAX) in that state, never fixed."
     },
-    "Set_Pwm_Deviation_Dcycle": {
+    "Set_Deviation_Dcycle": {
       "scpi": "PWM:DEViation:DCYCle <value>",
       "scpiFast": "PWM:DEV:DCYC <value>",
-      "description": "PWM Commands",
+      "description": "Pulse Width Modulation (PWM) Commands",
       "arg": {
         "kind": "numeric",
         "unit": "%",
@@ -825,21 +825,53 @@
       "args": [
         "value"
       ],
+      "subsystem": "DEV",
+      "unverified": true,
+      "notes": "Was `DEViation:DCYCle <value>`: the table generator cut the `PWM` parent off, so the unit heard a root `DEViation` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
+    },
+    "Set_Pwm_Deviation_Dcycle": {
+      "scpi": "PWM:DEViation:DCYCle <value>",
+      "scpiFast": "PWM:DEV:DCYC <value>",
+      "description": "PWM Commands",
+      "arg": {
+        "kind": "numeric",
+        "unit": "%",
+        "limits": "query",
+        "before": [
+          "FUNCtion PULSe"
+        ],
+        "limits_depend_on": [
+          "FUNCtion:PULSe:DCYCle",
+          "FUNCtion:PULSe:PERiod",
+          "FUNCtion:PULSe:TRANsition"
+        ]
+      },
+      "args": [
+        "value"
+      ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "STATE-DEPENDENT RANGE: duty-cycle deviation < duty cycle − 100 × Wmin ÷ period and < 100 − duty cycle − 100 × Wmin ÷ period (p. 211-213 of 33220-90002 (Ch. 4, Pulse Width Modulation (PWM) Commands)). Certify 2026-11-11 read MAX 49.999999 at the 50 % default duty and the unit then answered -222 \"Data out of range; PWM deviation; value clipped to upper limit\" at that very value — clipped to the UPPER limit, so the MAX the unit reported (49.999999) is not the upper bound it then enforces: the true upper bound is set by the pulse duty, width and edge time at that moment. Ask MIN/MAX under FUNCtion PULSe (`before`) and test inside, not at, the edge.",
+      "alias_of": "Set_Deviation_Dcycle"
     },
     "Set_Pwm_Internal_Frequency": {
       "scpi": "PWM:INTernal:FREQuency <value>",
       "scpiFast": "PWM:INT:FREQ <value>",
       "description": "Modulating Waveform Frequency",
       "arg": {
-        "kind": "unknown"
+        "kind": "numeric",
+        "unit": "Hz",
+        "min": 0.002,
+        "max": 20000,
+        "default": 10,
+        "limits": "query"
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: 2 mHz to 20 kHz, default 10 Hz (p. 211-213 of 33220-90002 (Ch. 4, Pulse Width Modulation (PWM) Commands)); used only with PWM:SOURce INTernal."
     },
     "Set_Pwm_Source": {
       "scpi": "PWM:SOURce <value>",
@@ -867,57 +899,51 @@
         "values": [
           "OFF",
           "ON"
+        ],
+        "before": [
+          "FUNCtion PULSe"
         ]
       },
       "args": [
         "value"
       ],
       "subsystem": "PWM",
-      "unverified": true
-    },
-    "Set_Questionable_Enable": {
-      "scpi": ":QUEStionable:ENABle <value>",
-      "scpiFast": ":QUES:ENAB <value>",
-      "description": "Status Reporting Commands",
-      "arg": {
-        "kind": "integer",
-        "limits": "query"
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Set_Secure_State": {
-      "scpi": ":SECure:STATe <value>",
-      "scpiFast": ":SEC:STAT <value>",
-      "description": "Calibration Commands",
-      "arg": {
-        "kind": "bool",
-        "values": [
-          "OFF",
-          "ON"
-        ]
-      },
-      "args": [
-        "value"
-      ],
-      "subsystem": "SEC",
-      "unverified": true
+      "unverified": true,
+      "notes": "Needs FUNCtion PULSe: ON is refused until the function is pulse (Certify 2026-11-11: \"needs ON under FUNCtion PULS\"; PWM is pulse-only, 33220-90002 Ch. 3 Pulse Width Modulation)."
     },
     "Set_State_Questionable_Enable": {
       "scpi": "STAT:QUES:ENAB <value>",
       "description": "The Questionable Data Register",
       "arg": {
         "kind": "integer",
+        "min": 0,
+        "max": 32767,
         "limits": "query"
       },
       "args": [
         "value"
       ],
       "subsystem": "STAT",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg: a decimal binary-weighted sum of the enable bits (33220-90002 p. 271, STATus:QUEStionable:ENABle); a 16-bit SCPI enable register, bit 15 unused (IEEE 488.2 §11.4.2.3), so 0…32767."
+    },
+    "Set_Questionable_Enable": {
+      "scpi": "STATus:QUEStionable:ENABle <value>",
+      "scpiFast": "STAT:QUES:ENAB <value>",
+      "description": "Status Reporting Commands",
+      "arg": {
+        "kind": "integer",
+        "min": 0,
+        "max": 32767,
+        "limits": "query"
+      },
+      "args": [
+        "value"
+      ],
+      "subsystem": "QUES",
+      "unverified": true,
+      "notes": "Was `:QUEStionable:ENABle <value>`: the table generator cut the `STATus` parent off, so the unit heard a root `QUEStionable` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Set_State_Questionable_Enable"
     },
     "Set_Sweep_Time": {
       "scpi": "SWE:TIME <value>",
@@ -982,6 +1008,25 @@
       ],
       "subsystem": "SYST",
       "unverified": true
+    },
+    "Set_Beeper_State": {
+      "scpi": "SYSTem:BEEPer:STATe <value>",
+      "scpiFast": "SYST:BEEP:STAT <value>",
+      "description": "System-Related Commands",
+      "arg": {
+        "kind": "bool",
+        "values": [
+          "OFF",
+          "ON"
+        ]
+      },
+      "args": [
+        "value"
+      ],
+      "subsystem": "BEEP",
+      "unverified": true,
+      "notes": "Was `:BEEPer:STATe <value>`: the table generator cut the `SYSTem` parent off, so the unit heard a root `BEEPer` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Set_System_Beeper_State"
     },
     "Set_System_Communicate_Lan_Ipaddress": {
       "scpi": "SYSTem:COMMunicate:LAN:IPADdress <value>",
@@ -1087,13 +1132,19 @@
       "scpiFast": "UNIT:ANGL <value>",
       "description": "Burst Commands",
       "arg": {
-        "kind": "unknown"
+        "kind": "enum",
+        "values": [
+          "DEG",
+          "RAD"
+        ],
+        "default": "DEG"
       },
       "args": [
         "value"
       ],
       "subsystem": "UNIT",
-      "unverified": true
+      "unverified": true,
+      "notes": "Arg from the manual: UNIT:ANGLe {DEGree|RADian} (33220-90002 Ch. 4, Phase-Lock Commands); was `unknown`, which Certify could only write back."
     },
     "Set_Amplitude": {
       "scpi": "VOLTage <amp>",
@@ -1215,12 +1266,41 @@
       "subsystem": "APPL",
       "unverified": true
     },
+    "Do_Gate_Polarity": {
+      "scpi": "BURSt:GATE:POLarity",
+      "scpiFast": "BURS:GATE:POL",
+      "description": "Do gate polarity",
+      "subsystem": "GATE",
+      "unverified": true,
+      "notes": "Was `GATE:POLarity`: the table generator cut the `BURSt` parent off, so the unit heard a root `GATE` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "retired": true,
+      "retired_because": "Was `GATE:POLarity`: the table generator cut the `BURSt` parent off, so the unit heard a root `GATE` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:GATE:POLarity {NORMal|INVerted}), so a bare send is -109 \"Missing parameter\"; the set/nab of the same node stay."
+    },
+    "Do_Internal_Period": {
+      "scpi": "BURSt:INTernal:PERiod",
+      "scpiFast": "BURS:INT:PER",
+      "description": "Do internal period",
+      "subsystem": "INT",
+      "unverified": true,
+      "notes": "Was `INTernal:PERiod`: the table generator cut the `BURSt` parent off, so the unit heard a root `INTernal` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "retired": true,
+      "retired_because": "Was `INTernal:PERiod`: the table generator cut the `BURSt` parent off, so the unit heard a root `INTernal` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:INTernal:PERiod {<seconds>|MINimum|MAXimum}), so a bare send is -109 \"Missing parameter\"; the set/nab of the same node stay."
+    },
     "Do_Calibration_Secure_Code": {
       "scpi": "CAL:SECure:CODE",
       "scpiFast": "CAL:SEC:CODE",
       "description": "Calibration Commands",
       "subsystem": "CAL",
       "unverified": true
+    },
+    "Do_Secure_Code": {
+      "scpi": "CALibration:SECure:CODE",
+      "scpiFast": "CAL:SEC:CODE",
+      "description": "Calibration Commands",
+      "subsystem": "SEC",
+      "unverified": true,
+      "notes": "Was `:SECure:CODE`: the table generator cut the `CALibration` parent off, so the unit heard a root `SECure` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Do_Calibration_Secure_Code"
     },
     "Do_Data_Copy": {
       "scpi": "DATA:COPY",
@@ -1246,6 +1326,15 @@
       "description": "Clear Text",
       "group": "System Actions",
       "subsystem": "System"
+    },
+    "Do_Text_Clear": {
+      "scpi": "DISPlay:TEXT:CLEar",
+      "scpiFast": "DISP:TEXT:CLE",
+      "description": "System-Related Commands",
+      "subsystem": "TEXT",
+      "unverified": true,
+      "notes": "Was `:TEXT:CLEar`: the table generator cut the `DISPlay` parent off, so the unit heard a root `TEXT` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Clear_Text"
     },
     "Do_Fm_Internal": {
       "scpi": "FM:INTernal",
@@ -1292,20 +1381,6 @@
       "scpiFast": "FUNC:SHAP",
       "description": "Do function shape",
       "subsystem": "FUNC",
-      "unverified": true
-    },
-    "Do_Gate_Polarity": {
-      "scpi": "GATE:POLarity",
-      "scpiFast": "GATE:POL",
-      "description": "Do gate polarity",
-      "subsystem": "GATE",
-      "unverified": true
-    },
-    "Do_Internal_Period": {
-      "scpi": "INTernal:PERiod",
-      "scpiFast": "INT:PER",
-      "description": "Do internal period",
-      "subsystem": "INT",
       "unverified": true
     },
     "Do_Memory_State": {
@@ -1357,6 +1432,16 @@
       "subsystem": "PHAS",
       "unverified": true
     },
+    "Do_Unlock_Error_State": {
+      "scpi": "PHASe:UNLock:ERRor:STATe",
+      "scpiFast": "PHAS:UNL:ERR:STAT",
+      "description": "Do unlock error state",
+      "subsystem": "UNL",
+      "unverified": true,
+      "notes": "Was `UNLock:ERRor:STATe`: the table generator cut the `PHASe` parent off, so the unit heard a root `UNLock` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "retired": true,
+      "retired_because": "Was `UNLock:ERRor:STATe`: the table generator cut the `PHASe` parent off, so the unit heard a root `UNLock` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (PHASe:UNLock:ERRor:STATe {OFF|ON}), so a bare send is -109 \"Missing parameter\"; the set/nab of the same node stay."
+    },
     "Do_Pm_Internal": {
       "scpi": "PM:INTernal",
       "scpiFast": "PM:INT",
@@ -1397,13 +1482,6 @@
       "scpiFast": "PWM:INT:FUNC",
       "description": "Modulating Waveform Shape",
       "subsystem": "PWM",
-      "unverified": true
-    },
-    "Do_Secure_Code": {
-      "scpi": ":SECure:CODE",
-      "scpiFast": ":SEC:CODE",
-      "description": "Calibration Commands",
-      "subsystem": "SEC",
       "unverified": true
     },
     "Do_State_Preset": {
@@ -1476,20 +1554,6 @@
       "subsystem": "SYST",
       "unverified": true
     },
-    "Do_Text_Clear": {
-      "scpi": ":TEXT:CLEar",
-      "scpiFast": ":TEXT:CLE",
-      "description": "System-Related Commands",
-      "subsystem": "TEXT",
-      "unverified": true
-    },
-    "Do_Unlock_Error_State": {
-      "scpi": "UNLock:ERRor:STATe",
-      "scpiFast": "UNL:ERR:STAT",
-      "description": "Do unlock error state",
-      "subsystem": "UNL",
-      "unverified": true
-    },
     "Do_Voltage_High": {
       "scpi": "VOLTage:HIGH",
       "scpiFast": "VOLT:HIGH",
@@ -1507,8 +1571,8 @@
   },
   "rig": {
     "Setup_AM": {
-      "scpi": "AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>",
-      "scpiFast": "AM:INT:FUNC <shape>;AM:INT:FREQ <freq>;AM:DEPT <depth>",
+      "scpi": "AM:INTernal:FUNCtion <shape>;:AM:INTernal:FREQuency <freq>;:AM:DEPTh <depth>",
+      "scpiFast": "AM:INT:FUNC <shape>;:AM:INT:FREQ <freq>;:AM:DEPT <depth>",
       "description": "Setup AM",
       "arg": {
         "kind": "multi",
@@ -1546,7 +1610,8 @@
         "freq",
         "depth"
       ],
-      "subsystem": "Modulation"
+      "subsystem": "Modulation",
+      "notes": "Was `AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>`: after `;` the parser stays under the previous header's path (AM:INTernal:), so the second statement read as AM:INTernal:AM:INTernal:FREQuency — -113 \"Undefined header\" on the unit (Certify 2026-11-11, three tries). Every statement after the first now starts at the root with `:` (SCPI-99 §6.2.4; scpi_paths.py `relative`)."
     },
     "Apply_Pulse": {
       "scpi": "APPLy:PULSe <freq>, <amp>, <offset>",
@@ -1786,64 +1851,6 @@
       "group": "APPLy Readbacks",
       "subsystem": "APPLy"
     },
-    "Get_Attribute_Average": {
-      "scpi": ":ATTRibute:AVERage?",
-      "scpiFast": ":ATTR:AVER?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Attribute_Cfactor": {
-      "scpi": ":ATTRibute:CFACtor?",
-      "scpiFast": ":ATTR:CFAC?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Attribute_Points": {
-      "scpi": ":ATTRibute:POINts?",
-      "scpiFast": ":ATTR:POIN?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Attribute_Ptpeak": {
-      "scpi": ":ATTRibute:PTPeak?",
-      "scpiFast": ":ATTR:PTP?",
-      "description": "Arbitrary Waveform Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "dB"
-      },
-      "subsystem": "ATTR",
-      "unverified": true
-    },
-    "Get_Beeper_State": {
-      "scpi": ":BEEPer:STATe?",
-      "scpiFast": ":BEEP:STAT?",
-      "description": "System-Related Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "BEEP",
-      "unverified": true
-    },
     "Get_Burst_Gate_Polarity": {
       "scpi": "BURSt:GATE:POLarity?",
       "scpiFast": "BURS:GATE:POL?",
@@ -1993,17 +2000,55 @@
       "subsystem": "CAL",
       "unverified": true
     },
+    "Get_Secure_State": {
+      "scpi": "CALibration:SECure:STATe?",
+      "scpiFast": "CAL:SEC:STAT?",
+      "description": "Calibration Commands",
+      "returns": {
+        "count": 1,
+        "type": "BOOL"
+      },
+      "subsystem": "SEC",
+      "unverified": true,
+      "notes": "Was `:SECure:STATe?`: the table generator cut the `CALibration` parent off, so the unit heard a root `SECure` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Get_Calibration_Secure_State"
+    },
+    "Get_Attribute_Average": {
+      "scpi": "DATA:ATTRibute:AVERage?",
+      "scpiFast": "DATA:ATTR:AVER?",
+      "description": "Arbitrary Waveform Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR3"
+      },
+      "subsystem": "ATTR",
+      "unverified": true,
+      "notes": "Was `:ATTRibute:AVERage?`: the table generator cut the `DATA` parent off, so the unit heard a root `ATTRibute` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Returns NR3, no unit (33220-90002 Ch. 4, p. 244) — alias of Get_Data_Attribute_Average."
+    },
     "Get_Data_Attribute_Average": {
       "scpi": "DATA:ATTRibute:AVERage?",
       "scpiFast": "DATA:ATTR:AVER?",
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR1",
-        "unit": "dB"
+        "type": "NR3"
       },
       "subsystem": "DATA",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Attribute_Average",
+      "notes": "Returns NR3, no unit: the arithmetic average of the arb's points, -1 to +1 (33220-90002 Ch. 4, DATA:ATTRibute:AVERage?, p. 244); the unit answered +6.7156300000000E-01 where the table said NR1 dB (Certify 2026-11-11)."
+    },
+    "Get_Attribute_Cfactor": {
+      "scpi": "DATA:ATTRibute:CFACtor?",
+      "scpiFast": "DATA:ATTR:CFAC?",
+      "description": "Arbitrary Waveform Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR3"
+      },
+      "subsystem": "ATTR",
+      "unverified": true,
+      "notes": "Was `:ATTRibute:CFACtor?`: the table generator cut the `DATA` parent off, so the unit heard a root `ATTRibute` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Returns NR3, no unit: a ratio (33220-90002 Ch. 4) — alias of Get_Data_Attribute_Cfactor."
     },
     "Get_Data_Attribute_Cfactor": {
       "scpi": "DATA:ATTRibute:CFACtor?",
@@ -2011,11 +2056,24 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR3",
-        "unit": "dB"
+        "type": "NR3"
       },
       "subsystem": "DATA",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Attribute_Cfactor",
+      "notes": "Returns NR3, no unit: crest factor = peak ÷ RMS, a ratio, not dB (33220-90002 Ch. 4, DATA:ATTRibute:CFACtor?)."
+    },
+    "Get_Attribute_Points": {
+      "scpi": "DATA:ATTRibute:POINts?",
+      "scpiFast": "DATA:ATTR:POIN?",
+      "description": "Arbitrary Waveform Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR1"
+      },
+      "subsystem": "ATTR",
+      "unverified": true,
+      "notes": "Was `:ATTRibute:POINts?`: the table generator cut the `DATA` parent off, so the unit heard a root `ATTRibute` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
     },
     "Get_Data_Attribute_Points": {
       "scpi": "DATA:ATTRibute:POINts?",
@@ -2026,7 +2084,20 @@
         "type": "NR1"
       },
       "subsystem": "DATA",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Attribute_Points"
+    },
+    "Get_Attribute_Ptpeak": {
+      "scpi": "DATA:ATTRibute:PTPeak?",
+      "scpiFast": "DATA:ATTR:PTP?",
+      "description": "Arbitrary Waveform Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR3"
+      },
+      "subsystem": "ATTR",
+      "unverified": true,
+      "notes": "Was `:ATTRibute:PTPeak?`: the table generator cut the `DATA` parent off, so the unit heard a root `ATTRibute` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Returns NR3, no unit: 0 to +1.0 (33220-90002 Ch. 4) — alias of Get_Data_Attribute_Ptpeak."
     },
     "Get_Data_Attribute_Ptpeak": {
       "scpi": "DATA:ATTRibute:PTPeak?",
@@ -2034,11 +2105,12 @@
       "description": "Arbitrary Waveform Commands",
       "returns": {
         "count": 1,
-        "type": "NR3",
-        "unit": "dB"
+        "type": "NR3"
       },
       "subsystem": "DATA",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Attribute_Ptpeak",
+      "notes": "Returns NR3, no unit: 0 to +1.0 of full amplitude (33220-90002 Ch. 4, DATA:ATTRibute:PTPeak?), not dB."
     },
     "Get_Data_Catalog": {
       "scpi": "DATA:CAT?",
@@ -2067,17 +2139,6 @@
         "count": 1
       },
       "subsystem": "DATA",
-      "unverified": true
-    },
-    "Get_Deviation_Dcycle": {
-      "scpi": ":DEV:DCYC?",
-      "description": "Pulse Width Modulation (PWM) Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "%"
-      },
-      "subsystem": "DEV",
       "unverified": true
     },
     "Get_Display_Text": {
@@ -2247,10 +2308,15 @@
       "description": "Using the APPLy Command",
       "returns": {
         "count": 1,
-        "type": "NR3"
+        "type": "CRD",
+        "values": [
+          "WIDT",
+          "DCYC"
+        ]
       },
       "subsystem": "FUNC",
-      "unverified": true
+      "unverified": true,
+      "notes": "Returns a keyword, WIDT or DCYC (FUNCtion:PULSe:HOLD {WIDTh|DCYCle}, 33220-90002 Ch. 4 p. 193); the unit answered WIDT where the table said NR3 (Certify 2026-11-11)."
     },
     "Get_Function_Pulse_Transition": {
       "scpi": "FUNCtion:PULSe:TRANsition?",
@@ -2342,6 +2408,20 @@
       },
       "subsystem": "FUNC",
       "unverified": true
+    },
+    "Get_Square_Dcycle": {
+      "scpi": "FUNCtion:SQUare:DCYCle?",
+      "scpiFast": "FUNC:SQU:DCYC?",
+      "description": "Output Configuration Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR3",
+        "unit": "%"
+      },
+      "subsystem": "SQU",
+      "unverified": true,
+      "notes": "Was `SQUare:DCYCle?`: the table generator cut the `FUNCtion` parent off, so the unit heard a root `SQUare` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Get_Function_Square_Dcycle"
     },
     "Get_Function_User": {
       "scpi": "FUNCtion:USER?",
@@ -2588,6 +2668,18 @@
       "subsystem": "PULS",
       "unverified": true
     },
+    "Get_Deviation_Dcycle": {
+      "scpi": "PWM:DEViation:DCYCle?",
+      "description": "Pulse Width Modulation (PWM) Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR3",
+        "unit": "%"
+      },
+      "subsystem": "DEV",
+      "unverified": true,
+      "notes": "Was `:DEV:DCYC?`: the table generator cut the `PWM` parent off, so the unit heard a root `DEViation` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
+    },
     "Get_Pwm_Deviation_Dcycle": {
       "scpi": "PWM:DEViation:DCYCle?",
       "scpiFast": "PWM:DEV:DCYC?",
@@ -2598,7 +2690,8 @@
         "unit": "%"
       },
       "subsystem": "PWM",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Deviation_Dcycle"
     },
     "Get_Pwm_Deviation": {
       "scpi": "PWM:DEViation?",
@@ -2642,62 +2735,6 @@
       "subsystem": "PWM",
       "unverified": true
     },
-    "Get_Questionable_Condition": {
-      "scpi": ":QUEStionable:CONDition?",
-      "scpiFast": ":QUES:COND?",
-      "description": "Status Reporting Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Get_Questionable_Enable": {
-      "scpi": ":QUEStionable:ENABle?",
-      "scpiFast": ":QUES:ENAB?",
-      "description": "Status Reporting Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Get_Questionable_Event": {
-      "scpi": ":QUEStionable:EVENt?",
-      "scpiFast": ":QUES:EVEN?",
-      "description": "Status Reporting Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR1"
-      },
-      "subsystem": "QUES",
-      "unverified": true
-    },
-    "Get_Secure_State": {
-      "scpi": ":SECure:STATe?",
-      "scpiFast": ":SEC:STAT?",
-      "description": "Calibration Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "SEC",
-      "unverified": true
-    },
-    "Get_Square_Dcycle": {
-      "scpi": "SQUare:DCYCle?",
-      "scpiFast": "SQU:DCYC?",
-      "description": "Output Configuration Commands",
-      "returns": {
-        "count": 1,
-        "type": "NR3",
-        "unit": "%"
-      },
-      "subsystem": "SQU",
-      "unverified": true
-    },
     "Get_State_Questionable_Event": {
       "scpi": "STAT:QUES:EVEN?",
       "description": "What is an Event Register?",
@@ -2708,6 +2745,18 @@
       "subsystem": "STAT",
       "unverified": true
     },
+    "Get_Questionable_Condition": {
+      "scpi": "STATus:QUEStionable:CONDition?",
+      "scpiFast": "STAT:QUES:COND?",
+      "description": "Status Reporting Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR1"
+      },
+      "subsystem": "QUES",
+      "unverified": true,
+      "notes": "Was `:QUEStionable:CONDition?`: the table generator cut the `STATus` parent off, so the unit heard a root `QUEStionable` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
+    },
     "Get_State_Questionable_Condition": {
       "scpi": "STATus:QUEStionable:CONDition?",
       "scpiFast": "STAT:QUES:COND?",
@@ -2717,7 +2766,20 @@
         "type": "NR1"
       },
       "subsystem": "STAT",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Questionable_Condition"
+    },
+    "Get_Questionable_Enable": {
+      "scpi": "STATus:QUEStionable:ENABle?",
+      "scpiFast": "STAT:QUES:ENAB?",
+      "description": "Status Reporting Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR1"
+      },
+      "subsystem": "QUES",
+      "unverified": true,
+      "notes": "Was `:QUEStionable:ENABle?`: the table generator cut the `STATus` parent off, so the unit heard a root `QUEStionable` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
     },
     "Get_State_Questionable_Enable": {
       "scpi": "STATus:QUEStionable:ENABle?",
@@ -2728,7 +2790,20 @@
         "type": "NR1"
       },
       "subsystem": "STAT",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Questionable_Enable"
+    },
+    "Get_Questionable_Event": {
+      "scpi": "STATus:QUEStionable:EVENt?",
+      "scpiFast": "STAT:QUES:EVEN?",
+      "description": "Status Reporting Commands",
+      "returns": {
+        "count": 1,
+        "type": "NR1"
+      },
+      "subsystem": "QUES",
+      "unverified": true,
+      "notes": "Was `:QUEStionable:EVENt?`: the table generator cut the `STATus` parent off, so the unit heard a root `QUEStionable` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
     },
     "Get_Sweep_Spacing": {
       "scpi": "SWEep:SPACing?",
@@ -2801,6 +2876,18 @@
       "subsystem": "SWE",
       "unverified": true
     },
+    "Get_Beeper_State": {
+      "scpi": "SYSTem:BEEPer:STATe?",
+      "scpiFast": "SYST:BEEP:STAT?",
+      "description": "System-Related Commands",
+      "returns": {
+        "count": 1,
+        "type": "BOOL"
+      },
+      "subsystem": "BEEP",
+      "unverified": true,
+      "notes": "Was `:BEEPer:STATe?`: the table generator cut the `SYSTem` parent off, so the unit heard a root `BEEPer` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11)."
+    },
     "Get_System_Beeper_State": {
       "scpi": "SYSTem:BEEPer:STATe?",
       "scpiFast": "SYST:BEEP:STAT?",
@@ -2810,7 +2897,8 @@
         "type": "BOOL"
       },
       "subsystem": "SYST",
-      "unverified": true
+      "unverified": true,
+      "alias_of": "Get_Beeper_State"
     },
     "Get_System_Communicate_Lan_Ipaddress": {
       "scpi": "SYSTem:COMMunicate:LAN:IPADdress?",

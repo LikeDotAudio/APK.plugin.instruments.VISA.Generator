@@ -4,7 +4,7 @@
 
 Generated from the `.komand` table by `apkaudio-komand build-trees`. Edit the table, not this file.
 
-**262 commands** — SET 80 · RIG 4 · NAB 119 · DO 59 · 234 unverified (89%)
+**243 commands** — SET 77 · RIG 4 · NAB 112 · DO 50 · 215 unverified (88%)
 
 `SET` one argument · `RIG` several applied together · `NAB` a query · `DO` a parameterless action. **†** marks a command swept out of a manual and never sent to the instrument.
 
@@ -15,7 +15,7 @@ Several statements in one message, so they hang off no single branch. Every stat
 - **NAB** `Get_Sweep_Config` · → state, time, spacing, start, stop · †<br>Read the whole sweep setup in one transaction
   - `:SWEep:STATe?;:SWEep:TIME?;:SWEep:SPACing?;:FREQuency:STARt?;:FREQuency:STOP?`
 - **RIG** `Setup_AM` · args: `shape`, `freq`, `depth` · multi
-  - `AM:INTernal:FUNCtion <shape>;AM:INTernal:FREQuency <freq>;AM:DEPTh <depth>`
+  - `AM:INTernal:FUNCtion <shape>;:AM:INTernal:FREQuency <freq>;:AM:DEPTh <depth>`
 - **NAB** `burst_settings` · → state, mode, ncycles, phase, period, gate_polarity · †<br>The whole burst setup in one transaction.
   - `:BURSt:STATe?;:BURSt:MODE?;:BURSt:NCYCles?;:BURSt:PHASe?;:BURSt:INTernal:PERiod?;:BURSt:GATE:POLarity?`
 - **NAB** `generator_settings` · → function, frequency, amplitude, offset, output · †<br>Shape, frequency, amplitude, offset and the output state, in one round trip.
@@ -54,17 +54,9 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `SINusoid` — **RIG** `Apply_Sine` · `<freq>, <amp>, <offset>` · args: `freq`, `amp`, `offset` · numeric (Hz)
   - `SQUare` — **RIG** `Apply_Square` · `<freq>, <amp>, <offset>` · args: `freq`, `amp`, `offset` · numeric (Hz)
   - `NOISe` — **DO** `Do_Apply_Noise` · †<br>Using the APPLy Command
-- **`ATTRibute`**
-  - `AVERage?` — **NAB** `Get_Attribute_Average` · → NR1 dB · †<br>Arbitrary Waveform Commands
-  - `CFACtor?` — **NAB** `Get_Attribute_Cfactor` · → NR3 dB · †<br>Arbitrary Waveform Commands
-  - `POINts?` — **NAB** `Get_Attribute_Points` · → NR1 dB · †<br>Arbitrary Waveform Commands
-  - `PTPeak?` — **NAB** `Get_Attribute_Ptpeak` · → NR3 dB · †<br>Arbitrary Waveform Commands
-- **`BEEPer`**
-  - `STATe` — **SET** `Set_Beeper_State` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>System-Related Commands
-  - `STATe?` — **NAB** `Get_Beeper_State` · → BOOL · †<br>System-Related Commands
 - **`BURS`**
   - `MODE` — **SET** `Set_Burst_Mode` · `<value>` · args: `value` · enum: `TRIG` | `GAT` · †<br>Burst Commands
-  - `NCYC` — **SET** `Set_Burst_Ncycles` · `<value>` · args: `value` · †<br>Burst Commands
+  - `NCYC` — **SET** `Set_Burst_Ncycles` · `<value>` · args: `value` · integer · †<br>Burst Commands
   - `PHAS` — **SET** `Set_Burst_Phase` · `<value>` · args: `value` · numeric (deg) · †<br>Burst Commands
   - **`INT`**
     - `PER` — **SET** `Set_Burst_Internal_Period` · `<value>` · args: `value` · numeric (s) · †<br>Burst Commands
@@ -90,31 +82,37 @@ Several statements in one message, so they hang off no single branch. Every stat
   - **`SECure`**
     - `STATe?` — **NAB** `Get_Calibration_Secure_State` · → BOOL · †
     - `CODE` — **DO** `Do_Calibration_Secure_Code` · †<br>Calibration Commands
+- **`CALibration`**
+  - **`SECure`**
+    - `STATe` — **SET** `Set_Secure_State` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Calibration Commands
+    - `STATe?` — **NAB** `Get_Secure_State` · → BOOL · †<br>Calibration Commands
+    - `CODE` — **DO** `Do_Secure_Code` · †<br>Calibration Commands
 - **`DATA`**
   - `CAT?` — **NAB** `Get_Data_Catalog` · → 1 value · †
   - `COPY` — **DO** `Do_Data_Copy` · †<br>Arbitrary Waveform Commands
   - `DAC` — **DO** `Do_Data_Dac` · †<br>Arbitrary Waveform Commands
   - `DEL` — **DO** `Do_Data_Delete` · †<br>Arbitrary Waveform Commands
   - **`ATTRibute`**
-    - `AVERage?` — **NAB** `Get_Data_Attribute_Average` · → NR1 dB · †<br>Arbitrary Waveform Commands
-    - `CFACtor?` — **NAB** `Get_Data_Attribute_Cfactor` · → NR3 dB · †<br>Arbitrary Waveform Commands
-    - `POINts?` — **NAB** `Get_Data_Attribute_Points` · → NR1 dB · †<br>Arbitrary Waveform Commands
-    - `PTPeak?` — **NAB** `Get_Data_Attribute_Ptpeak` · → NR3 dB · †<br>Arbitrary Waveform Commands
+    - `AVERage?` — **NAB** `Get_Attribute_Average` · → NR3 · †<br>Arbitrary Waveform Commands
+    - `CFACtor?` — **NAB** `Get_Attribute_Cfactor` · → NR3 · †<br>Arbitrary Waveform Commands
+    - `POINts?` — **NAB** `Get_Attribute_Points` · → NR1 · †<br>Arbitrary Waveform Commands
+    - `PTPeak?` — **NAB** `Get_Attribute_Ptpeak` · → NR3 · †<br>Arbitrary Waveform Commands
+    - `AVERage?` — **NAB** `Get_Data_Attribute_Average` · → NR3 · †<br>Arbitrary Waveform Commands
+    - `CFACtor?` — **NAB** `Get_Data_Attribute_Cfactor` · → NR3 · †<br>Arbitrary Waveform Commands
+    - `POINts?` — **NAB** `Get_Data_Attribute_Points` · → NR1 · †<br>Arbitrary Waveform Commands
+    - `PTPeak?` — **NAB** `Get_Data_Attribute_Ptpeak` · → NR3 · †<br>Arbitrary Waveform Commands
   - **`NVOLatile`**
     - `CATalog?` — **NAB** `Get_Data_Nvolatile_Catalog` · → 1 value · †
     - `FREE?` — **NAB** `Get_Data_Nvolatile_Free` · → 1 value · †
-- **`DEV`**
-  - `DCYC?` — **NAB** `Get_Deviation_Dcycle` · → NR3 % · †<br>Pulse Width Modulation (PWM) Commands
-- **`DEViation`**
-  - `DCYCle` — **SET** `Set_Deviation_Dcycle` · `<value>` · args: `value` · numeric (%) · †<br>Pulse Width Modulation (PWM) Commands
 - **`DISP`**
   - `TEXT` — **SET** `Set_Display_Text` · `<value>` · args: `value` · string · †<br>System-Related Operations
 - **`DISPlay`**
   - `TEXT?` — **NAB** `Get_Display_Text` · → 1 value · †<br>System-Related Operations
   - **`TEXT`**
     - `CLEar` — **DO** `Clear_Text`
+    - `CLEar` — **DO** `Do_Text_Clear` · †<br>System-Related Commands
 - **`FM`**
-  - `DEViation` — **SET** `Set_Fm_Deviation` · `<value>` · args: `value` · †<br>FM Commands
+  - `DEViation` — **SET** `Set_Fm_Deviation` · `<value>` · args: `value` · numeric (Hz) · †<br>FM Commands
   - `SOUR` — **SET** `Set_Fm_Source` · `<value>` · args: `value` · enum: `INT` | `EXT` · †<br>FM Commands
   - `STATe` — **SET** `Set_Fm_State` · `<value>` · args: `value` · bool: `OFF` | `ON`
   - `DEViation?` — **NAB** `Get_Fm_Deviation` · → 1 value · †<br>FM Commands
@@ -124,7 +122,7 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `STATe` — **DO** `FM_State_OFF` · `OFF`
   - `STATe` — **DO** `FM_State_ON` · `ON`
   - **`INTernal`**
-    - `FREQuency` — **SET** `Set_Fm_Internal_Frequency` · `<value>` · args: `value` · †<br>Modulating Waveform Frequency
+    - `FREQuency` — **SET** `Set_Fm_Internal_Frequency` · `<value>` · args: `value` · numeric (Hz) · †<br>Modulating Waveform Frequency
     - `FREQuency?` — **NAB** `Get_Fm_Internal_Frequency` · → 1 value · †<br>Frequency Modulation (FM) Commands
     - `FUNCtion` — **DO** `Do_Fm_Internal_Function` · †<br>Modulating Waveform Shape
 - **`FORMat`**
@@ -164,32 +162,16 @@ Several statements in one message, so they hang off no single branch. Every stat
     - `TRANsition` — **SET** `Set_Function_Pulse_Transition` · `<value>` · args: `value` · †<br>Edge Time
     - `WIDTh` — **SET** `Setup_Pulse_Width` · `<width_sec>` · args: `width_sec` · numeric
     - `DCYCle?` — **NAB** `Get_Function_Pulse_Dcycle` · → NR3 % · †<br>Pulse Configuration Commands
-    - `HOLD?` — **NAB** `Get_Function_Pulse_Hold` · → NR3 · †<br>Using the APPLy Command
+    - `HOLD?` — **NAB** `Get_Function_Pulse_Hold` · → CRD · †<br>Using the APPLy Command
     - `TRANsition?` — **NAB** `Get_Function_Pulse_Transition` · → 1 value · †<br>Pulse Configuration Commands
     - `WIDTh?` — **NAB** `Get_Function_Pulse_Width` · → NR3 · †<br>Pulse Configuration Commands
   - **`RAMP`**
-    - `SYMMetry` — **SET** `Set_Function_Ramp_Symmetry` · `<value>` · args: `value` · †<br>Output Configuration Commands
+    - `SYMMetry` — **SET** `Set_Function_Ramp_Symmetry` · `<value>` · args: `value` · numeric (%) · †<br>Output Configuration Commands
     - `SYMMetry?` — **NAB** `Get_Function_Ramp_Symmetry` · → 1 value · †<br>Output Configuration Commands
   - **`SQUare`**
     - `DCYCle` — **SET** `Set_Function_Square_Dcycle` · `<value>` · args: `value` · numeric (%) · †<br>Output Configuration Commands
     - `DCYCle?` — **NAB** `Get_Function_Square_Dcycle` · → NR3 % · †<br>Output Configuration Commands
-- **`GATE`**
-  - `POLarity` — **DO** `Do_Gate_Polarity` · †
-- **`INTernal`**
-  - `PERiod` — **DO** `Do_Internal_Period` · †
-- **`KLOCk`**
-  - `EXCLude` — **SET** `Set_Klock_Exclude` · `<value>` · args: `value` · †<br>System-Related Commands
-  - `EXCLude?` — **NAB** `Get_Klock_Exclude` · → 1 value · †<br>System-Related Commands
-  - `STATe` — **DO** `Do_Klock_State` · †<br>System-Related Commands
-- **`LAN`**
-  - `LIPaddress?` — **NAB** `Get_Lan_Lipaddress` · → 1 value · †
-  - `MAC?` — **NAB** `Get_Lan_Mac` · → 1 value · †
-  - `IPADdress` — **DO** `Do_Lan_Ipaddress` · †
-  - `MEDiasense` — **DO** `Do_Lan_Mediasense` · †
-  - `NETBios` — **DO** `Do_Lan_Netbios` · †
-  - **`TELNet`**
-    - `PROM` — **DO** `Do_Lan_Telnet_Prompt` · †
-    - `WMES` — **DO** `Do_Lan_Telnet_Wmessage` · †
+    - `DCYCle?` — **NAB** `Get_Square_Dcycle` · → NR3 % · †<br>Output Configuration Commands
 - **`MARKer`**
   - `FREQuency` — **SET** `Set_Marker_Frequency` · `<value>` · args: `value` · †<br>Marker Frequency
   - `FREQuency?` — **NAB** `Get_Marker_Frequency` · → 1 value · †<br>Frequency Sweep Commands
@@ -199,12 +181,9 @@ Several statements in one message, so they hang off no single branch. Every stat
   - **`STATe`**
     - `NAME` — **SET** `Set_Memory_State_Name` · `<value>` · args: `value` · †<br>State Storage Commands
     - `CATalog?` — **NAB** `Get_Memory_State_Catalog` · → 1 value · †
-    - `NAME?` — **NAB** `Get_Memory_State_Name` · → 1 value · †<br>State Storage Commands
-    - `VALid?` — **NAB** `Get_Memory_State_Value` · → NR3 · †<br>State Storage Commands
+    - `NAME?` — **NAB** `Get_Memory_State_Name` · `<state>` · args: `state` · integer · → 1 value · †<br>State Storage Commands
+    - `VALid?` — **NAB** `Get_Memory_State_Value` · `<state>` · args: `state` · integer · → BOOL · †<br>State Storage Commands
     - `DELete` — **DO** `Do_Memory_State_Delete` · †
-- **`NVOLatile`**
-  - `CATalog?` — **NAB** `Get_Nvolatile_Catalog` · → 1 value · †<br>Arbitrary Waveform Commands
-  - `FREE?` — **NAB** `Get_Nvolatile_Free` · → 1 value · †<br>Arbitrary Waveform Commands
 - **`OUTPut`**
   - `LOAD` — **SET** `Set_Output_Load` · `<ohms>` · args: `ohms` · numeric (ohm)
   - `POLarity` — **SET** `Set_Output_Polarity` · `<value>` · args: `value` · enum: `NORM` | `INV` · †
@@ -223,7 +202,7 @@ Several statements in one message, so they hang off no single branch. Every stat
   - **`UNLock`**
     - **`ERRor`**
       - `STATe` — **SET** `Set_Phase_Unlock_Error_State` · `<value>` · args: `value` · †<br>Phase-Lock Commands
-      - `STATe?` — **NAB** `Get_Phase_Unlock_Error_State` · → ERROR · †<br>Phase-Lock Commands
+      - `STATe?` — **NAB** `Get_Phase_Unlock_Error_State` · → BOOL · †<br>Phase-Lock Commands
 - **`PM`**
   - `DEViation` — **SET** `Set_Pm_Deviation` · `<value>` · args: `value` · †<br>PM Commands
   - `SOUR` — **SET** `Set_Pm_Source` · `<value>` · args: `value` · enum: `INT` | `EXT` · †<br>PM Commands
@@ -242,7 +221,7 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `TRANsition` — **DO** `Do_Pulse_Transition` · †
   - `WIDTh` — **DO** `Do_Pulse_Width` · †
 - **`PWM`**
-  - `DEV` — **SET** `Set_Pwm_Deviation` · `<value>` · args: `value` · †<br>PWM Commands
+  - `DEV` — **SET** `Set_Pwm_Deviation` · `<value>` · args: `value` · numeric (s) · †<br>PWM Commands
   - `SOURce` — **SET** `Set_Pwm_Source` · `<value>` · args: `value` · enum: `INT` | `EXT` · †<br>PWM Commands
   - `STATe` — **SET** `Set_Pwm_State` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>PWM Commands
   - `DEViation?` — **NAB** `Get_Pwm_Deviation` · → 1 value · †<br>PWM Commands
@@ -250,23 +229,14 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `STATe?` — **NAB** `Get_Pwm_State` · → BOOL · †<br>PWM Commands
   - `INTernal` — **DO** `Do_Pwm_Internal` · †<br>PWM Commands
   - **`DEViation`**
+    - `DCYCle` — **SET** `Set_Deviation_Dcycle` · `<value>` · args: `value` · numeric (%) · †<br>Pulse Width Modulation (PWM) Commands
     - `DCYCle` — **SET** `Set_Pwm_Deviation_Dcycle` · `<value>` · args: `value` · numeric (%) · †<br>PWM Commands
+    - `DCYCle?` — **NAB** `Get_Deviation_Dcycle` · → NR3 % · †<br>Pulse Width Modulation (PWM) Commands
     - `DCYCle?` — **NAB** `Get_Pwm_Deviation_Dcycle` · → NR3 % · †<br>PWM Commands
   - **`INTernal`**
-    - `FREQuency` — **SET** `Set_Pwm_Internal_Frequency` · `<value>` · args: `value` · †<br>Modulating Waveform Frequency
+    - `FREQuency` — **SET** `Set_Pwm_Internal_Frequency` · `<value>` · args: `value` · numeric (Hz) · †<br>Modulating Waveform Frequency
     - `FREQuency?` — **NAB** `Get_Pwm_Internal_Frequency` · → 1 value · †<br>Pulse Width Modulation (PWM) Commands
     - `FUNCtion` — **DO** `Do_Pwm_Internal_Function` · †<br>Modulating Waveform Shape
-- **`QUEStionable`**
-  - `ENABle` — **SET** `Set_Questionable_Enable` · `<value>` · args: `value` · integer · †<br>Status Reporting Commands
-  - `CONDition?` — **NAB** `Get_Questionable_Condition` · → NR1 · †<br>Status Reporting Commands
-  - `ENABle?` — **NAB** `Get_Questionable_Enable` · → NR1 · †<br>Status Reporting Commands
-  - `EVENt?` — **NAB** `Get_Questionable_Event` · → NR1 · †<br>Status Reporting Commands
-- **`SECure`**
-  - `STATe` — **SET** `Set_Secure_State` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>Calibration Commands
-  - `STATe?` — **NAB** `Get_Secure_State` · → BOOL · †<br>Calibration Commands
-  - `CODE` — **DO** `Do_Secure_Code` · †<br>Calibration Commands
-- **`SQUare`**
-  - `DCYCle?` — **NAB** `Get_Square_Dcycle` · → NR3 % · †<br>Output Configuration Commands
 - **`STAT`**
   - **`QUES`**
     - `ENAB` — **SET** `Set_State_Questionable_Enable` · `<value>` · args: `value` · integer · †<br>The Questionable Data Register
@@ -275,6 +245,10 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `PRESet` — **DO** `Do_State_Preset` · †<br>Status Reporting Commands
   - `QUEStionable` — **DO** `Do_State_Questionable` · †
   - **`QUEStionable`**
+    - `ENABle` — **SET** `Set_Questionable_Enable` · `<value>` · args: `value` · integer · †<br>Status Reporting Commands
+    - `CONDition?` — **NAB** `Get_Questionable_Condition` · → NR1 · †<br>Status Reporting Commands
+    - `ENABle?` — **NAB** `Get_Questionable_Enable` · → NR1 · †<br>Status Reporting Commands
+    - `EVENt?` — **NAB** `Get_Questionable_Event` · → NR1 · †<br>Status Reporting Commands
     - `CONDition?` — **NAB** `Get_State_Questionable_Condition` · → NR1 · †
     - `ENABle?` — **NAB** `Get_State_Questionable_Enable` · → NR1 · †<br>The Questionable Data Register
 - **`SWE`**
@@ -289,13 +263,15 @@ Several statements in one message, so they hang off no single branch. Every stat
   - **`BEEP`**
     - `STAT` — **SET** `Set_System_Beeper_State` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>System-Related Commands
 - **`SYSTem`**
-  - `ERRor?` — **NAB** `Get_Error_Queue` · → NR2
+  - `ERRor?` — **NAB** `Get_Error_Queue` · → ERROR
   - `VERSion?` — **NAB** `Get_System_Version` · → 1 value · †<br>System-Related Commands
   - `BEEPer` — **DO** `Do_System_Beeper` · †
   - `LOCal` — **DO** `Do_System_Local` · †<br>Interface Configuration Commands
   - `REMote` — **DO** `Do_System_Remote` · †<br>Interface Configuration Commands
   - `RWLock` — **DO** `Do_System_Rwlock` · †<br>Interface Configuration Commands
   - **`BEEPer`**
+    - `STATe` — **SET** `Set_Beeper_State` · `<value>` · args: `value` · bool: `OFF` | `ON` · †<br>System-Related Commands
+    - `STATe?` — **NAB** `Get_Beeper_State` · → BOOL · †<br>System-Related Commands
     - `STATe?` — **NAB** `Get_System_Beeper_State` · → BOOL · †<br>System-Related Commands
   - **`COMMunicate`**
     - `LAN` — **DO** `Do_System_Communicate_Lan` · †<br>Interface Configuration Commands
@@ -319,13 +295,6 @@ Several statements in one message, so they hang off no single branch. Every stat
     - `STATe` — **DO** `Do_System_Klock_State` · †
   - **`SECurity`**
     - `IMMediate` — **DO** `Do_System_Secure_Immediate` · †<br>System-Related Commands
-- **`TELNet`**
-  - `PROMpt` — **SET** `Set_Telnet_Prompt` · `<value>` · args: `value` · †<br>Interface Configuration Commands
-  - `WMESsage` — **SET** `Set_Telnet_Wmessage` · `<value>` · args: `value` · †<br>Interface Configuration Commands
-  - `PROMpt?` — **NAB** `Get_Telnet_Prompt` · → 1 value · †<br>Interface Configuration Commands
-  - `WMESsage?` — **NAB** `Get_Telnet_Wmessage` · → 1 value · †<br>Interface Configuration Commands
-- **`TEXT`**
-  - `CLEar` — **DO** `Do_Text_Clear` · †<br>System-Related Commands
 - **`TRIG`**
   - `SOUR` — **SET** `Set_Trigger_Source` · `<value>` · args: `value` · enum: `IMM` | `EXT` | `BUS` · †<br>Burst Commands
 - **`TRIGger`**
@@ -333,11 +302,8 @@ Several statements in one message, so they hang off no single branch. Every stat
   - `SLOPe?` — **NAB** `Get_Trigger_Slope` · → CRD · †<br>Burst Commands
   - `SOURce?` — **NAB** `Get_Trigger_Source` · → CRD · †<br>Burst Commands
 - **`UNIT`**
-  - `ANGLe` — **SET** `Set_Unit_Angle` · `<value>` · args: `value` · †<br>Burst Commands
+  - `ANGLe` — **SET** `Set_Unit_Angle` · `<value>` · args: `value` · enum: `DEG` | `RAD` · †<br>Burst Commands
   - `ANGLe?` — **NAB** `Get_Unit_Angle` · → 1 value · †<br>Burst Commands
-- **`UNLock`**
-  - **`ERRor`**
-    - `STATe` — **DO** `Do_Unlock_Error_State` · †
 - **`VOLTage`**
   - `OFFSet` — **SET** `Set_Offset` · `<offset>` · args: `offset` · numeric (V)
   - `UNIT` — **SET** `Set_Voltage_Unit` · `<unit>` · args: `unit` · enum: `VPP` | `VRMS` | `DBM`

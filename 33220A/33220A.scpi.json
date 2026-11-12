@@ -1,0 +1,35 @@
+{
+  "model": "33220A",
+  "manual": "Agilent 33220A User's Guide 33220-90002 Ed. 4 (May 2007), Chapter 4 Remote Interface Reference, SCPI Command Summary pp. 155-169",
+  "roots": [
+    "APPLy",
+    "FUNCtion",
+    "FREQuency",
+    "VOLTage",
+    "OUTPut",
+    "PULSe",
+    "AM",
+    "FM",
+    "PM",
+    "FSKey",
+    "PWM",
+    "BURSt",
+    "SWEep",
+    "TRIGger",
+    "MARKer",
+    "DATA",
+    "FORMat",
+    "MEMory",
+    "SYSTem",
+    "DISPlay",
+    "STATus",
+    "CALibration",
+    "UNIT",
+    "PHASe",
+    "SOURce"
+  ],
+  "optional": [
+    "SOURce"
+  ],
+  "unresolved": {}
+}

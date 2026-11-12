@@ -1,0 +1,33 @@
+{
+  "model": "33210A",
+  "manual": "Agilent 33210A User's Guide 33210-90002, Chapter 4 SCPI Command Summary (the 33220A's tree without PM and FSKey, which the 33210A answers -113 to on the bench, 2026-11-07)",
+  "roots": [
+    "APPLy",
+    "FUNCtion",
+    "FREQuency",
+    "VOLTage",
+    "OUTPut",
+    "PULSe",
+    "AM",
+    "FM",
+    "PWM",
+    "BURSt",
+    "SWEep",
+    "TRIGger",
+    "MARKer",
+    "DATA",
+    "FORMat",
+    "MEMory",
+    "SYSTem",
+    "DISPlay",
+    "STATus",
+    "CALibration",
+    "UNIT",
+    "PHASe",
+    "SOURce"
+  ],
+  "optional": [
+    "SOURce"
+  ],
+  "unresolved": {}
+}
