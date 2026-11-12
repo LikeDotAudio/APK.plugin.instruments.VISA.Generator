@@ -16,30 +16,30 @@ The **Generator** instruments of the APK.audio bench, as one thing: 24 models, t
 
 | Model | Maker | What | Commands | Table | API |
 |---|---|---|---:|:---:|---|
-| [33120A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33120A.md) | HP / Agilent / Keysight | 15 MHz Function/Arb (Classic) | 243 |  | :15300 |
-| [33210A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33210A.md) | HP / Agilent / Keysight | 10 MHz Function/Arb | 209 | ✅ | :15301 |
-| [33220A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33220A.md) | HP / Agilent / Keysight | 20 MHz Function/Arb | 243 | ✅ | :15302 |
-| [33250A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33250A.md) | HP / Agilent / Keysight | 80 MHz Function/Arb | 243 |  | :15303 |
-| [33509B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33509B.md) | HP / Agilent / Keysight | 20 MHz 1-Ch Trueform | 243 |  | :15304 |
-| [33510B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33510B.md) | HP / Agilent / Keysight | 20 MHz 2-Ch Trueform | 243 |  | :15305 |
-| [33511B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33511B.md) | HP / Agilent / Keysight | 20 MHz 1-Ch Trueform (with Arbitrary) | 243 |  | :15306 |
-| [33512B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33512B.md) | HP / Agilent / Keysight | 20 MHz 2-Ch Trueform (with Arbitrary) | 243 |  | :15307 |
-| [33519B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33519B.md) | HP / Agilent / Keysight | 30 MHz 1-Ch Trueform (without Arbitrary) | 243 |  | :15308 |
-| [33520B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33520B.md) | HP / Agilent / Keysight | 30 MHz 2-Ch Trueform (without Arbitrary) | 243 |  | :15309 |
-| [33521B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33521B.md) | HP / Agilent / Keysight | 30 MHz 1-Ch Trueform | 243 |  | :15310 |
-| [33522B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33522B.md) | HP / Agilent / Keysight | 30 MHz 2-Ch Trueform | 243 |  | :15311 |
-| [33611A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33611A.md) | HP / Agilent / Keysight | 80 MHz 1-Ch Trueform | 243 |  | :15312 |
-| [33612A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33612A.md) | HP / Agilent / Keysight | 80 MHz 2-Ch Trueform | 243 |  | :15313 |
-| [33619A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33619A.md) | HP / Agilent / Keysight | 80 MHz 1-Ch Trueform (without Arbitrary) | 243 |  | :15314 |
-| [33620A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33620A.md) | HP / Agilent / Keysight | 80 MHz 2-Ch Trueform (without Arbitrary) | 243 |  | :15315 |
-| [33621A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33621A.md) | HP / Agilent / Keysight | 120 MHz 1-Ch Trueform | 243 |  | :15316 |
-| [33622A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33622A.md) | HP / Agilent / Keysight | 120 MHz 2-Ch Trueform | 243 |  | :15317 |
-| [AFG1022](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/AFG1022.md) | Tektronix | 25 MHz 2 Ch Arbitrary | 243 |  | :15318 |
-| [AFG31000](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/AFG31000.md) | Tektronix | Advanced High Perf Arb Gen | 243 |  | :15319 |
-| [AFG3102](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/AFG3102.md) | Tektronix | 100 MHz 2 Ch Dual (Classic) | 243 |  | :15320 |
-| [DG1022Z](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/DG1022Z.md) | Rigol | 25 MHz 2 Ch Arbitrary | 243 |  | :15321 |
-| [DG4102](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/DG4102.md) | Rigol | 100 MHz 2 Ch Arbitrary | 243 |  | :15322 |
-| [DG812](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/DG812.md) | Rigol | 10 MHz 1 Ch (Basic) | 243 |  | :15323 |
+| [33120A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33120A.md) | HP / Agilent / Keysight | 15 MHz Function/Arb (Classic) | 308 |  | :15300 |
+| [33210A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33210A.md) | HP / Agilent / Keysight | 10 MHz Function/Arb | 262 | ✅ | :15301 |
+| [33220A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33220A.md) | HP / Agilent / Keysight | 20 MHz Function/Arb | 308 | ✅ | :15302 |
+| [33250A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33250A.md) | HP / Agilent / Keysight | 80 MHz Function/Arb | 308 |  | :15303 |
+| [33509B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33509B.md) | HP / Agilent / Keysight | 20 MHz 1-Ch Trueform | 308 |  | :15304 |
+| [33510B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33510B.md) | HP / Agilent / Keysight | 20 MHz 2-Ch Trueform | 308 |  | :15305 |
+| [33511B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33511B.md) | HP / Agilent / Keysight | 20 MHz 1-Ch Trueform (with Arbitrary) | 308 |  | :15306 |
+| [33512B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33512B.md) | HP / Agilent / Keysight | 20 MHz 2-Ch Trueform (with Arbitrary) | 308 |  | :15307 |
+| [33519B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33519B.md) | HP / Agilent / Keysight | 30 MHz 1-Ch Trueform (without Arbitrary) | 308 |  | :15308 |
+| [33520B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33520B.md) | HP / Agilent / Keysight | 30 MHz 2-Ch Trueform (without Arbitrary) | 308 |  | :15309 |
+| [33521B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33521B.md) | HP / Agilent / Keysight | 30 MHz 1-Ch Trueform | 308 |  | :15310 |
+| [33522B](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33522B.md) | HP / Agilent / Keysight | 30 MHz 2-Ch Trueform | 308 |  | :15311 |
+| [33611A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33611A.md) | HP / Agilent / Keysight | 80 MHz 1-Ch Trueform | 308 |  | :15312 |
+| [33612A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33612A.md) | HP / Agilent / Keysight | 80 MHz 2-Ch Trueform | 308 |  | :15313 |
+| [33619A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33619A.md) | HP / Agilent / Keysight | 80 MHz 1-Ch Trueform (without Arbitrary) | 308 |  | :15314 |
+| [33620A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33620A.md) | HP / Agilent / Keysight | 80 MHz 2-Ch Trueform (without Arbitrary) | 308 |  | :15315 |
+| [33621A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33621A.md) | HP / Agilent / Keysight | 120 MHz 1-Ch Trueform | 308 |  | :15316 |
+| [33622A](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/33622A.md) | HP / Agilent / Keysight | 120 MHz 2-Ch Trueform | 308 |  | :15317 |
+| [AFG1022](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/AFG1022.md) | Tektronix | 25 MHz 2 Ch Arbitrary | 308 |  | :15318 |
+| [AFG31000](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/AFG31000.md) | Tektronix | Advanced High Perf Arb Gen | 308 |  | :15319 |
+| [AFG3102](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/AFG3102.md) | Tektronix | 100 MHz 2 Ch Dual (Classic) | 308 |  | :15320 |
+| [DG1022Z](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/DG1022Z.md) | Rigol | 25 MHz 2 Ch Arbitrary | 308 |  | :15321 |
+| [DG4102](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/DG4102.md) | Rigol | 100 MHz 2 Ch Arbitrary | 308 |  | :15322 |
+| [DG812](Documentation/%F0%9F%A7%A9Manual%20and%20Artifacts/SDK/DG812.md) | Rigol | 10 MHz 1 Ch (Basic) | 308 |  | :15323 |
 
 ## Layout
 

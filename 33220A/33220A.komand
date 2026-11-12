@@ -15,6 +15,20 @@
       "subsystem": "Common",
       "unverified": true
     },
+    "Set_Psc_0": {
+      "scpi": "*PSC 0",
+      "description": "Set_Psc → 0. Set psc",
+      "subsystem": "Common",
+      "unverified": true,
+      "notes": "Individual of selector Set_Psc = 0 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Psc_1": {
+      "scpi": "*PSC 1",
+      "description": "Set_Psc → 1. Set psc",
+      "subsystem": "Common",
+      "unverified": true,
+      "notes": "Individual of selector Set_Psc = 1 — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Psc": {
       "scpi": "*PSC <value>",
       "description": "Set psc",
@@ -86,6 +100,20 @@
       "subsystem": "AM",
       "unverified": true
     },
+    "Set_Am_Source_EXT": {
+      "scpi": "AM:SOUR EXT",
+      "description": "Set_Am_Source → EXT. AM Commands",
+      "subsystem": "AM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Am_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Am_Source_INT": {
+      "scpi": "AM:SOUR INT",
+      "description": "Set_Am_Source → INT. AM Commands",
+      "subsystem": "AM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Am_Source = INT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Am_State": {
       "scpi": "AM:STATe <value>",
       "scpiFast": "AM:STAT <value>",
@@ -103,6 +131,24 @@
       "group": "Modulation Control",
       "subsystem": "AM",
       "notes": "The two-way form of the pair `AM_State_ON` / `AM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a AM switch bound to `AM_State_ON` could only ever turn AM on. Same bytes on the wire that `AM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
+    },
+    "Set_Am_State_OFF": {
+      "scpi": "AM:STATe OFF",
+      "scpiFast": "AM:STAT OFF",
+      "description": "Set_Am_State → OFF. Set AM State",
+      "subsystem": "AM",
+      "group": "Modulation Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Am_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Am_State_ON": {
+      "scpi": "AM:STATe ON",
+      "scpiFast": "AM:STAT ON",
+      "description": "Set_Am_State → ON. Set AM State",
+      "subsystem": "AM",
+      "group": "Modulation Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Am_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Burst_Internal_Period": {
       "scpi": "BURS:INT:PER <value>",
@@ -133,6 +179,20 @@
       ],
       "subsystem": "BURS",
       "unverified": true
+    },
+    "Set_Burst_Mode_GAT": {
+      "scpi": "BURS:MODE GAT",
+      "description": "Set_Burst_Mode → GAT. Burst Commands",
+      "subsystem": "BURS",
+      "unverified": true,
+      "notes": "Individual of selector Set_Burst_Mode = GAT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Burst_Mode_TRIG": {
+      "scpi": "BURS:MODE TRIG",
+      "description": "Set_Burst_Mode → TRIG. Burst Commands",
+      "subsystem": "BURS",
+      "unverified": true,
+      "notes": "Individual of selector Set_Burst_Mode = TRIG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Burst_Ncycles": {
       "scpi": "BURS:NCYC <value>",
@@ -178,6 +238,22 @@
       "subsystem": "BURS",
       "unverified": true
     },
+    "Set_Burst_Gate_Polarity_INV": {
+      "scpi": "BURSt:GATE:POLarity INV",
+      "scpiFast": "BURS:GATE:POL INV",
+      "description": "Set_Burst_Gate_Polarity → INV. Burst Commands",
+      "subsystem": "BURS",
+      "unverified": true,
+      "notes": "Individual of selector Set_Burst_Gate_Polarity = INV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Burst_Gate_Polarity_NORM": {
+      "scpi": "BURSt:GATE:POLarity NORM",
+      "scpiFast": "BURS:GATE:POL NORM",
+      "description": "Set_Burst_Gate_Polarity → NORM. Burst Commands",
+      "subsystem": "BURS",
+      "unverified": true,
+      "notes": "Individual of selector Set_Burst_Gate_Polarity = NORM — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Burst_State": {
       "scpi": "BURSt:STATe <value>",
       "scpiFast": "BURS:STAT <value>",
@@ -195,6 +271,22 @@
       "subsystem": "BURS",
       "unverified": true
     },
+    "Set_Burst_State_OFF": {
+      "scpi": "BURSt:STATe OFF",
+      "scpiFast": "BURS:STAT OFF",
+      "description": "Set_Burst_State → OFF. Burst Commands",
+      "subsystem": "BURS",
+      "unverified": true,
+      "notes": "Individual of selector Set_Burst_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Burst_State_ON": {
+      "scpi": "BURSt:STATe ON",
+      "scpiFast": "BURS:STAT ON",
+      "description": "Set_Burst_State → ON. Burst Commands",
+      "subsystem": "BURS",
+      "unverified": true,
+      "notes": "Individual of selector Set_Burst_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Calibration_Secure_State": {
       "scpi": "CAL:SEC:STAT <value>",
       "description": "Set calibration secure state",
@@ -210,6 +302,20 @@
       ],
       "subsystem": "CAL",
       "unverified": true
+    },
+    "Set_Calibration_Secure_State_OFF": {
+      "scpi": "CAL:SEC:STAT OFF",
+      "description": "Set_Calibration_Secure_State → OFF. Set calibration secure state",
+      "subsystem": "CAL",
+      "unverified": true,
+      "notes": "Individual of selector Set_Calibration_Secure_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Calibration_Secure_State_ON": {
+      "scpi": "CAL:SEC:STAT ON",
+      "description": "Set_Calibration_Secure_State → ON. Set calibration secure state",
+      "subsystem": "CAL",
+      "unverified": true,
+      "notes": "Individual of selector Set_Calibration_Secure_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Calibration_String": {
       "scpi": "CAL:STR <value>",
@@ -254,6 +360,22 @@
       "unverified": true,
       "notes": "Was `:SECure:STATe <value>`: the table generator cut the `CALibration` parent off, so the unit heard a root `SECure` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
       "alias_of": "Set_Calibration_Secure_State"
+    },
+    "Set_Secure_State_OFF": {
+      "scpi": "CALibration:SECure:STATe OFF",
+      "scpiFast": "CAL:SEC:STAT OFF",
+      "description": "Set_Secure_State → OFF. Calibration Commands",
+      "subsystem": "SEC",
+      "unverified": true,
+      "notes": "Individual of selector Set_Secure_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Secure_State_ON": {
+      "scpi": "CALibration:SECure:STATe ON",
+      "scpiFast": "CAL:SEC:STAT ON",
+      "description": "Set_Secure_State → ON. Calibration Commands",
+      "subsystem": "SEC",
+      "unverified": true,
+      "notes": "Individual of selector Set_Secure_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Display_Text": {
       "scpi": "DISP:TEXT <value>",
@@ -313,6 +435,20 @@
       "subsystem": "FM",
       "unverified": true
     },
+    "Set_Fm_Source_EXT": {
+      "scpi": "FM:SOUR EXT",
+      "description": "Set_Fm_Source → EXT. FM Commands",
+      "subsystem": "FM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fm_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Fm_Source_INT": {
+      "scpi": "FM:SOUR INT",
+      "description": "Set_Fm_Source → INT. FM Commands",
+      "subsystem": "FM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fm_Source = INT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Fm_State": {
       "scpi": "FM:STATe <value>",
       "scpiFast": "FM:STAT <value>",
@@ -330,6 +466,24 @@
       "group": "Modulation Control",
       "subsystem": "FM",
       "notes": "The two-way form of the pair `FM_State_ON` / `FM_State_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so a FM switch bound to `FM_State_ON` could only ever turn FM on. Same bytes on the wire that `FM_State_ON` already proves the instrument accepts — only the keyword is a placeholder."
+    },
+    "Set_Fm_State_OFF": {
+      "scpi": "FM:STATe OFF",
+      "scpiFast": "FM:STAT OFF",
+      "description": "Set_Fm_State → OFF. Set FM State",
+      "subsystem": "FM",
+      "group": "Modulation Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fm_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Fm_State_ON": {
+      "scpi": "FM:STATe ON",
+      "scpiFast": "FM:STAT ON",
+      "description": "Set_Fm_State → ON. Set FM State",
+      "subsystem": "FM",
+      "group": "Modulation Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fm_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Format_Border": {
       "scpi": "FORMat:BORDer <value>",
@@ -430,6 +584,20 @@
       "subsystem": "FSK",
       "unverified": true
     },
+    "Set_Fskey_Source_EXT": {
+      "scpi": "FSK:SOUR EXT",
+      "description": "Set_Fskey_Source → EXT. FSK Commands",
+      "subsystem": "FSK",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fskey_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Fskey_Source_INT": {
+      "scpi": "FSK:SOUR INT",
+      "description": "Set_Fskey_Source → INT. FSK Commands",
+      "subsystem": "FSK",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fskey_Source = INT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Fskey_Frequency": {
       "scpi": "FSKey:FREQuency <value>",
       "scpiFast": "FSK:FREQ <value>",
@@ -474,6 +642,22 @@
       "subsystem": "FSK",
       "unverified": true
     },
+    "Set_Fskey_State_OFF": {
+      "scpi": "FSKey:STATe OFF",
+      "scpiFast": "FSK:STAT OFF",
+      "description": "Set_Fskey_State → OFF. FSK Commands",
+      "subsystem": "FSK",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fskey_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Fskey_State_ON": {
+      "scpi": "FSKey:STATe ON",
+      "scpiFast": "FSK:STAT ON",
+      "description": "Set_Fskey_State → ON. FSK Commands",
+      "subsystem": "FSK",
+      "unverified": true,
+      "notes": "Individual of selector Set_Fskey_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Function_Pulse_Hold": {
       "scpi": "FUNC:PULS:HOLD <value>",
       "description": "Using the APPLy Command",
@@ -489,6 +673,20 @@
       ],
       "subsystem": "FUNC",
       "unverified": true
+    },
+    "Set_Function_Pulse_Hold_DCYC": {
+      "scpi": "FUNC:PULS:HOLD DCYC",
+      "description": "Set_Function_Pulse_Hold → DCYC. Using the APPLy Command",
+      "subsystem": "FUNC",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Pulse_Hold = DCYC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Pulse_Hold_WIDT": {
+      "scpi": "FUNC:PULS:HOLD WIDT",
+      "description": "Set_Function_Pulse_Hold → WIDT. Using the APPLy Command",
+      "subsystem": "FUNC",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Pulse_Hold = WIDT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Function_User": {
       "scpi": "FUNC:USER <value>",
@@ -523,6 +721,69 @@
         "shape"
       ],
       "subsystem": "SOURce"
+    },
+    "Set_Function_Shape_DC": {
+      "scpi": "FUNCtion DC",
+      "scpiFast": "FUNC DC",
+      "description": "Set_Function_Shape → DC. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = DC — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Shape_NOIS": {
+      "scpi": "FUNCtion NOIS",
+      "scpiFast": "FUNC NOIS",
+      "description": "Set_Function_Shape → NOIS. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = NOIS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Shape_PULS": {
+      "scpi": "FUNCtion PULS",
+      "scpiFast": "FUNC PULS",
+      "description": "Set_Function_Shape → PULS. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = PULS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Shape_RAMP": {
+      "scpi": "FUNCtion RAMP",
+      "scpiFast": "FUNC RAMP",
+      "description": "Set_Function_Shape → RAMP. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = RAMP — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Shape_SIN": {
+      "scpi": "FUNCtion SIN",
+      "scpiFast": "FUNC SIN",
+      "description": "Set_Function_Shape → SIN. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = SIN — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Shape_SQU": {
+      "scpi": "FUNCtion SQU",
+      "scpiFast": "FUNC SQU",
+      "description": "Set_Function_Shape → SQU. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = SQU — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Function_Shape_USER": {
+      "scpi": "FUNCtion USER",
+      "scpiFast": "FUNC USER",
+      "description": "Set_Function_Shape → USER. Set Function Shape",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Function_Shape = USER — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Function_Pulse_Dcycle": {
       "scpi": "FUNCtion:PULSe:DCYCle <value>",
@@ -640,6 +901,24 @@
       "subsystem": "OUTPut",
       "notes": "The two-way form of the pair `Output_ON` / `Output_OFF`, which stay for the momentary buttons that use them. A LATCHING control cannot drive a pair: one widget publishes one value to one command, so an output toggle bound to `Output_ON` could only ever turn the output on. Same bytes on the wire that `Output_ON` already proves the instrument accepts — only the keyword is a placeholder."
     },
+    "Set_Output_State_OFF": {
+      "scpi": "OUTPut OFF",
+      "scpiFast": "OUTP OFF",
+      "description": "Set_Output_State → OFF. Set Output State",
+      "subsystem": "OUTPut",
+      "group": "Output Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_State_ON": {
+      "scpi": "OUTPut ON",
+      "scpiFast": "OUTP ON",
+      "description": "Set_Output_State → ON. Set Output State",
+      "subsystem": "OUTPut",
+      "group": "Output Control",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Load": {
       "scpi": "OUTPut:LOAD <ohms>",
       "scpiFast": "OUTP:LOAD <ohms>",
@@ -671,6 +950,22 @@
       "subsystem": "OUTP",
       "unverified": true
     },
+    "Set_Output_Polarity_INV": {
+      "scpi": "OUTPut:POLarity INV",
+      "scpiFast": "OUTP:POL INV",
+      "description": "Set_Output_Polarity → INV. Set output polarity",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Polarity = INV — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Polarity_NORM": {
+      "scpi": "OUTPut:POLarity NORM",
+      "scpiFast": "OUTP:POL NORM",
+      "description": "Set_Output_Polarity → NORM. Set output polarity",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Polarity = NORM — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Output_Trigger": {
       "scpi": "OUTPut:TRIGger <value>",
       "scpiFast": "OUTP:TRIG <value>",
@@ -700,6 +995,22 @@
       ],
       "subsystem": "OUTP",
       "unverified": true
+    },
+    "Set_Output_Trigger_Slope_NEG": {
+      "scpi": "OUTPut:TRIGger:SLOPe NEG",
+      "scpiFast": "OUTP:TRIG:SLOP NEG",
+      "description": "Set_Output_Trigger_Slope → NEG. Trigger Out Signal",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Trigger_Slope = NEG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Output_Trigger_Slope_POS": {
+      "scpi": "OUTPut:TRIGger:SLOPe POS",
+      "scpiFast": "OUTP:TRIG:SLOP POS",
+      "description": "Set_Output_Trigger_Slope → POS. Trigger Out Signal",
+      "subsystem": "OUTP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Output_Trigger_Slope = POS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Phase_Unlock_Error_State": {
       "scpi": "PHASe:UNLock:ERRor:STATe <value>",
@@ -756,6 +1067,20 @@
       "subsystem": "PM",
       "unverified": true
     },
+    "Set_Pm_Source_EXT": {
+      "scpi": "PM:SOUR EXT",
+      "description": "Set_Pm_Source → EXT. PM Commands",
+      "subsystem": "PM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pm_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Pm_Source_INT": {
+      "scpi": "PM:SOUR INT",
+      "description": "Set_Pm_Source → INT. PM Commands",
+      "subsystem": "PM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pm_Source = INT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Pm_State": {
       "scpi": "PM:STATe <value>",
       "scpiFast": "PM:STAT <value>",
@@ -772,6 +1097,22 @@
       ],
       "subsystem": "PM",
       "unverified": true
+    },
+    "Set_Pm_State_OFF": {
+      "scpi": "PM:STATe OFF",
+      "scpiFast": "PM:STAT OFF",
+      "description": "Set_Pm_State → OFF. PM Commands",
+      "subsystem": "PM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pm_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Pm_State_ON": {
+      "scpi": "PM:STATe ON",
+      "scpiFast": "PM:STAT ON",
+      "description": "Set_Pm_State → ON. PM Commands",
+      "subsystem": "PM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pm_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Pulse_Period": {
       "scpi": "PULSe:PERiod <value>",
@@ -890,6 +1231,22 @@
       "subsystem": "PWM",
       "unverified": true
     },
+    "Set_Pwm_Source_EXT": {
+      "scpi": "PWM:SOURce EXT",
+      "scpiFast": "PWM:SOUR EXT",
+      "description": "Set_Pwm_Source → EXT. PWM Commands",
+      "subsystem": "PWM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pwm_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Pwm_Source_INT": {
+      "scpi": "PWM:SOURce INT",
+      "scpiFast": "PWM:SOUR INT",
+      "description": "Set_Pwm_Source → INT. PWM Commands",
+      "subsystem": "PWM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pwm_Source = INT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Pwm_State": {
       "scpi": "PWM:STATe <value>",
       "scpiFast": "PWM:STAT <value>",
@@ -910,6 +1267,22 @@
       "subsystem": "PWM",
       "unverified": true,
       "notes": "Needs FUNCtion PULSe: ON is refused until the function is pulse (Certify 2026-11-11: \"needs ON under FUNCtion PULS\"; PWM is pulse-only, 33220-90002 Ch. 3 Pulse Width Modulation)."
+    },
+    "Set_Pwm_State_OFF": {
+      "scpi": "PWM:STATe OFF",
+      "scpiFast": "PWM:STAT OFF",
+      "description": "Set_Pwm_State → OFF. PWM Commands",
+      "subsystem": "PWM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pwm_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Pwm_State_ON": {
+      "scpi": "PWM:STATe ON",
+      "scpiFast": "PWM:STAT ON",
+      "description": "Set_Pwm_State → ON. PWM Commands",
+      "subsystem": "PWM",
+      "unverified": true,
+      "notes": "Individual of selector Set_Pwm_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_State_Questionable_Enable": {
       "scpi": "STAT:QUES:ENAB <value>",
@@ -976,6 +1349,22 @@
       "subsystem": "SWE",
       "unverified": true
     },
+    "Set_Sweep_Spacing_LIN": {
+      "scpi": "SWEep:SPACing LIN",
+      "scpiFast": "SWE:SPAC LIN",
+      "description": "Set_Sweep_Spacing → LIN. Sweep Mode",
+      "subsystem": "SWE",
+      "unverified": true,
+      "notes": "Individual of selector Set_Sweep_Spacing = LIN — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Sweep_Spacing_LOG": {
+      "scpi": "SWEep:SPACing LOG",
+      "scpiFast": "SWE:SPAC LOG",
+      "description": "Set_Sweep_Spacing → LOG. Sweep Mode",
+      "subsystem": "SWE",
+      "unverified": true,
+      "notes": "Individual of selector Set_Sweep_Spacing = LOG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Sweep_State": {
       "scpi": "SWEep:STATe <value>",
       "scpiFast": "SWE:STAT <value>",
@@ -993,6 +1382,22 @@
       "subsystem": "SWE",
       "unverified": true
     },
+    "Set_Sweep_State_OFF": {
+      "scpi": "SWEep:STATe OFF",
+      "scpiFast": "SWE:STAT OFF",
+      "description": "Set_Sweep_State → OFF. Sweep Commands",
+      "subsystem": "SWE",
+      "unverified": true,
+      "notes": "Individual of selector Set_Sweep_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Sweep_State_ON": {
+      "scpi": "SWEep:STATe ON",
+      "scpiFast": "SWE:STAT ON",
+      "description": "Set_Sweep_State → ON. Sweep Commands",
+      "subsystem": "SWE",
+      "unverified": true,
+      "notes": "Individual of selector Set_Sweep_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_System_Beeper_State": {
       "scpi": "SYST:BEEP:STAT <value>",
       "description": "System-Related Commands",
@@ -1008,6 +1413,20 @@
       ],
       "subsystem": "SYST",
       "unverified": true
+    },
+    "Set_System_Beeper_State_OFF": {
+      "scpi": "SYST:BEEP:STAT OFF",
+      "description": "Set_System_Beeper_State → OFF. System-Related Commands",
+      "subsystem": "SYST",
+      "unverified": true,
+      "notes": "Individual of selector Set_System_Beeper_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_System_Beeper_State_ON": {
+      "scpi": "SYST:BEEP:STAT ON",
+      "description": "Set_System_Beeper_State → ON. System-Related Commands",
+      "subsystem": "SYST",
+      "unverified": true,
+      "notes": "Individual of selector Set_System_Beeper_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Beeper_State": {
       "scpi": "SYSTem:BEEPer:STATe <value>",
@@ -1027,6 +1446,22 @@
       "unverified": true,
       "notes": "Was `:BEEPer:STATe <value>`: the table generator cut the `SYSTem` parent off, so the unit heard a root `BEEPer` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
       "alias_of": "Set_System_Beeper_State"
+    },
+    "Set_Beeper_State_OFF": {
+      "scpi": "SYSTem:BEEPer:STATe OFF",
+      "scpiFast": "SYST:BEEP:STAT OFF",
+      "description": "Set_Beeper_State → OFF. System-Related Commands",
+      "subsystem": "BEEP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Beeper_State = OFF — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Beeper_State_ON": {
+      "scpi": "SYSTem:BEEPer:STATe ON",
+      "scpiFast": "SYST:BEEP:STAT ON",
+      "description": "Set_Beeper_State → ON. System-Related Commands",
+      "subsystem": "BEEP",
+      "unverified": true,
+      "notes": "Individual of selector Set_Beeper_State = ON — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_System_Communicate_Lan_Ipaddress": {
       "scpi": "SYSTem:COMMunicate:LAN:IPADdress <value>",
@@ -1110,6 +1545,27 @@
       "subsystem": "TRIG",
       "unverified": true
     },
+    "Set_Trigger_Source_BUS": {
+      "scpi": "TRIG:SOUR BUS",
+      "description": "Set_Trigger_Source → BUS. Burst Commands",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = BUS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Source_EXT": {
+      "scpi": "TRIG:SOUR EXT",
+      "description": "Set_Trigger_Source → EXT. Burst Commands",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = EXT — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Source_IMM": {
+      "scpi": "TRIG:SOUR IMM",
+      "description": "Set_Trigger_Source → IMM. Burst Commands",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Source = IMM — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
     "Set_Trigger_Slope": {
       "scpi": "TRIGger:SLOPe <value>",
       "scpiFast": "TRIG:SLOP <value>",
@@ -1126,6 +1582,22 @@
       ],
       "subsystem": "TRIG",
       "unverified": true
+    },
+    "Set_Trigger_Slope_NEG": {
+      "scpi": "TRIGger:SLOPe NEG",
+      "scpiFast": "TRIG:SLOP NEG",
+      "description": "Set_Trigger_Slope → NEG. Burst Commands",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Slope = NEG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Trigger_Slope_POS": {
+      "scpi": "TRIGger:SLOPe POS",
+      "scpiFast": "TRIG:SLOP POS",
+      "description": "Set_Trigger_Slope → POS. Burst Commands",
+      "subsystem": "TRIG",
+      "unverified": true,
+      "notes": "Individual of selector Set_Trigger_Slope = POS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Unit_Angle": {
       "scpi": "UNIT:ANGLe <value>",
@@ -1145,6 +1617,22 @@
       "subsystem": "UNIT",
       "unverified": true,
       "notes": "Arg from the manual: UNIT:ANGLe {DEGree|RADian} (33220-90002 Ch. 4, Phase-Lock Commands); was `unknown`, which Certify could only write back."
+    },
+    "Set_Unit_Angle_DEG": {
+      "scpi": "UNIT:ANGLe DEG",
+      "scpiFast": "UNIT:ANGL DEG",
+      "description": "Set_Unit_Angle → DEG. Burst Commands",
+      "subsystem": "UNIT",
+      "unverified": true,
+      "notes": "Individual of selector Set_Unit_Angle = DEG — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Unit_Angle_RAD": {
+      "scpi": "UNIT:ANGLe RAD",
+      "scpiFast": "UNIT:ANGL RAD",
+      "description": "Set_Unit_Angle → RAD. Burst Commands",
+      "subsystem": "UNIT",
+      "unverified": true,
+      "notes": "Individual of selector Set_Unit_Angle = RAD — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     },
     "Set_Amplitude": {
       "scpi": "VOLTage <amp>",
@@ -1193,6 +1681,33 @@
         "unit"
       ],
       "subsystem": "SOURce"
+    },
+    "Set_Voltage_Unit_DBM": {
+      "scpi": "VOLTage:UNIT DBM",
+      "scpiFast": "VOLT:UNIT DBM",
+      "description": "Set_Voltage_Unit → DBM. Set Voltage Unit",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Voltage_Unit = DBM — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Voltage_Unit_VPP": {
+      "scpi": "VOLTage:UNIT VPP",
+      "scpiFast": "VOLT:UNIT VPP",
+      "description": "Set_Voltage_Unit → VPP. Set Voltage Unit",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Voltage_Unit = VPP — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
+    },
+    "Set_Voltage_Unit_VRMS": {
+      "scpi": "VOLTage:UNIT VRMS",
+      "scpiFast": "VOLT:UNIT VRMS",
+      "description": "Set_Voltage_Unit → VRMS. Set Voltage Unit",
+      "subsystem": "SOURce",
+      "group": "SOURce Configuration",
+      "unverified": true,
+      "notes": "Individual of selector Set_Voltage_Unit = VRMS — written by _komand/expand_selectors.py from the selector; edit the selector (its arg.values / arg.labels), not this. Unverified until the bench sends this option."
     }
   },
   "do": {

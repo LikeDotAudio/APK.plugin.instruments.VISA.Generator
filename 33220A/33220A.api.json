@@ -89,9 +89,9 @@
     "do": "Zero-argument execution actions and trigger commands"
   },
   "summary": {
-    "total_commands": 243,
+    "total_commands": 308,
     "get_count": 107,
-    "set_count": 77,
+    "set_count": 142,
     "nab_count": 112,
     "rig_count": 4,
     "do_count": 50
@@ -2988,6 +2988,52 @@
         },
         "unverified": true
       },
+      "Set_Psc_0": {
+        "command": "Set_Psc_0",
+        "verb": "set",
+        "description": "Set_Psc \u2192 0. Set psc",
+        "scpi": "*PSC 0",
+        "subsystem": "Common",
+        "group": "Common",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Psc_0",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Psc_0",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Psc_1": {
+        "command": "Set_Psc_1",
+        "verb": "set",
+        "description": "Set_Psc \u2192 1. Set psc",
+        "scpi": "*PSC 1",
+        "subsystem": "Common",
+        "group": "Common",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Psc_1",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Psc_1",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Psc": {
         "command": "Set_Psc",
         "verb": "set",
@@ -3124,6 +3170,52 @@
         },
         "unverified": true
       },
+      "Set_Am_Source_EXT": {
+        "command": "Set_Am_Source_EXT",
+        "verb": "set",
+        "description": "Set_Am_Source \u2192 EXT. AM Commands",
+        "scpi": "AM:SOUR EXT",
+        "subsystem": "AM",
+        "group": "AM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Am_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Am_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Am_Source_INT": {
+        "command": "Set_Am_Source_INT",
+        "verb": "set",
+        "description": "Set_Am_Source \u2192 INT. AM Commands",
+        "scpi": "AM:SOUR INT",
+        "subsystem": "AM",
+        "group": "AM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Am_Source_INT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Am_Source_INT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Am_State": {
         "command": "Set_Am_State",
         "verb": "set",
@@ -3153,6 +3245,54 @@
           }
         },
         "unverified": false
+      },
+      "Set_Am_State_OFF": {
+        "command": "Set_Am_State_OFF",
+        "verb": "set",
+        "description": "Set_Am_State \u2192 OFF. Set AM State",
+        "scpi": "AM:STATe OFF",
+        "scpi_fast": "AM:STAT OFF",
+        "subsystem": "AM",
+        "group": "Modulation Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Am_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Am_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Am_State_ON": {
+        "command": "Set_Am_State_ON",
+        "verb": "set",
+        "description": "Set_Am_State \u2192 ON. Set AM State",
+        "scpi": "AM:STATe ON",
+        "scpi_fast": "AM:STAT ON",
+        "subsystem": "AM",
+        "group": "Modulation Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Am_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Am_State_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
       },
       "Set_Burst_Internal_Period": {
         "command": "Set_Burst_Internal_Period",
@@ -3204,6 +3344,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Burst_Mode",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Burst_Mode_GAT": {
+        "command": "Set_Burst_Mode_GAT",
+        "verb": "set",
+        "description": "Set_Burst_Mode \u2192 GAT. Burst Commands",
+        "scpi": "BURS:MODE GAT",
+        "subsystem": "BURS",
+        "group": "BURS",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Burst_Mode_GAT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Burst_Mode_GAT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Burst_Mode_TRIG": {
+        "command": "Set_Burst_Mode_TRIG",
+        "verb": "set",
+        "description": "Set_Burst_Mode \u2192 TRIG. Burst Commands",
+        "scpi": "BURS:MODE TRIG",
+        "subsystem": "BURS",
+        "group": "BURS",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Burst_Mode_TRIG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Burst_Mode_TRIG",
             "value": "<value>",
             "input_name": "value"
           }
@@ -3293,6 +3479,54 @@
         },
         "unverified": true
       },
+      "Set_Burst_Gate_Polarity_INV": {
+        "command": "Set_Burst_Gate_Polarity_INV",
+        "verb": "set",
+        "description": "Set_Burst_Gate_Polarity \u2192 INV. Burst Commands",
+        "scpi": "BURSt:GATE:POLarity INV",
+        "scpi_fast": "BURS:GATE:POL INV",
+        "subsystem": "BURS",
+        "group": "BURS",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Burst_Gate_Polarity_INV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Burst_Gate_Polarity_INV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Burst_Gate_Polarity_NORM": {
+        "command": "Set_Burst_Gate_Polarity_NORM",
+        "verb": "set",
+        "description": "Set_Burst_Gate_Polarity \u2192 NORM. Burst Commands",
+        "scpi": "BURSt:GATE:POLarity NORM",
+        "scpi_fast": "BURS:GATE:POL NORM",
+        "subsystem": "BURS",
+        "group": "BURS",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Burst_Gate_Polarity_NORM",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Burst_Gate_Polarity_NORM",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Burst_State": {
         "command": "Set_Burst_State",
         "verb": "set",
@@ -3323,6 +3557,54 @@
         },
         "unverified": true
       },
+      "Set_Burst_State_OFF": {
+        "command": "Set_Burst_State_OFF",
+        "verb": "set",
+        "description": "Set_Burst_State \u2192 OFF. Burst Commands",
+        "scpi": "BURSt:STATe OFF",
+        "scpi_fast": "BURS:STAT OFF",
+        "subsystem": "BURS",
+        "group": "BURS",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Burst_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Burst_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Burst_State_ON": {
+        "command": "Set_Burst_State_ON",
+        "verb": "set",
+        "description": "Set_Burst_State \u2192 ON. Burst Commands",
+        "scpi": "BURSt:STATe ON",
+        "scpi_fast": "BURS:STAT ON",
+        "subsystem": "BURS",
+        "group": "BURS",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Burst_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Burst_State_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Calibration_Secure_State": {
         "command": "Set_Calibration_Secure_State",
         "verb": "set",
@@ -3346,6 +3628,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Calibration_Secure_State",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Calibration_Secure_State_OFF": {
+        "command": "Set_Calibration_Secure_State_OFF",
+        "verb": "set",
+        "description": "Set_Calibration_Secure_State \u2192 OFF. Set calibration secure state",
+        "scpi": "CAL:SEC:STAT OFF",
+        "subsystem": "CAL",
+        "group": "CAL",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Calibration_Secure_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Calibration_Secure_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Calibration_Secure_State_ON": {
+        "command": "Set_Calibration_Secure_State_ON",
+        "verb": "set",
+        "description": "Set_Calibration_Secure_State \u2192 ON. Set calibration secure state",
+        "scpi": "CAL:SEC:STAT ON",
+        "subsystem": "CAL",
+        "group": "CAL",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Calibration_Secure_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Calibration_Secure_State_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -3427,6 +3755,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Secure_State",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Secure_State_OFF": {
+        "command": "Set_Secure_State_OFF",
+        "verb": "set",
+        "description": "Set_Secure_State \u2192 OFF. Calibration Commands",
+        "scpi": "CALibration:SECure:STATe OFF",
+        "scpi_fast": "CAL:SEC:STAT OFF",
+        "subsystem": "SEC",
+        "group": "SEC",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Secure_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Secure_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Secure_State_ON": {
+        "command": "Set_Secure_State_ON",
+        "verb": "set",
+        "description": "Set_Secure_State \u2192 ON. Calibration Commands",
+        "scpi": "CALibration:SECure:STATe ON",
+        "scpi_fast": "CAL:SEC:STAT ON",
+        "subsystem": "SEC",
+        "group": "SEC",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Secure_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Secure_State_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -3543,6 +3919,52 @@
         },
         "unverified": true
       },
+      "Set_Fm_Source_EXT": {
+        "command": "Set_Fm_Source_EXT",
+        "verb": "set",
+        "description": "Set_Fm_Source \u2192 EXT. FM Commands",
+        "scpi": "FM:SOUR EXT",
+        "subsystem": "FM",
+        "group": "FM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fm_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fm_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Fm_Source_INT": {
+        "command": "Set_Fm_Source_INT",
+        "verb": "set",
+        "description": "Set_Fm_Source \u2192 INT. FM Commands",
+        "scpi": "FM:SOUR INT",
+        "subsystem": "FM",
+        "group": "FM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fm_Source_INT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fm_Source_INT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Fm_State": {
         "command": "Set_Fm_State",
         "verb": "set",
@@ -3572,6 +3994,54 @@
           }
         },
         "unverified": false
+      },
+      "Set_Fm_State_OFF": {
+        "command": "Set_Fm_State_OFF",
+        "verb": "set",
+        "description": "Set_Fm_State \u2192 OFF. Set FM State",
+        "scpi": "FM:STATe OFF",
+        "scpi_fast": "FM:STAT OFF",
+        "subsystem": "FM",
+        "group": "Modulation Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fm_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fm_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Fm_State_ON": {
+        "command": "Set_Fm_State_ON",
+        "verb": "set",
+        "description": "Set_Fm_State \u2192 ON. Set FM State",
+        "scpi": "FM:STATe ON",
+        "scpi_fast": "FM:STAT ON",
+        "subsystem": "FM",
+        "group": "Modulation Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fm_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fm_State_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
       },
       "Set_Format_Border": {
         "command": "Set_Format_Border",
@@ -3763,6 +4233,52 @@
         },
         "unverified": true
       },
+      "Set_Fskey_Source_EXT": {
+        "command": "Set_Fskey_Source_EXT",
+        "verb": "set",
+        "description": "Set_Fskey_Source \u2192 EXT. FSK Commands",
+        "scpi": "FSK:SOUR EXT",
+        "subsystem": "FSK",
+        "group": "FSK",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fskey_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Fskey_Source_INT": {
+        "command": "Set_Fskey_Source_INT",
+        "verb": "set",
+        "description": "Set_Fskey_Source \u2192 INT. FSK Commands",
+        "scpi": "FSK:SOUR INT",
+        "subsystem": "FSK",
+        "group": "FSK",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_Source_INT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fskey_Source_INT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Fskey_Frequency": {
         "command": "Set_Fskey_Frequency",
         "verb": "set",
@@ -3846,6 +4362,54 @@
         },
         "unverified": true
       },
+      "Set_Fskey_State_OFF": {
+        "command": "Set_Fskey_State_OFF",
+        "verb": "set",
+        "description": "Set_Fskey_State \u2192 OFF. FSK Commands",
+        "scpi": "FSKey:STATe OFF",
+        "scpi_fast": "FSK:STAT OFF",
+        "subsystem": "FSK",
+        "group": "FSK",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fskey_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Fskey_State_ON": {
+        "command": "Set_Fskey_State_ON",
+        "verb": "set",
+        "description": "Set_Fskey_State \u2192 ON. FSK Commands",
+        "scpi": "FSKey:STATe ON",
+        "scpi_fast": "FSK:STAT ON",
+        "subsystem": "FSK",
+        "group": "FSK",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Fskey_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Fskey_State_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Function_Pulse_Hold": {
         "command": "Set_Function_Pulse_Hold",
         "verb": "set",
@@ -3869,6 +4433,52 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Function_Pulse_Hold",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Pulse_Hold_DCYC": {
+        "command": "Set_Function_Pulse_Hold_DCYC",
+        "verb": "set",
+        "description": "Set_Function_Pulse_Hold \u2192 DCYC. Using the APPLy Command",
+        "scpi": "FUNC:PULS:HOLD DCYC",
+        "subsystem": "FUNC",
+        "group": "FUNC",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Pulse_Hold_DCYC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Pulse_Hold_DCYC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Pulse_Hold_WIDT": {
+        "command": "Set_Function_Pulse_Hold_WIDT",
+        "verb": "set",
+        "description": "Set_Function_Pulse_Hold \u2192 WIDT. Using the APPLy Command",
+        "scpi": "FUNC:PULS:HOLD WIDT",
+        "subsystem": "FUNC",
+        "group": "FUNC",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Pulse_Hold_WIDT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Pulse_Hold_WIDT",
             "value": "<value>",
             "input_name": "value"
           }
@@ -3934,6 +4544,174 @@
           }
         },
         "unverified": false
+      },
+      "Set_Function_Shape_DC": {
+        "command": "Set_Function_Shape_DC",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 DC. Set Function Shape",
+        "scpi": "FUNCtion DC",
+        "scpi_fast": "FUNC DC",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_DC",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_DC",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Shape_NOIS": {
+        "command": "Set_Function_Shape_NOIS",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 NOIS. Set Function Shape",
+        "scpi": "FUNCtion NOIS",
+        "scpi_fast": "FUNC NOIS",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_NOIS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_NOIS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Shape_PULS": {
+        "command": "Set_Function_Shape_PULS",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 PULS. Set Function Shape",
+        "scpi": "FUNCtion PULS",
+        "scpi_fast": "FUNC PULS",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_PULS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_PULS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Shape_RAMP": {
+        "command": "Set_Function_Shape_RAMP",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 RAMP. Set Function Shape",
+        "scpi": "FUNCtion RAMP",
+        "scpi_fast": "FUNC RAMP",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_RAMP",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_RAMP",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Shape_SIN": {
+        "command": "Set_Function_Shape_SIN",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 SIN. Set Function Shape",
+        "scpi": "FUNCtion SIN",
+        "scpi_fast": "FUNC SIN",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_SIN",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_SIN",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Shape_SQU": {
+        "command": "Set_Function_Shape_SQU",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 SQU. Set Function Shape",
+        "scpi": "FUNCtion SQU",
+        "scpi_fast": "FUNC SQU",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_SQU",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_SQU",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Function_Shape_USER": {
+        "command": "Set_Function_Shape_USER",
+        "verb": "set",
+        "description": "Set_Function_Shape \u2192 USER. Set Function Shape",
+        "scpi": "FUNCtion USER",
+        "scpi_fast": "FUNC USER",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Function_Shape_USER",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Function_Shape_USER",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
       },
       "Set_Function_Pulse_Dcycle": {
         "command": "Set_Function_Pulse_Dcycle",
@@ -4154,6 +4932,54 @@
         },
         "unverified": false
       },
+      "Set_Output_State_OFF": {
+        "command": "Set_Output_State_OFF",
+        "verb": "set",
+        "description": "Set_Output_State \u2192 OFF. Set Output State",
+        "scpi": "OUTPut OFF",
+        "scpi_fast": "OUTP OFF",
+        "subsystem": "OUTPut",
+        "group": "Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Output_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_State_ON": {
+        "command": "Set_Output_State_ON",
+        "verb": "set",
+        "description": "Set_Output_State \u2192 ON. Set Output State",
+        "scpi": "OUTPut ON",
+        "scpi_fast": "OUTP ON",
+        "subsystem": "OUTPut",
+        "group": "Output Control",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Output_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_State_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Load": {
         "command": "Set_Output_Load",
         "verb": "set",
@@ -4211,6 +5037,54 @@
         },
         "unverified": true
       },
+      "Set_Output_Polarity_INV": {
+        "command": "Set_Output_Polarity_INV",
+        "verb": "set",
+        "description": "Set_Output_Polarity \u2192 INV. Set output polarity",
+        "scpi": "OUTPut:POLarity INV",
+        "scpi_fast": "OUTP:POL INV",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Output_Polarity_INV",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Polarity_INV",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Polarity_NORM": {
+        "command": "Set_Output_Polarity_NORM",
+        "verb": "set",
+        "description": "Set_Output_Polarity \u2192 NORM. Set output polarity",
+        "scpi": "OUTPut:POLarity NORM",
+        "scpi_fast": "OUTP:POL NORM",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Output_Polarity_NORM",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Polarity_NORM",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Output_Trigger": {
         "command": "Set_Output_Trigger",
         "verb": "set",
@@ -4261,6 +5135,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Output_Trigger_Slope",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Trigger_Slope_NEG": {
+        "command": "Set_Output_Trigger_Slope_NEG",
+        "verb": "set",
+        "description": "Set_Output_Trigger_Slope \u2192 NEG. Trigger Out Signal",
+        "scpi": "OUTPut:TRIGger:SLOPe NEG",
+        "scpi_fast": "OUTP:TRIG:SLOP NEG",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Output_Trigger_Slope_NEG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Trigger_Slope_NEG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Output_Trigger_Slope_POS": {
+        "command": "Set_Output_Trigger_Slope_POS",
+        "verb": "set",
+        "description": "Set_Output_Trigger_Slope \u2192 POS. Trigger Out Signal",
+        "scpi": "OUTPut:TRIGger:SLOPe POS",
+        "scpi_fast": "OUTP:TRIG:SLOP POS",
+        "subsystem": "OUTP",
+        "group": "OUTP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Output_Trigger_Slope_POS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Output_Trigger_Slope_POS",
             "value": "<value>",
             "input_name": "value"
           }
@@ -4374,6 +5296,52 @@
         },
         "unverified": true
       },
+      "Set_Pm_Source_EXT": {
+        "command": "Set_Pm_Source_EXT",
+        "verb": "set",
+        "description": "Set_Pm_Source \u2192 EXT. PM Commands",
+        "scpi": "PM:SOUR EXT",
+        "subsystem": "PM",
+        "group": "PM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pm_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pm_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Pm_Source_INT": {
+        "command": "Set_Pm_Source_INT",
+        "verb": "set",
+        "description": "Set_Pm_Source \u2192 INT. PM Commands",
+        "scpi": "PM:SOUR INT",
+        "subsystem": "PM",
+        "group": "PM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pm_Source_INT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pm_Source_INT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Pm_State": {
         "command": "Set_Pm_State",
         "verb": "set",
@@ -4398,6 +5366,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Pm_State",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Pm_State_OFF": {
+        "command": "Set_Pm_State_OFF",
+        "verb": "set",
+        "description": "Set_Pm_State \u2192 OFF. PM Commands",
+        "scpi": "PM:STATe OFF",
+        "scpi_fast": "PM:STAT OFF",
+        "subsystem": "PM",
+        "group": "PM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pm_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pm_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Pm_State_ON": {
+        "command": "Set_Pm_State_ON",
+        "verb": "set",
+        "description": "Set_Pm_State \u2192 ON. PM Commands",
+        "scpi": "PM:STATe ON",
+        "scpi_fast": "PM:STAT ON",
+        "subsystem": "PM",
+        "group": "PM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pm_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pm_State_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -4594,6 +5610,54 @@
         },
         "unverified": true
       },
+      "Set_Pwm_Source_EXT": {
+        "command": "Set_Pwm_Source_EXT",
+        "verb": "set",
+        "description": "Set_Pwm_Source \u2192 EXT. PWM Commands",
+        "scpi": "PWM:SOURce EXT",
+        "scpi_fast": "PWM:SOUR EXT",
+        "subsystem": "PWM",
+        "group": "PWM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pwm_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pwm_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Pwm_Source_INT": {
+        "command": "Set_Pwm_Source_INT",
+        "verb": "set",
+        "description": "Set_Pwm_Source \u2192 INT. PWM Commands",
+        "scpi": "PWM:SOURce INT",
+        "scpi_fast": "PWM:SOUR INT",
+        "subsystem": "PWM",
+        "group": "PWM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pwm_Source_INT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pwm_Source_INT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Pwm_State": {
         "command": "Set_Pwm_State",
         "verb": "set",
@@ -4621,6 +5685,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Pwm_State",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Pwm_State_OFF": {
+        "command": "Set_Pwm_State_OFF",
+        "verb": "set",
+        "description": "Set_Pwm_State \u2192 OFF. PWM Commands",
+        "scpi": "PWM:STATe OFF",
+        "scpi_fast": "PWM:STAT OFF",
+        "subsystem": "PWM",
+        "group": "PWM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pwm_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pwm_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Pwm_State_ON": {
+        "command": "Set_Pwm_State_ON",
+        "verb": "set",
+        "description": "Set_Pwm_State \u2192 ON. PWM Commands",
+        "scpi": "PWM:STATe ON",
+        "scpi_fast": "PWM:STAT ON",
+        "subsystem": "PWM",
+        "group": "PWM",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Pwm_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Pwm_State_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -4741,6 +5853,54 @@
         },
         "unverified": true
       },
+      "Set_Sweep_Spacing_LIN": {
+        "command": "Set_Sweep_Spacing_LIN",
+        "verb": "set",
+        "description": "Set_Sweep_Spacing \u2192 LIN. Sweep Mode",
+        "scpi": "SWEep:SPACing LIN",
+        "scpi_fast": "SWE:SPAC LIN",
+        "subsystem": "SWE",
+        "group": "SWE",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Sweep_Spacing_LIN",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Sweep_Spacing_LIN",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Sweep_Spacing_LOG": {
+        "command": "Set_Sweep_Spacing_LOG",
+        "verb": "set",
+        "description": "Set_Sweep_Spacing \u2192 LOG. Sweep Mode",
+        "scpi": "SWEep:SPACing LOG",
+        "scpi_fast": "SWE:SPAC LOG",
+        "subsystem": "SWE",
+        "group": "SWE",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Sweep_Spacing_LOG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Sweep_Spacing_LOG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Sweep_State": {
         "command": "Set_Sweep_State",
         "verb": "set",
@@ -4765,6 +5925,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Sweep_State",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Sweep_State_OFF": {
+        "command": "Set_Sweep_State_OFF",
+        "verb": "set",
+        "description": "Set_Sweep_State \u2192 OFF. Sweep Commands",
+        "scpi": "SWEep:STATe OFF",
+        "scpi_fast": "SWE:STAT OFF",
+        "subsystem": "SWE",
+        "group": "SWE",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Sweep_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Sweep_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Sweep_State_ON": {
+        "command": "Set_Sweep_State_ON",
+        "verb": "set",
+        "description": "Set_Sweep_State \u2192 ON. Sweep Commands",
+        "scpi": "SWEep:STATe ON",
+        "scpi_fast": "SWE:STAT ON",
+        "subsystem": "SWE",
+        "group": "SWE",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Sweep_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Sweep_State_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -4800,6 +6008,52 @@
         },
         "unverified": true
       },
+      "Set_System_Beeper_State_OFF": {
+        "command": "Set_System_Beeper_State_OFF",
+        "verb": "set",
+        "description": "Set_System_Beeper_State \u2192 OFF. System-Related Commands",
+        "scpi": "SYST:BEEP:STAT OFF",
+        "subsystem": "SYST",
+        "group": "SYST",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_System_Beeper_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_System_Beeper_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_System_Beeper_State_ON": {
+        "command": "Set_System_Beeper_State_ON",
+        "verb": "set",
+        "description": "Set_System_Beeper_State \u2192 ON. System-Related Commands",
+        "scpi": "SYST:BEEP:STAT ON",
+        "subsystem": "SYST",
+        "group": "SYST",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_System_Beeper_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_System_Beeper_State_ON",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Beeper_State": {
         "command": "Set_Beeper_State",
         "verb": "set",
@@ -4824,6 +6078,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Beeper_State",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Beeper_State_OFF": {
+        "command": "Set_Beeper_State_OFF",
+        "verb": "set",
+        "description": "Set_Beeper_State \u2192 OFF. System-Related Commands",
+        "scpi": "SYSTem:BEEPer:STATe OFF",
+        "scpi_fast": "SYST:BEEP:STAT OFF",
+        "subsystem": "BEEP",
+        "group": "BEEP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Beeper_State_OFF",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Beeper_State_OFF",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Beeper_State_ON": {
+        "command": "Set_Beeper_State_ON",
+        "verb": "set",
+        "description": "Set_Beeper_State \u2192 ON. System-Related Commands",
+        "scpi": "SYSTem:BEEPer:STATe ON",
+        "scpi_fast": "SYST:BEEP:STAT ON",
+        "subsystem": "BEEP",
+        "group": "BEEP",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Beeper_State_ON",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Beeper_State_ON",
             "value": "<value>",
             "input_name": "value"
           }
@@ -4990,6 +6292,75 @@
         },
         "unverified": true
       },
+      "Set_Trigger_Source_BUS": {
+        "command": "Set_Trigger_Source_BUS",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 BUS. Burst Commands",
+        "scpi": "TRIG:SOUR BUS",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Trigger_Source_BUS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_BUS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_EXT": {
+        "command": "Set_Trigger_Source_EXT",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 EXT. Burst Commands",
+        "scpi": "TRIG:SOUR EXT",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Trigger_Source_EXT",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_EXT",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Source_IMM": {
+        "command": "Set_Trigger_Source_IMM",
+        "verb": "set",
+        "description": "Set_Trigger_Source \u2192 IMM. Burst Commands",
+        "scpi": "TRIG:SOUR IMM",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Trigger_Source_IMM",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Source_IMM",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
       "Set_Trigger_Slope": {
         "command": "Set_Trigger_Slope",
         "verb": "set",
@@ -5014,6 +6385,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Trigger_Slope",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Slope_NEG": {
+        "command": "Set_Trigger_Slope_NEG",
+        "verb": "set",
+        "description": "Set_Trigger_Slope \u2192 NEG. Burst Commands",
+        "scpi": "TRIGger:SLOPe NEG",
+        "scpi_fast": "TRIG:SLOP NEG",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Trigger_Slope_NEG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Slope_NEG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Trigger_Slope_POS": {
+        "command": "Set_Trigger_Slope_POS",
+        "verb": "set",
+        "description": "Set_Trigger_Slope \u2192 POS. Burst Commands",
+        "scpi": "TRIGger:SLOPe POS",
+        "scpi_fast": "TRIG:SLOP POS",
+        "subsystem": "TRIG",
+        "group": "TRIG",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Trigger_Slope_POS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Trigger_Slope_POS",
             "value": "<value>",
             "input_name": "value"
           }
@@ -5045,6 +6464,54 @@
           "direction": "in",
           "payload_format": {
             "command": "Set_Unit_Angle",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Unit_Angle_DEG": {
+        "command": "Set_Unit_Angle_DEG",
+        "verb": "set",
+        "description": "Set_Unit_Angle \u2192 DEG. Burst Commands",
+        "scpi": "UNIT:ANGLe DEG",
+        "scpi_fast": "UNIT:ANGL DEG",
+        "subsystem": "UNIT",
+        "group": "UNIT",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Unit_Angle_DEG",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Unit_Angle_DEG",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Unit_Angle_RAD": {
+        "command": "Set_Unit_Angle_RAD",
+        "verb": "set",
+        "description": "Set_Unit_Angle \u2192 RAD. Burst Commands",
+        "scpi": "UNIT:ANGLe RAD",
+        "scpi_fast": "UNIT:ANGL RAD",
+        "subsystem": "UNIT",
+        "group": "UNIT",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Unit_Angle_RAD",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Unit_Angle_RAD",
             "value": "<value>",
             "input_name": "value"
           }
@@ -5137,6 +6604,78 @@
           }
         },
         "unverified": false
+      },
+      "Set_Voltage_Unit_DBM": {
+        "command": "Set_Voltage_Unit_DBM",
+        "verb": "set",
+        "description": "Set_Voltage_Unit \u2192 DBM. Set Voltage Unit",
+        "scpi": "VOLTage:UNIT DBM",
+        "scpi_fast": "VOLT:UNIT DBM",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Voltage_Unit_DBM",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Voltage_Unit_DBM",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Voltage_Unit_VPP": {
+        "command": "Set_Voltage_Unit_VPP",
+        "verb": "set",
+        "description": "Set_Voltage_Unit \u2192 VPP. Set Voltage Unit",
+        "scpi": "VOLTage:UNIT VPP",
+        "scpi_fast": "VOLT:UNIT VPP",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Voltage_Unit_VPP",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Voltage_Unit_VPP",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
+      },
+      "Set_Voltage_Unit_VRMS": {
+        "command": "Set_Voltage_Unit_VRMS",
+        "verb": "set",
+        "description": "Set_Voltage_Unit \u2192 VRMS. Set Voltage Unit",
+        "scpi": "VOLTage:UNIT VRMS",
+        "scpi_fast": "VOLT:UNIT VRMS",
+        "subsystem": "SOURce",
+        "group": "SOURce Configuration",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": null,
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Set_Voltage_Unit_VRMS",
+          "direction": "in",
+          "payload_format": {
+            "command": "Set_Voltage_Unit_VRMS",
+            "value": "<value>",
+            "input_name": "value"
+          }
+        },
+        "unverified": true
       }
     },
     "nab": {
