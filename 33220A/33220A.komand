@@ -1979,6 +1979,19 @@
       "subsystem": "CAL",
       "unverified": true
     },
+    "Get_Secure_State": {
+      "scpi": "CAL:SECure:STATe?",
+      "scpiFast": "CAL:SEC:STAT?",
+      "description": "Calibration Commands",
+      "returns": {
+        "count": 1,
+        "type": "BOOL"
+      },
+      "subsystem": "SEC",
+      "unverified": true,
+      "notes": "Was `:SECure:STATe?`: the table generator cut the `CALibration` parent off, so the unit heard a root `SECure` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
+      "alias_of": "Get_Calibration_Secure_State"
+    },
     "Get_Calibration_String": {
       "scpi": "CAL:STRing?",
       "scpiFast": "CAL:STR?",
@@ -1999,19 +2012,6 @@
       },
       "subsystem": "CAL",
       "unverified": true
-    },
-    "Get_Secure_State": {
-      "scpi": "CALibration:SECure:STATe?",
-      "scpiFast": "CAL:SEC:STAT?",
-      "description": "Calibration Commands",
-      "returns": {
-        "count": 1,
-        "type": "BOOL"
-      },
-      "subsystem": "SEC",
-      "unverified": true,
-      "notes": "Was `:SECure:STATe?`: the table generator cut the `CALibration` parent off, so the unit heard a root `SECure` it does not have (-113 \"Undefined header\"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11).",
-      "alias_of": "Get_Calibration_Secure_State"
     },
     "Get_Attribute_Average": {
       "scpi": "DATA:ATTRibute:AVERage?",

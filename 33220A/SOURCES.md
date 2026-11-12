@@ -44,7 +44,7 @@ The tree: `33220A.scpi.json`, read off Agilent 33220A User's Guide 33220-90002 E
 | `nab/Get_Questionable_Condition` | scpi → `STATus:QUEStionable:CONDition?` | was `:QUEStionable:CONDition?` |
 | `nab/Get_Questionable_Enable` | scpi → `STATus:QUEStionable:ENABle?` | was `:QUEStionable:ENABle?` |
 | `nab/Get_Questionable_Event` | scpi → `STATus:QUEStionable:EVENt?` | was `:QUEStionable:EVENt?` |
-| `nab/Get_Secure_State` | scpi → `CALibration:SECure:STATe?` | was `:SECure:STATe?` |
+| `nab/Get_Secure_State` | scpi → `CAL:SECure:STATe?` | was `:SECure:STATe?`; then `CALibration:SECure:STATe?`, which THIS unit (MY44044028, fw 1994) rejects with -113 eleven times (red-flag #895) while `CAL:SECure:STATe?` (Get_Calibration_Secure_State) passes — the spelling the unit accepted, 2026-11-11 |
 | `nab/Get_Square_Dcycle` | scpi → `FUNCtion:SQUare:DCYCle?` | was `SQUare:DCYCle?` |
 | `do/Do_Text_Clear` | scpi → `DISPlay:TEXT:CLEar` | was `:TEXT:CLEar` |
 | `do/Do_Gate_Polarity` | retired — Was `GATE:POLarity`: the table generator cut the `BURSt` parent off, so the unit heard a root `GATE` it does not have (-113 "Undefined header"). Full path from 33220-90002 Ch. 4 SCPI Command Summary (scpi_paths.py, 2026-11-11). Retired as a `do`: the manual gives this node only with a value (BURSt:GATE:POLarity {NORMal\|INVerted}), so a bare send is -109 "Missing parameter"; the set/nab of the same node stay. | was `GATE:POLarity` |

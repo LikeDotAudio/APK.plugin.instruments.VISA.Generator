@@ -679,6 +679,33 @@
         },
         "unverified": true
       },
+      "Get_Secure_State": {
+        "command": "Get_Secure_State",
+        "verb": "get",
+        "description": "Calibration Commands",
+        "scpi": "CAL:SECure:STATe?",
+        "scpi_fast": "CAL:SEC:STAT?",
+        "subsystem": "SEC",
+        "group": "SEC",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 1,
+          "type": "BOOL"
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Get_Secure_State",
+          "direction": "in",
+          "payload_format": {
+            "command": "Get_Secure_State"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Secure_State",
+          "reading_direction": "out"
+        },
+        "unverified": true
+      },
       "Get_Calibration_String": {
         "command": "Get_Calibration_String",
         "verb": "get",
@@ -728,33 +755,6 @@
             "command": "Get_Calibration_Value"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Calibration_Value",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Secure_State": {
-        "command": "Get_Secure_State",
-        "verb": "get",
-        "description": "Calibration Commands",
-        "scpi": "CALibration:SECure:STATe?",
-        "scpi_fast": "CAL:SEC:STAT?",
-        "subsystem": "SEC",
-        "group": "SEC",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "BOOL"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Secure_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Secure_State"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Secure_State",
           "reading_direction": "out"
         },
         "unverified": true
@@ -5836,6 +5836,33 @@
         },
         "unverified": true
       },
+      "Get_Secure_State": {
+        "command": "Get_Secure_State",
+        "verb": "nab",
+        "description": "Calibration Commands",
+        "scpi": "CAL:SECure:STATe?",
+        "scpi_fast": "CAL:SEC:STAT?",
+        "subsystem": "SEC",
+        "group": "SEC",
+        "args": [],
+        "arg": {
+          "kind": "none"
+        },
+        "returns": {
+          "count": 1,
+          "type": "BOOL"
+        },
+        "mqtt": {
+          "topic": "APK.audio/Gui/Komands/Generator/Get_Secure_State",
+          "direction": "in",
+          "payload_format": {
+            "command": "Get_Secure_State"
+          },
+          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Secure_State",
+          "reading_direction": "out"
+        },
+        "unverified": true
+      },
       "Get_Calibration_String": {
         "command": "Get_Calibration_String",
         "verb": "nab",
@@ -5885,33 +5912,6 @@
             "command": "Get_Calibration_Value"
           },
           "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Calibration_Value",
-          "reading_direction": "out"
-        },
-        "unverified": true
-      },
-      "Get_Secure_State": {
-        "command": "Get_Secure_State",
-        "verb": "nab",
-        "description": "Calibration Commands",
-        "scpi": "CALibration:SECure:STATe?",
-        "scpi_fast": "CAL:SEC:STAT?",
-        "subsystem": "SEC",
-        "group": "SEC",
-        "args": [],
-        "arg": {
-          "kind": "none"
-        },
-        "returns": {
-          "count": 1,
-          "type": "BOOL"
-        },
-        "mqtt": {
-          "topic": "APK.audio/Gui/Komands/Generator/Get_Secure_State",
-          "direction": "in",
-          "payload_format": {
-            "command": "Get_Secure_State"
-          },
-          "reading_topic": "APK.audio/System/Protocols/visa/Device/<type>/<model>/<dev>/Reading/Get_Secure_State",
           "reading_direction": "out"
         },
         "unverified": true
